@@ -1,7 +1,9 @@
 #  `generator-apigee-apiproxy`
 
 [![Build Status][travis-image]][travis-url] [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url] [![Quality Gate][sonar-gate-img]][sonar-gate-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>
-[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status](https://david-dm.org/gregswindle/generator-apigee-apiproxy/dev-status.svg)](https://david-dm.org/gregswindle/generator-apigee-apiproxy?type=dev)<br>[![NPM version][npm-image]][npm-url] [![Readme Score][readme-score-img]][readme-score-url] [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url]
+[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url] [![FOSSA Status][fossa-image]][fossa-url]<br>
+[![NPM version][npm-image]][npm-url] [![Readme Score][readme-score-img]][readme-score-url] [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url]
+
 > ![Swagger logo][swagger-logo-20-img] Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.
 
 `generator-apigee-apiproxy` creates a base template to start a new API Proxy with optional tools for custom Javascript callouts. It generates a repeatable, testable, and measurable workflow that lets you focus on innovation without sacrificing quality or extensibility.
@@ -250,6 +252,9 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 [Apache-2.0][license-url] © [Greg Swindle][author-url]
 
+
+[daviddm-dev-image]: https://david-dm.org/gregswindle/generator-apigee-apiproxy/dev-status.svg
+[daviddm-dev-url]: https://david-dm.org/gregswindle/generator-apigee-apiproxy?type=dev
 [api-docs-url]: https://github.com/gregswindle/generator-apigee-apiproxy/docs/API.md
 [author-url]: https://github.com/gregswindle
 [bithound-dep-img]: https://www.bithound.io/github/gregswindle/generator-apigee-apiproxy/badges/dependencies.svg
@@ -266,6 +271,8 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [daviddm-image]: https://david-dm.org/gregswindle/generator-apigee-apiproxy.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/gregswindle/generator-apigee-apiproxy
 [eslint-dev-env-url]: http://eslint.org/docs/developer-guide/development-environment
+[fossa-image]: https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy.svg?type=shield
+[fossa-url]: https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy?ref=badge_shield
 [greenkeeper-img]: https://badges.greenkeeper.io/gregswindle/generator-apigee-apiproxy.svg?style=flat-square
 [greenkeeper-url]: https://greenkeeper.io/
 [inch-ci-img]: http://inch-ci.org/github/gregswindle/generator-apigee-apiproxy.svg?branch=master
