@@ -1,8 +1,8 @@
 
-const YoemanGenerator = require('yeoman-generator');
+const YeomanGenerator = require('yeoman-generator');
 const rootPkg = require('../../package.json');
 
-module.exports = class extends YoemanGenerator {
+module.exports = class extends YeomanGenerator {
     constructor(args, options) {
         super(args, options);
 
