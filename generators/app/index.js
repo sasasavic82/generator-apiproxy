@@ -1,9 +1,9 @@
 
-const YoemanGenerator = require('yeoman-generator');
+const YeomanGenerator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 
-module.exports = class extends YoemanGenerator {
+module.exports = class extends YeomanGenerator {
     prompting() {
     // Have Yeoman greet the user.
         this.log(yosay(
