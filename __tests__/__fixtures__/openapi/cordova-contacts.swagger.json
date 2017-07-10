@@ -1,0 +1,396 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "[![Swagger Validity]https://img.shields.io/swagger/valid/2.0/http/api.swindle.net/cordova/v6/contacts/openapi.json.svg)](http://online.swagger.io/validator/debug?url=http://api.swindle.net/cordova/v6/contacts/openapi.json)\n\nThe `Contact` object represents a user's contact information that the [`cordova-plugin-contacts`](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-contacts/index.html) can use to _create_, _store_, or _remove_ from a mobile device's contacts database.\n\n**:rotating_light:   IMPORTANT Privacy Considerations**\n> Collection and use of contact data raises important privacy issues. Your app's privacy policy should declare how it uses contact data and whether it is shared with any other parties. Contact information is considered sensitive because it reveals the people with whom a person communicates. Therefore, in addition to the app's privacy policy, you should strongly consider providing a just-in-time notice before the app accesses or uses contact data, if the device operating system doesn't do so already. That notice should provide the same information noted above, as well as obtaining the user's permission (e.g., by presenting choices for \"I agree\" and \"I decline\"). Note that some app marketplaces may require the app to provide a just-in-time notice and obtain the user's permission before accessing contact data. A clear and easy-to-understand user experience surrounding the use of contact data helps avoid user confusion and perceived misuse of contact data.",
+        "version": "1.0.0",
+        "title": "Cordova Contacts",
+        "termsOfService": "https://github.com/gregswindle/cordova-contacts-swagger-api/blob/master/TERMS_OF_SERVICE.md",
+        "contact": {
+            "email": "oneapi-team@verizon.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "api.swindle.net",
+    "basePath": "/cordova/v6/contacts",
+    "tags": [{
+        "name": "cordova-plugin-contacts",
+        "description": "The official Apache Cordova documentation",
+        "externalDocs": {
+            "description": "Read the cordova-plugin-contacts docs",
+            "url": "https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-contacts/index.html"
+        }
+    }],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/me": {
+            "get": {
+                "tags": [
+                    "contacts"
+                ],
+                "summary": "Retrieve one's own Contact information.",
+                "description": "Returns one's own Contact information.",
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/{id}": {
+            "get": {
+                "tags": [
+                    "contacts"
+                ],
+                "summary": "Retrieve an active Verizon employee's Contact information.",
+                "description": "Retrieve an active Verizon employee's Contact information by a (registered) identifier.",
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "parameters": [{
+                        "in": "path",
+                        "name": "id",
+                        "description": "A registered identifier value for an active Verizon employee.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "type": "string",
+                        "description": "The specific kind of identifier provided. If omitted, `type` defaults to `eid` (Enterprise ID). Otherwise you can specify `emplid` (Employee ID) or `vzid` (Verizon ID).",
+                        "required": false,
+                        "default": "eid",
+                        "enum": [
+                            "eid",
+                            "emplid",
+                            "vzid"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "cordova-contacts-auth": {
+            "type": "oauth2",
+            "authorizationUrl": "https://oneapi.verizon.com/oauth/cordova-contacts-auth/dialog",
+            "flow": "implicit",
+            "scopes": {
+                "read:contacts": "Retrieve Verizon employees' contact information"
+            }
+        },
+        "api_key": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "ContactField": {
+            "type": "object",
+            "required": [
+                "pref",
+                "type",
+                "value"
+            ],
+            "description": "The `ContactField` object is a reusable component that represents contact fields generically. Each `ContactField` object contains a `value`, `type`, and `pref` property. A Contact object stores several properties in `ContactField[]` arrays, such as phone numbers and email addresses. In most instances, there are no pre-determined values for a ContactField object's type attribute. For example, a phone number can specify type values of home, work, mobile, iPhone, or any other value that is supported by a particular device platform's contact database. However, for the Contact photos field, the type field indicates the format of the returned image: url when the value attribute contains a URL to the photo image, or base64 when the value contains a base64-encoded image string.",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The value of the field, such as a phone number or email address."
+                },
+                "type": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "A string that indicates what type of field this is, e.g., \"work\"."
+                },
+                "pref": {
+                    "type": "boolean",
+                    "default": "false",
+                    "description": "Set to true if this ContactField contains the user's preferred value."
+                }
+            }
+        },
+        "ContactName": {
+            "type": "object",
+            "description": "Contains different kinds of information about a `Contact` object's name.",
+            "default": "null",
+            "properties": {
+                "formatted": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The complete name of the contact."
+                },
+                "familyName": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The contact's last name/surname."
+                },
+                "givenName": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The contact's first name/forename."
+                },
+                "middleName": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The contact's middle name(s)."
+                },
+                "honorificPrefix": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The contact's prefix (e.g., Ms. or Dr.)."
+                },
+                "honorificSuffix": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The contact's suffix (e.g., Esq. or III)."
+                }
+            }
+        },
+        "ContactAddress": {
+            "type": "object",
+            "description": "The `ContactAddress` object stores the properties of a single address of a contact. A Contact object may include more than one address in a `ContactAddress[]` array.",
+            "properties": {
+                "pref": {
+                    "type": "boolean",
+                    "default": "false",
+                    "description": "Set to `true` if this `ContactAddress` contains the user's preferred value."
+                },
+                "type": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "A string indicating what type of field this is, e.g., \"work\"."
+                },
+                "formatted": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The full address formatted for display."
+                },
+                "streetAddress": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The full street address."
+                },
+                "locality": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The city or locality."
+                },
+                "region": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The state or region."
+                },
+                "postalCode": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The zip or postal code."
+                },
+                "country": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The country name."
+                }
+            }
+        },
+        "ContactOrganization": {
+            "type": "object",
+            "description": "The `ContactOrganization` object stores a contact's organization properties. A `Contact` object stores one or more `ContactOrganization` objects in an array.",
+            "properties": {
+                "pref": {
+                    "type": "boolean",
+                    "default": "false",
+                    "description": "Set to `true` if this `ContactOrganization` contains the user's preferred value."
+                },
+                "type": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "A string that indicates what type of field this is, e.g., \"work\"."
+                },
+                "name": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The name of the organization."
+                },
+                "department": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The department the contract works for."
+                },
+                "title": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The contact's title at the organization."
+                }
+            }
+        },
+        "Contact": {
+            "type": "object",
+            "description": "The Contact object represents a user's contact in a form that cordova-plugin-contacts can immediately use to create, store, or remove from a mobile device's native contacts database.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "A globally unique identifier set by a mobile device. ⚠️ Do not use id to store user-defined values. The id property should never by used to store a value, as each mobile device overwrites it with a UUID."
+                },
+                "addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContactAddress"
+                    },
+                    "default": "[]",
+                    "description": "An array of the contact's addresses."
+                },
+                "birthday": {
+                    "type": "string",
+                    "format": "date",
+                    "default": "null",
+                    "description": "The Contact's birth month/date. ⚠️  `birthday` does not include the birth year."
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContactField"
+                    },
+                    "default": "[]",
+                    "description": "An `array` of all the user-defined categories associated with the contact. The Verizon implementation displays the Verizon Enterprise ID of the:     Contact itself; Contact's direct reports (if any); and Contact's supervisor. "
+                },
+                "displayName": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "The name of this `Contact`, suitable for display to end users."
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContactField"
+                    },
+                    "default": "[]",
+                    "description": "An array of the contact's email addresses."
+                },
+                "ims": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContactField"
+                    },
+                    "default": "[]",
+                    "description": "An `array` of the contact's Instant Message (IM) addresses."
+                },
+                "name": {
+                    "$ref": "#/definitions/ContactName",
+                    "description": "An object containing all components of a persons name."
+                },
+                "nickname": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "A casual or preferred name by which to address the contact."
+                },
+                "note": {
+                    "type": "string",
+                    "default": "null",
+                    "description": "A note/bio about the contact."
+                },
+                "organizations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContactOrganization"
+                    },
+                    "default": "[]",
+                    "description": "An array of the contact's organizations."
+                },
+                "phoneNumbers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContactField"
+                    },
+                    "default": "[]",
+                    "description": ""
+                },
+                "photos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContactField"
+                    },
+                    "default": "[]",
+                    "description": "An array of the contact's phone numbers."
+                },
+                "urls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContactField"
+                    },
+                    "default": "[]",
+                    "description": "An array of web pages associated with the contact."
+                }
+            }
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "description": "Apigee's default error response object.",
+            "properties": {
+                "fault": {
+                    "type": "object",
+                    "properties": {
+                        "detail": {
+                            "type": "object",
+                            "properties": {
+                                "errorcode": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "faultstring": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Cordova Plugin API for `cordova-plugin-contacts`.",
+        "url": "https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-contacts/index.html"
+    }
+}

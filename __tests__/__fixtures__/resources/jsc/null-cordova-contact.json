@@ -1,0 +1,114 @@
+{
+    "id": null,
+    "displayName": null,
+    "name": {
+        "formatted": null,
+        "familyName": null,
+        "givenName": null,
+        "middleName": null,
+        "honorificPrefix": null,
+        "honorificSuffix": null
+    },
+    "nickname": null,
+    "phoneNumbers": [{
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        },
+        {
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        }
+    ],
+    "emails": [{
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        },
+        {
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        }
+    ],
+    "addresses": [{
+        "id": null,
+        "pref": false,
+        "type": null,
+        "formatted": null,
+        "streetAddress": null,
+        "locality": null,
+        "region": null,
+        "postalCode": null,
+        "country": null
+    }],
+    "ims": [
+
+    ],
+    "organizations": [{
+        "id": null,
+        "pref": false,
+        "type": null,
+        "name": null,
+        "department": null,
+        "title": null
+    }],
+    "birthday": null,
+    "note": null,
+    "photos": [],
+    "categories": [{
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        },
+        {
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        },
+        {
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        }
+    ],
+    "urls": [{
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        },
+        {
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        },
+        {
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        },
+        {
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        },
+        {
+            "id": null,
+            "type": null,
+            "value": null,
+            "pref": false
+        }
+    ]
+}

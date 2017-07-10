@@ -1,5 +1,5 @@
 # Contributing to `generator-apigee-apiproxy`
-> [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] Contributions are stories with a beginning, a middle, and an end, all told through issues, comments, and pull requests.
+> [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] Contributions are stories with a beginning, a middle, and an end, all told through issues, comments, commit logs, and pull requests.
 
 ## 1. Table of contents
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
@@ -94,7 +94,7 @@ The following branch prefixes are allowed.
 
 4.1. Open GitHub in a Web browser and select your topic branch.
 
-4.2. Follow the instructions in the pull request template and submit it. 
+4.2. Follow the instructions in the pull request template and submit it.
 
 > #### :raising_hand: Working on your first Pull Request?
 >

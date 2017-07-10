@@ -1,8 +1,6 @@
 #  `generator-apigee-apiproxy`
 
-[![Build Status][travis-image]][travis-url] [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url] [![Quality Gate][sonar-gate-img]][sonar-gate-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>
-[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url] [![FOSSA Status][fossa-image]][fossa-url]<br>
-[![NPM version][npm-image]][npm-url] [![Readme Score][readme-score-img]][readme-score-url] [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url]
+[![Build Status][travis-image]][travis-url] [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url] [![Quality Gate][sonar-gate-img]][sonar-gate-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![Readme Score][readme-score-img]][readme-score-url] [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] [![FOSSA Status][fossa-image]][fossa-url]
 
 > ![Swagger logo][swagger-logo-20-img] Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.
 
@@ -23,15 +21,17 @@
 	- [4.2. **Analyze** Javascript callout source code](#42-analyze-javascript-callout-source-code)
 	- [4.3. **Test** Javascript callouts](#43-test-javascript-callouts)
 	- [4.4. **Generate** API documentation and complexity reports](#44-generate-api-documentation-and-complexity-reports)
+		- [4.4.1. Only generate OpenAPI/Swagger docs](#441-only-generate-openapiswagger-docs)
+		- [4.4.2. Only generate `jsc` API docs and complexity reports](#442-only-generate-jsc-api-docs-and-complexity-reports)
 - [5. Release management automation](#5-release-management-automation)
-- [4. Contribute](#4-contribute)
+- [4. Contributing to `generator-apigee-apiproxy`](#4-contributing-to-generator-apigee-apiproxy)
 - [5. License](#5-license)
 
 <!-- /TOC -->
 
 ## 2. Installation
 
-Open a terminal and run:
+To install `generator-apigee-apiproxy`, open a terminal and run:
 
 ```bash
 
@@ -44,15 +44,13 @@ $ npm install generator-apigee-apiproxy --global
 
 `generator-apigee-apiproxy` supports CD workflows that can be executed in a command-line interface.
 
-
-
 To scaffold a new API Proxy project, open a terminal and run:
 
 ```bash
-
+# Scaffold a new API Proxy project
 $ yo apigee-apiproxy
 ```
-
+<!-- Should we keep this?
 This sets up a suite of common DevSecOps tools, including:
 
 | Tool                      | DevSecOps feature     |
@@ -74,7 +72,7 @@ This sets up a suite of common DevSecOps tools, including:
 | `swagger-cli`             | Test                  |
 | `swagger-markdown`        | Documentation         |
 | `uglify-js`               | Build                 |
-
+-->
 ### 3.1. **Design** your API with Swagger UI
 
 1. Go to the [online Swagger Editor](http://editor.swagger.io/#/).
@@ -204,8 +202,10 @@ This generates:
 
 * Detailed code coverage reports at `coverage/lcov-report/index.html`, as well as
 * `lcov.info` and `clover.xml` files, which you can send to CI test coverage services like Coveralls.
+* Static markdown API documentation with complexity reports in the `docs/` directory.
 
 ### 4.4. **Generate** API documentation and complexity reports
+> :page_facing_up: `generator-apigee-apiproxy` comes with [`jsdoc-to-markdown`][jsdoc2md-url], [`complexity-report`][complexity-report-url], and [`swagger-markdown`][swagger-markdown-url] that generate static markdown documentation.
 
 To generate API docs, Swagger docs, and complexity reports in the `docs` directory, run:
 
@@ -215,11 +215,29 @@ $ npm run docs
 
 ```
 
-`npm-script docs` is a shorthand script that executes [`jsdoc-to-markdown`][jsdoc2md-url], [`complexity-report`][complexity-report-url], and [`swagger-markdown`][swagger-markdown-url]:
+#### 4.4.1. Only generate OpenAPI/Swagger docs
+
+If you want to inspect your static OpenAPI docs before you push to source control or before you release your `apiproxy` to Apigee EDGE, run:
 
 ```bash
 
-$ npm run docs:api && npm run docs:complexity && npm run docs:swagger
+# Only generate static Swagger API docs (as markdown)
+$ npm run docs:swagger:apis
+
+# Generate static Swagger API docs with custom parameters
+$ npm run docs:swagger-markdown -- -i /path/to/swagger.yml -o /path/to/swagger-api.md
+```
+
+#### 4.4.2. Only generate `jsc` API docs and complexity reports
+
+If your `apiproxy` has Javascript callouts, you can preview your callouts' documentation and complexity reports in the `docs` directory by running:
+
+```bash
+
+$ npm run docs:jsc
+
+# Access jsdoc2md directly, e.g.,
+$ npm run docs:jsdoc2md --  --partial .assets/jsdoc2md/*.hbs --files lib/*.js > docs/README.md
 
 ```
 
@@ -238,13 +256,15 @@ $ npm run release
 
 ```
 
-## 4. Contribute
+## 4. Contributing to `generator-apigee-apiproxy`
 
-[![PRs Welcome][makeapullrequest-image]][makeapullrequest-url]
+[![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] We welcome contributors and pull requests. Check out the guidelines for
 
-:family: We welcome contributors and pull requests. Check out the guidelines for [contributing to `generator-apigee-apiproxy`](./.github/CONTRIBUTING.md) and our [Contributor Covenant Code of Conduct][code-of-conduct-url].
+* [Contributing to `generator-apigee-apiproxy`](./.github/CONTRIBUTING.md) and our
+* [Contributor Covenant Code of Conduct][code-of-conduct-url].
 
-Contributions are stories with a beginning, a middle, and an end, all told through issues and pull requests.
+Contributions are stories with a beginning, a middle, and an end, all told through issues, comments, commit logs, and pull requests.
+
  * [Peruse open issues][issues-url] or
  * [Open a new pull request (PR)][pr-url]
 

@@ -1,2 +1,5 @@
+__tests__/__fixtures__/resources/jsc/*.js
 coverage
-**/templates
+templates
+test/fixture/**
+tests/fixture/**

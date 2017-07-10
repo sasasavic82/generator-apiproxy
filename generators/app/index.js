@@ -1,40 +1,40 @@
 
-const YeomanGenerator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
+const YeomanGenerator = require('yeoman-generator')
+const chalk = require('chalk')
+const yosay = require('yosay')
 
 module.exports = class extends YeomanGenerator {
-    prompting() {
+  prompting () {
     // Have Yeoman greet the user.
-        this.log(yosay(
-            'Welcome to the scrumtrulescent ' + chalk.red('<%= projectName %>') + ' generator!'
-        ));
+    this.log(yosay(
+      'Welcome to the scrumtrulescent ' + chalk.red('<%= projectName %>') + ' generator!'
+    ))
 
-        const prompts = [{
-            type: 'confirm',
-            name: 'someAnswer',
-            message: 'Would you like to enable this option?',
-            default: true
-        }];
+    const prompts = [{
+      type: 'confirm',
+      name: 'someAnswer',
+      message: 'Would you like to enable this option?',
+      default: true
+    }]
 
-        return this.prompt(prompts).then((props) => {
-            // To access props later use this.props.someAnswer;
-            this.props = props;
-        });
-    }
+    return this.prompt(prompts).then((props) => {
+      // To access props later use this.props.someAnswer;
+      this.props = props
+    })
+  }
 
-    writing() {
-        this.fs.copy(
-            this.templatePath('dummyfile.txt'),
-            this.destinationPath('dummyfile.txt')
-        );
-    }
+  writing () {
+    this.fs.copy(
+      this.templatePath('dummyfile.txt'),
+      this.destinationPath('dummyfile.txt')
+    )
+  }
 
-    default() {
-        this.composeWith(require.resolve('../nsp'));
-    }
+  default () {
+    this.composeWith(require.resolve('../nsp'))
+  }
 
-    install() {
-        this.installDependencies();
-    }
-};
+  install () {
+    this.installDependencies()
+  }
+}
