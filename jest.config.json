@@ -1,19 +1,23 @@
 {
-    "collectCoverage": true,
-    "coverageDirectory": "./coverage",
-    "coveragePathIgnorePatterns": [
-        "/node_modules/"
-    ],
-    "coverageThreshold": {
-        "global": {
-            "branches": 90,
-            "functions": 90,
-            "lines": 90,
-            "statements": 90
-        }
-    },
-    "testPathIgnorePatterns": [
-        "/__tests__/__fixtures__/"
-    ],
-    "verbose": true
+  "collectCoverage": true,
+  "coverageDirectory": "./coverage",
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/generators/app/",
+    "/generators/git/"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 90,
+      "functions": 90,
+      "lines": 90,
+      "statements": 90
+    }
+  },
+  "testPathIgnorePatterns": [
+    "/__tests__/__fixtures__/",
+    "/__tests__/__unit__/app.test.js",
+    "/__tests__/__unit__/app.test.js"
+  ],
+  "verbose": true
 }

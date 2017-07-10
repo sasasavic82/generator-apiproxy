@@ -1,23 +1,22 @@
-dist: trusty
+dist:               trusty
 addons:
-  sonarqube:
-    organization: "$SONAR_ORGANIZATION"
+  sonarcloud:
+    organization:   "$SONAR_ORGANIZATION"
     token:
-      secure: "$SONAR_TOKEN"
+      secure:       "$SONAR_TOKEN"
     github_token:
-      secure: "$GITHUB_ACCESS_TOKEN"
+      secure:       "$GITHUB_ACCESS_TOKEN"
     branches:
       - master
       - /[build|chore|ci|docs|feat|fix|perf|refactor|revert|spike|style|test].*/
 jdk:
   - oraclejdk8
-language: node_js
+language:           node_js
 cache:
   directories:
     - '$HOME/.sonar/cache'
-    - node_modules
 notifications:
-  email: false
+  email:            false
 node_js:
   - 8
   - 7

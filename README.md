@@ -270,7 +270,7 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 ## 5. License
 
-[Apache-2.0][license-url] © [Greg Swindle][author-url]
+[Apache-2.0][license-url] © [Greg Swindle][author-url]<br>[![FOSSA Status][fossa-image]][fossa-url]
 
 
 [daviddm-dev-image]: https://david-dm.org/gregswindle/generator-apigee-apiproxy/dev-status.svg
