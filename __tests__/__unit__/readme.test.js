@@ -9,7 +9,8 @@ describe('apigee-apiproxy:readme', () => {
       githubAccount: 'yeoman',
       authorName: 'Yeoman',
       authorUrl: 'http://yeoman.io',
-      coveralls: true
+      coveralls: true,
+      privateRepo: false
     })
     .on('ready', (gen) => {
       gen.fs.writeJSON(gen.destinationPath('package.json'), {
@@ -25,6 +26,33 @@ describe('apigee-apiproxy:readme', () => {
     assert.fileContent('README.md', 'MIT © [Yeoman](http://yeoman.io)')
     assert.fileContent('README.md', '[travis-image]: https://travis-ci.org/yeoman/my-project.svg?branch=master')
     assert.fileContent('README.md', 'coveralls')
+  })
+})
+
+describe('apigee-apiproxy:readme for private repositories', () => {
+  beforeEach(() => helpers.run(require.resolve('../../generators/readme'))
+    .withOptions({
+      name: 'my-project',
+      description: 'a cool project',
+      githubAccount: 'yeoman',
+      authorName: 'Yeoman',
+      authorUrl: 'http://yeoman.io',
+      coveralls: false,
+      privateRepo: true
+    })
+    .on('ready', (gen) => {
+      gen.fs.writeJSON(gen.destinationPath('package.json'), {
+        license: 'MIT'
+      })
+    }))
+
+  it('creates and fill contents in README.md', () => {
+    assert.file('README.md')
+    assert.fileContent('README.md', 'const myProject = require(\'my-project\');')
+    assert.fileContent('README.md', '> a cool project')
+    assert.fileContent('README.md', '$ npm install --save my-project')
+    assert.fileContent('README.md', 'MIT © [Yeoman](http://yeoman.io)')
+    assert.fileContent('README.md', '[![Build Status][jenkins-image]][jenkins-url]')
   })
 })
 

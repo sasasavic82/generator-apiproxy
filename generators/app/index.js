@@ -61,6 +61,13 @@ module.exports = class extends YeomanGenerator {
       desc: 'Project name'
     })
 
+    this.option('git', {
+      type: Boolean,
+      required: false,
+      defaults: true,
+      desc: 'Initialize a Git repository'
+    })
+
     this.option('githubAccount', {
       type: String,
       required: false,
@@ -72,12 +79,6 @@ module.exports = class extends YeomanGenerator {
       required: false,
       default: 'lib',
       desc: 'Relative path to the project code root'
-    })
-
-    this.option('readme', {
-      type: String,
-      required: false,
-      desc: 'Content to insert in the README.md file'
     })
   }
 
@@ -116,6 +117,7 @@ module.exports = class extends YeomanGenerator {
       default: path.basename(process.cwd()),
       filter: _.kebabCase,
       validate (str) {
+        /* istanbul ignore next: research inquirer.js filter test coverage */
         return str.length > 0
       }
     }, this).then(answer => {
@@ -154,6 +156,7 @@ module.exports = class extends YeomanGenerator {
       message: 'Package keywords (comma to split)',
       when: !this.pkg.keywords,
       filter (words) {
+        /* istanbul ignore next: research inquirer.js filter test coverage */
         return words.split(/\s*,\s*/g)
       }
     }, {
@@ -175,7 +178,12 @@ module.exports = class extends YeomanGenerator {
     }
 
     return githubUsername(this.props.authorEmail)
-      .then(username => username, () => '')
+
+      .then(username => username,
+        /* istanbul ignore next: defer testing the promise rejection */
+        () => {
+          return ''
+        })
       .then(username => {
         return this.prompt({
           name: 'githubAccount',
@@ -242,10 +250,12 @@ module.exports = class extends YeomanGenerator {
     this.composeWith(require.resolve('../nsp'))
     this.composeWith(require.resolve('../eslint'))
 
-    this.composeWith(require.resolve('../git'), {
-      name: this.props.name,
-      githubAccount: this.props.githubAccount
-    })
+    if (this.options.git) {
+      this.composeWith(require.resolve('../git'), {
+        name: this.props.name,
+        githubAccount: this.props.githubAccount
+      })
+    }
 
     this.composeWith(require.resolve('generator-jest/generators/app'), {
       testEnvironment: 'node',
@@ -260,7 +270,9 @@ module.exports = class extends YeomanGenerator {
     }
 
     if (this.options.jsc) {
-      this.composeWith(require.resolve('../jsc'))
+      this.composeWith(require.resolve('../jsc'), {
+        name: this.props.name
+      })
     }
 
     this.composeWith(require.resolve('../docs'), {
@@ -301,6 +313,7 @@ module.exports = class extends YeomanGenerator {
     this.log('Thanks for using Yeoman.')
 
     if (this.options.travis) {
+      /* istanbul ignore next: defer */
       let travisUrl = chalk.cyan(`https://travis-ci.org/profile/${this.props.githubAccount || ''}`)
       this.log(`- Enable Travis integration at ${travisUrl}`)
     }

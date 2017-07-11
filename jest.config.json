@@ -3,7 +3,6 @@
   "coverageDirectory": "./coverage",
   "coveragePathIgnorePatterns": [
     "/node_modules/",
-    "/generators/app/",
     "/generators/git/"
   ],
   "coverageThreshold": {
@@ -16,8 +15,7 @@
   },
   "testPathIgnorePatterns": [
     "/__tests__/__fixtures__/",
-    "/__tests__/__unit__/app.test.js",
-    "/__tests__/__unit__/app.test.js"
+    "/__tests__/__unit__/git.test.js"
   ],
   "verbose": true
 }

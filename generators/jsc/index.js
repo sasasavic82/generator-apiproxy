@@ -2,6 +2,7 @@
 'use strict'
 const _ = require('lodash')
 const YeomanGenerator = require('yeoman-generator')
+const path = require('path')
 
 module.exports = class extends YeomanGenerator {
   constructor (args, options) {
@@ -19,6 +20,22 @@ module.exports = class extends YeomanGenerator {
       defaults: 'lib',
       desc: 'Relocate the location of the generated files.'
     })
+  }
+
+  initializing () {
+    this._lintJsc = () => {
+      this.spawnCommand(path.resolve('node_modules', '.bin', 'eslint'), [
+        'lib/__tests__/*.js',
+        '--config',
+        '.eslintrc.yml',
+        '--fix',
+        '--no-ignore',
+        '--quiet',
+        '--rule',
+        'no-unused-vars:off'
+      ])
+        .on('error', err => this.log(`Ignoring error "${err.message}"`))
+    }
   }
 
   writing () {
@@ -40,16 +57,7 @@ module.exports = class extends YeomanGenerator {
     })
   }
 
-  // end () {
-  //   // Lint the files
-  //   this.spawnCommand('node_modules/.bin/eslint', [
-  //     '**/__tests__/*.js',
-  //     '--config=.eslintrc.yml',
-  //     '--fix',
-  //     '--no-ignore',
-  //     '--quiet',
-  //     '--rule',
-  //     'no-unused-vars:off'
-  //   ])
-  // }
+  end () {
+    this._lintJsc()
+  }
 }

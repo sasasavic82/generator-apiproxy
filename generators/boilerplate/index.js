@@ -59,16 +59,16 @@ module.exports = class extends YeomanGenerator {
     })
 
     // Copy Javsacript callouts
-    let filepath = this.destinationPath(this.options.generateInto, 'lib/index.js')
-
-    this.fs.copyTpl(this.templatePath('lib/index.js'), filepath)
-
-    this.composeWith(require.resolve('generator-jest/generators/test'), {
-      arguments: [filepath],
-      componentName: _.camelCase(this.options.name)
-    })
+    // let filepath = this.destinationPath(this.options.generateInto, 'lib/index.js')
+    //
+    // this.fs.copyTpl(this.templatePath('lib/index.js'), filepath)
+    //
+    // this.composeWith(require.resolve('generator-jest/generators/test'), {
+    //   arguments: [filepath],
+    //   componentName: _.camelCase(this.options.name)
+    // })
     // Copy jest configuration file
-    filepath = this.destinationPath(this.options.generateInto, 'jest.config.json')
+    let filepath = this.destinationPath(this.options.generateInto, 'jest.config.json')
 
     this.fs.copy(this.templatePath('jest.config.json'), filepath)
 

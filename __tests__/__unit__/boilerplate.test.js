@@ -45,14 +45,14 @@ describe('apigee-apiproxy:boilerplate', () => {
     assert.fileContent('sonar-project.properties', 'sonar.links.issue=https://github.com/CAOV/my-module/issues')
   })
 
-  it('creates test boilerplate files', () => {
-    assert.file('lib/index.js')
-    assert.file('lib/__tests__/myModule.test.js')
-    assert.file('jest.config.json')
-    assert.fileContent('lib/index.js', 'module.exports = {}')
-    assert.fileContent('lib/__tests__/myModule.test.js', 'const myModule')
-    assert.fileContent('lib/__tests__/myModule.test.js', 'describe(\'myModule\'')
-  })
+  // it('creates test boilerplate files', () => {
+  //   assert.file('lib/index.js')
+  //   assert.file('lib/__tests__/myModule.test.js')
+  //   assert.file('jest.config.json')
+  //   assert.fileContent('lib/index.js', 'module.exports = {}')
+  //   assert.fileContent('lib/__tests__/myModule.test.js', 'const myModule')
+  //   assert.fileContent('lib/__tests__/myModule.test.js', 'describe(\'myModule\'')
+  // })
 
   it('creates openapi template boilerplate files', () => {
     assert.file('openapi/README.md')
@@ -66,11 +66,11 @@ describe('apigee-apiproxy:boilerplate --generate-into', () => {
       .withOptions({name: 'my-module', generateInto: 'other/'})
   })
 
-  it('creates boilerplate files using another path', () => {
-    assert.file('other/lib/index.js')
-    assert.file('other/lib/__tests__/myModule.test.js')
-    assert.fileContent('other/lib/index.js', 'module.exports = {}')
-    assert.fileContent('other/lib/__tests__/myModule.test.js', 'const myModule')
-    assert.fileContent('other/lib/__tests__/myModule.test.js', 'describe(\'myModule\'')
+  it('creates apiproxy template boilerplate files', () => {
+    assert.file('other/apiproxy/README.md')
+    assert.file('other/apiproxy/policies/README.md')
+    assert.file('other/apiproxy/proxies/README.md')
+    assert.file('other/apiproxy/resources/jsc/README.md')
+    assert.file('other/apiproxy/targets/README.md')
   })
 })

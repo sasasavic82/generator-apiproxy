@@ -1,6 +1,8 @@
-
+'use strict'
 const _ = require('lodash')
 const YeomanGenerator = require('yeoman-generator')
+const rootPkg = require('../../package.json')
+const path = require('path')
 
 module.exports = class extends YeomanGenerator {
   constructor (args, options) {
@@ -54,6 +56,30 @@ module.exports = class extends YeomanGenerator {
       required: false,
       desc: 'Readme content'
     })
+
+    this.option('privateRepo', {
+      type: Boolean,
+      required: true,
+      defaults: false,
+      desc: 'Is this a private repository?'
+    })
+
+    this.option('version', {
+      this: String,
+      required: false,
+      defaults: rootPkg.version,
+      desc: 'Product\'s current semantic version'
+    })
+  }
+
+  initializing () {
+    this._addTableOfContents = () => {
+      this.spawnCommand(path.resolve('node_modules', '.bin', 'markdown-toc'), [
+        '-i',
+        'README.md'
+      ])
+        .on('error', err => this.log(`Ignoring error "${err.message}"`))
+    }
   }
 
   writing () {
@@ -72,8 +98,14 @@ module.exports = class extends YeomanGenerator {
         },
         license: pkg.license,
         includeCoveralls: this.options.coveralls,
-        content: this.options.content
+        content: this.options.content,
+        privateRepo: this.options.privateRepo,
+        version: this.options.version
       }
     )
+  }
+
+  end () {
+    this._addTableOfContents()
   }
 }

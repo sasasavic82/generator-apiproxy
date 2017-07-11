@@ -50,29 +50,45 @@ To scaffold a new API Proxy project, open a terminal and run:
 # Scaffold a new API Proxy project
 $ yo apigee-apiproxy
 ```
-<!-- Should we keep this?
-This sets up a suite of common DevSecOps tools, including:
 
-| Tool                      | DevSecOps feature     |
-| --------------------------| ----------------------|
-| `babel-*`                 | Build                 |
-| `browserify`              | Build                 |
-| `commitplease`            | SCM/SRM               |
-| `complexity-report`       | Documentation         |
-| `coveralls`               | Test coverage reports |
-| `eslint`                  | Test                  |
-| `eslint-plugin-filenames` | Test                  |
-| `eslint-plugin-json`      | Test                  |
-| `eslint-plugin-security`  | Test                  |
-| `jest`                    | Test                  |
-| `jsdoc-to-markdown`       | Documentation         |
-| `nsp`                     | Security              |
-| `openapi2apigee`          | Deploy                |
-| `standard-version`        | SRM                   |
-| `swagger-cli`             | Test                  |
-| `swagger-markdown`        | Documentation         |
-| `uglify-js`               | Build                 |
--->
+You can use sub-generators, too:
+
+```bash
+# Add a Javascript callout and test stubs
+$ yo apigee-apiproxy:jsc foo-bar-lib
+// => create lib/foo-bar-lib.js
+// => create lib/__tests__/fooBarLib.test.js
+
+```
+
+```bash
+# Create documentation
+$ yo apigee-apiproxy:docs
+// => create package.json
+// => create docs/COMPLEXITY.md
+// => create docs/JSCS.md
+// => create docs/README.md
+// => create docs/SWAGGER.md
+// => create docs/TERMS_OF_SERVICE.md
+
+```
+
+```bash
+# Add code quality and security analysis for Javascript callouts
+$ yo apigee-apiproxy:eslint
+// => create .eslintignore
+// => create .eslintrc.yml
+
+```
+
+```bash
+# Create a README.md (a repository home page)
+$ yo apigee-apiproxy:readme
+// => create README.md
+
+```
+
+
 ### 3.1. **Design** your API with Swagger UI
 
 1. Go to the [online Swagger Editor](http://editor.swagger.io/#/).

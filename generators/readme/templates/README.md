@@ -1,7 +1,10 @@
 # `<%= projectName %>`
 > <%= description %>
 
-[![Swagger Validity][swagger-validity-image]][swagger-validity-url] [![Build Status][travis-image]][travis-url] [![NSP Status][nsp-image]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url]<% if (includeCoveralls) { %> [![Coverage percentage][coveralls-image]][coveralls-url]<% } -%>
+[![Swagger Validity][swagger-validity-image]][swagger-validity-url] <% if (privateRepo) { %> [![Build Status][jenkins-image]][jenkins-url] [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url] [![Quality Gate][sonar-gate-img]][sonar-gate-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]
+<% } else { %>
+[![Build Status][travis-image]][travis-url] [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url] [![Quality Gate][sonar-gate-img]][sonar-gate-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url] <br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![Readme Score][readme-score-img]][readme-score-url] [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] [![FOSSA Status][fossa-image]][fossa-url] <% if (includeCoveralls) { %> [![Coverage percentage][coveralls-image]][coveralls-url]<% } -%>
+<% } -%>
 
 > ##### :heavy_minus_sign::x::heavy_minus_sign: _Delete this section before you push to your Git repository._ :heavy_minus_sign::x::heavy_minus_sign:
 > #### For your _action_ :running:.
@@ -30,6 +33,9 @@
 > ##### :heavy_minus_sign::x::heavy_minus_sign: _Delete this section before you push to your Git repository._ :heavy_minus_sign::x::heavy_minus_sign:
 
 ## Table of contents
+<!-- toc -->
+
+<!-- tocstop -->
 
 <% if (!content) { -%>
 ## Installation
@@ -144,7 +150,7 @@ $ npm run docs:complexity
 
 ## Semantic version and CHANGELOG
 
-The latest version of `<%= projectName %>` is {add-version-var}. View the [CHANGELOG][changelog-url] for details.
+The latest version of `<%= projectName %>` is `v<%= version %>`. View the [CHANGELOG][changelog-url] for details.
 
 ## Contributing to `<%= projectName %>`
 
