@@ -1,0 +1,21 @@
+'use strict'
+
+/**
+ * @module <%= name %>
+ * @description
+ * @property {string} attr An attribute
+ */
+const <%= name %> = {
+
+  attr: 'An attribute',
+
+/**
+  * @description Method description
+  * @memberof <%= name %>
+  * @param {string} param A stubbed parameter
+  * @returns {string} A stubbed string with the parameter in it
+  */
+  fn: (param) => `Stubbed method with ${param} argument`
+}
+
+module.exports = <%= name %>

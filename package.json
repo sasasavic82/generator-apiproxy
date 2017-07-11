@@ -34,6 +34,7 @@
   "devDependencies": {
     "babel-preset-env": "^1.6.0",
     "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
     "commitplease": "^2.7.10",
     "complexity-report": "^2.0.0-alpha",
     "copyfiles": "^1.2.0",

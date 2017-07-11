@@ -23,10 +23,10 @@ describe('apigee-apiproxy:docs', () => {
       },
       scripts: {
         docs: 'npm run docs:swagger:apis && npm run docs:jsc',
-        'docs:jsc': 'npm run docs:jsc:apis && npm run:jsc:complexity',
+        'docs:jsc': 'npm run docs:jsc:apis && npm run docs:jsc:complexity',
         'docs:jsc:apis': 'jsdoc2md --files lib/*.js > docs/JSCS.md',
         'docs:jsc:complexity': 'cr --format markdown lib/*.js > docs/COMPLEXITY.md',
-        'docs:swagger:apis': 'swagger-markdown -i openapi/*.yml -o docs/SWAGGER.e2e.md'
+        'docs:swagger:apis': 'swagger-markdown -i openapi/*.json -o docs/SWAGGER.md'
       }
     })
   }))

@@ -1,0 +1,21 @@
+{
+  "apigee:apiproxy:deploy": "npm run apigee:deploy-api && npm run apigee:update:policies && npm run apigee:update:proxies && npm run apigee:update:resources:jsc && npm run apigee:update:resources:openapi && npm run apigee:update:targets && npm run apigee:update:zip && rm -rf .tmp",
+  "apigee:apiproxy:update": "npm run apigee:generate-api && npm run apigee:update:policies && npm run apigee:update:proxies && npm run apigee:update:resources:jsc && npm run apigee:update:resources:openapi && npm run apigee:update:targets && npm run apigee:update:zip && rm -rf .tmp",
+  "apigee:deploy-api": "openapi2apigee generateApi <%= name %> -s openapi/*json -D -d .tmp",
+  "apigee:generate-api": "openapi2apigee generateApi <%= name %> -s openapi/*json -d .tmp",
+  "apigee:update:policies": "copyfiles .tmp/<%= name %>/apiproxy/policies/** apiproxy/policies",
+  "apigee:update:proxies": "copyfiles .tmp/<%= name %>/apiproxy/proxies/** apiproxy/proxies",
+  "apigee:update:resources:jsc": "copyfiles .tmp/<%= name %>/apiproxy/resources/jsc/** apiproxy/resources/jsc",
+  "apigee:update:resources:openapi": "copyfiles .tmp/<%= name %>/apiproxy/resources/openapi/** apiproxy/resources/openapi",
+  "apigee:update:targets": "copyfiles .tmp/<%= name %>/apiproxy/targets/** apiproxy/targets",
+  "apigee:update:zip": "copyfiles .tmp/<%= name %>/apiproxy/*.zip .",
+  "btp": "npm run build-test-push",
+  "build-test-push": "npm run build && npm test && npm run docs && .github/assets/prepend-header.sh --push github",
+  "build": "browserify lib/*.js -t babelify --outfile apiproxy/resources/jsc/bundle.js && npm run minify",
+  "minify": "uglifyjs apiproxy/resources/jsc/bundle.js  --compress -o apiproxy/resources/jsc/bundle.min.js",
+  "posttest": "npm run security",
+  "pretest": "npm run lint",
+  "security": "nsp check --output summary",
+  "swagger:lint": "swagger validate openapi/*.yml --debug && swagger validate openapi/*.json --debug",
+  "test": "jest --config=jest.config.json"
+}

@@ -3,6 +3,7 @@
 const _ = require('lodash')
 const rootPkg = require('../../package.json')
 const YeomanGenerator = require('yeoman-generator')
+const npmScriptsPkg = require('./templates/npm-scripts')
 
 module.exports = class extends YeomanGenerator {
   constructor (args, options) {
@@ -49,29 +50,12 @@ module.exports = class extends YeomanGenerator {
       return _.omit(rootPkg.devDependencies, keys)
     })()
     // Add npm devDependencies and scripts
+    const npmScripts = _.template(JSON.stringify(npmScriptsPkg))({
+      name: this.options.name
+    })
     this.fs.extendJSON(this.destinationPath('', 'package.json'), {
       devDependencies: devDependencies,
-      scripts: {
-        'apigee:apiproxy:deploy': 'npm run apigee:deploy-api && npm run apigee:update:policies && npm run apigee:update:proxies && npm run apigee:update:resources:jsc && npm run apigee:update:resources:openapi && npm run apigee:update:targets && npm run apigee:update:zip && rm -rf .tmp',
-        'apigee:apiproxy:update': 'npm run apigee:generate-api && npm run apigee:update:policies && npm run apigee:update:proxies && npm run apigee:update:resources:jsc && npm run apigee:update:resources:openapi && npm run apigee:update:targets && npm run apigee:update:zip && rm -rf .tmp',
-        'apigee:deploy-api': 'openapi2apigee generateApi <%= projectName %> -s openapi/*json -D -d .tmp',
-        'apigee:generate-api': 'openapi2apigee generateApi <%= projectName %> -s openapi/*json -d .tmp',
-        'apigee:update:policies': "copyfiles '.tmp/<%= projectName %>/apiproxy/policies/**' apiproxy/policies",
-        'apigee:update:proxies': "copyfiles '.tmp/<%= projectName %>/apiproxy/proxies/**' apiproxy/proxies",
-        'apigee:update:resources:jsc': "copyfiles '.tmp/<%= projectName %>/apiproxy/resources/jsc/**' apiproxy/resources/jsc",
-        'apigee:update:resources:openapi': "copyfiles '.tmp/<%= projectName %>/apiproxy/resources/openapi/**' apiproxy/resources/openapi",
-        'apigee:update:targets': "copyfiles '.tmp/<%= projectName %>/apiproxy/targets/**' apiproxy/targets",
-        'apigee:update:zip': "copyfiles '.tmp/<%= projectName %>/apiproxy/*.zip' .",
-        'btp': 'npm run build-test-push',
-        'build-test-push': 'npm run build && npm test && npm run docs && .github/assets/prepend-header.sh --push github',
-        'build': 'browserify lib/*.js -t babelify --outfile apiproxy/resources/jsc/bundle.js && npm run minify',
-        'minify': 'uglifyjs apiproxy/resources/jsc/bundle.js  --compress -o apiproxy/resources/jsc/bundle.min.js',
-        'posttest': 'npm run security',
-        'pretest': 'npm run lint',
-        'security': 'nsp check --output summary',
-        'swagger:lint': 'swagger validate openapi/*.yml --debug && swagger validate openapi/*.json --debug',
-        'test': 'jest --config=jest.config.json'
-      }
+      scripts: JSON.parse(npmScripts)
     })
 
     // Copy Javsacript callouts

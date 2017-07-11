@@ -28,11 +28,11 @@ module.exports = class extends YeomanGenerator {
       desc: 'Include boilerplate files'
     })
 
-    this.option('cli', {
+    this.option('jsc', {
       type: Boolean,
       required: false,
       default: false,
-      desc: 'Add a CLI'
+      desc: 'Add a Javascript callout'
     })
 
     this.option('coveralls', {
@@ -259,9 +259,18 @@ module.exports = class extends YeomanGenerator {
       })
     }
 
-    if (this.options.cli) {
-      this.composeWith(require.resolve('../cli'))
+    if (this.options.jsc) {
+      this.composeWith(require.resolve('../jsc'))
     }
+
+    this.composeWith(require.resolve('../docs'), {
+      projectName: this.options.name,
+      author: {
+        name: this.options.authorName,
+        url: this.options.authorUrl
+      },
+      license: this.props.license
+    })
 
     if (this.options.license && !this.pkg.license) {
       this.composeWith(require.resolve('generator-license/app'), {
