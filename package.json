@@ -91,7 +91,9 @@
     "eslint": "./node_modules/.bin/eslint -c ./.eslintrc.yml -f unix generators/**/*.js --fix",
     "prerelease": "npm run test",
     "release": "standard-version",
-    "test": "jest --config=jest.config.json"
+    "test": "jest --config=jest.config.json",
+    "readme:toc": "markdown-toc -i README.md",
+    "readme:update": "node .assets/scripts/markdown-decorator/index.js"
   },
   "eslintConfig": {
     "extends": "xo-space",

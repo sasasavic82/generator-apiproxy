@@ -6,30 +6,44 @@
 
 `generator-apigee-apiproxy` creates a base template to start a new API Proxy with optional tools for custom Javascript callouts. It generates a repeatable, testable, and measurable workflow that lets you focus on innovation without sacrificing quality or extensibility.
 
-## 1. Table of contents
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+## Table of contents
 
-- [1. Table of contents](#1-table-of-contents)
-- [2. Installation](#2-installation)
-- [3. Usage](#3-usage)
-	- [3.1. **Design** your API with Swagger UI](#31-design-your-api-with-swagger-ui)
-	- [3.2. **Build**, **lint**, **test**, **document**, and **push** to Git](#32-build-lint-test-document-and-push-to-git)
-	- [3.3. **Package** all `apiproxy` artifacts](#33-package-all-apiproxy-artifacts)
-	- [3.4. **Deploy** the `apiproxy` package to Apigee EDGE](#34-deploy-the-apiproxy-package-to-apigee-edge)
+<!-- toc -->
+
+- [1. Installation](#1-installation)
+- [2. Usage](#2-usage)
+  * [2.1. Generate a new API Proxy project](#21-generate-a-new-api-proxy-project)
+  * [2.2. Sub-generators](#22-sub-generators)
+    + [2.2.1. `apigee-apiproxy:boilerplate` sub-generator](#221-apigee-apiproxyboilerplate-sub-generator)
+    + [2.2.2. `apigee-apiproxy:cli` sub-generator](#222-apigee-apiproxycli-sub-generator)
+    + [2.2.3. `apigee-apiproxy:editorconfig` sub-generator](#223-apigee-apiproxyeditorconfig-sub-generator)
+    + [2.2.4. `apigee-apiproxy:eslint` sub-generator](#224-apigee-apiproxyeslint-sub-generator)
+    + [2.2.5. `apigee-apiproxy:git` sub-generator](#225-apigee-apiproxygit-sub-generator)
+    + [2.2.6. `apigee-apiproxy:jsc` sub-generator](#226-apigee-apiproxyjsc-sub-generator)
+    + [2.2.7. `apigee-apiproxy:nsp` sub-generator](#227-apigee-apiproxynsp-sub-generator)
+    + [2.2.8. `apigee-apiproxy:readme` sub-generator](#228-apigee-apiproxyreadme-sub-generator)
+- [3. Automating API Proxy CI/CD workflows](#3-automating-api-proxy-cicd-workflows)
+  * [3.1. **Design** your API with Swagger UI](#31-design-your-api-with-swagger-ui)
+  * [3.2. **Build**, **lint**, **test**, **document**, and **push** to Git](#32-build-lint-test-document-and-push-to-git)
+  * [3.3. **Package** all `apiproxy` artifacts](#33-package-all-apiproxy-artifacts)
+  * [3.4. **Deploy** the `apiproxy` package to Apigee EDGE](#34-deploy-the-apiproxy-package-to-apigee-edge)
 - [4. Quality gates, reports, and documentation](#4-quality-gates-reports-and-documentation)
-	- [4.1. **Validate** Swagger documentation](#41-validate-swagger-documentation)
-	- [4.2. **Analyze** Javascript callout source code](#42-analyze-javascript-callout-source-code)
-	- [4.3. **Test** Javascript callouts](#43-test-javascript-callouts)
-	- [4.4. **Generate** API documentation and complexity reports](#44-generate-api-documentation-and-complexity-reports)
-		- [4.4.1. Only generate OpenAPI/Swagger docs](#441-only-generate-openapiswagger-docs)
-		- [4.4.2. Only generate `jsc` API docs and complexity reports](#442-only-generate-jsc-api-docs-and-complexity-reports)
+  * [4.1. **Validate** Swagger documentation](#41-validate-swagger-documentation)
+  * [4.2. **Analyze** Javascript callout source code](#42-analyze-javascript-callout-source-code)
+  * [4.3. **Test** Javascript callouts](#43-test-javascript-callouts)
+  * [4.4. **Generate** API documentation and complexity reports](#44-generate-api-documentation-and-complexity-reports)
+    + [4.4.1. Only generate OpenAPI/Swagger docs](#441-only-generate-openapiswagger-docs)
+    + [4.4.2. Only generate `jsc` API docs and complexity reports](#442-only-generate-jsc-api-docs-and-complexity-reports)
 - [5. Release management automation](#5-release-management-automation)
-- [4. Contributing to `generator-apigee-apiproxy`](#4-contributing-to-generator-apigee-apiproxy)
-- [5. License](#5-license)
+- [6. Contributing to `generator-apigee-apiproxy`](#6-contributing-to-generator-apigee-apiproxy)
+- [7. Version and CHANGELOG](#7-version-and-changelog)
+- [8. License](#8-license)
 
-<!-- /TOC -->
+<!-- tocstop -->
 
-## 2. Installation
+<!-- tocend -->
+
+## 1. Installation
 
 To install `generator-apigee-apiproxy`, open a terminal and run:
 
@@ -38,28 +52,212 @@ To install `generator-apigee-apiproxy`, open a terminal and run:
 $ npm install generator-apigee-apiproxy --global
 ```
 
-## 3. Usage
+## 2. Usage
 
 > :information_source: `generator-apigee-apiproxy` will generate files in the current working directory, so be sure to change to a new directory first if you don't want to overwrite existing files.
 
 `generator-apigee-apiproxy` supports CD workflows that can be executed in a command-line interface.
 
-To scaffold a new API Proxy project, open a terminal and run:
+### 2.1. Generate a new API Proxy project
+
+To scaffold a new API Proxy project, open a terminal and create a new, empty directory:
+
+```bash
+# Create a new directory
+$ mkdir auth-proxy
+
+# Enter your new directory
+$ cd auth-proxy
+```
+
+Run the `app` generator:
 
 ```bash
 # Scaffold a new API Proxy project
 $ yo apigee-apiproxy
+# Answer the prompts till done
 ```
+### 2.2. Sub-generators
 
-You can use sub-generators, too:
+If you don't need all the features provided by the main generator, or you're working
+with an existing repository, you can still use a limited set of features by running
+these sub-generators directly.
+
+> :sos: **Need help with a sub-generator?**
+>
+> You can view each sub-generator's options by running
+>
+> ```sh
+> # View usage help for a sub-generator
+> $ yo apigee-apiproxy:<sub-generator-name> --help
+> ```
+
+* **`apigee-apiproxy:boilerplate`** Generate common directories and files.
+* **`apigee-apiproxy:cli`** Generate a `lib/cli.js` executable.
+* **`apigee-apiproxy:editorconfig`** Generate an `.editorconfig` file.
+* **`apigee-apiproxy:eslint`** Add ESLint with a standard configuration for code quality and vulnerability inspection.
+* **`apigee-apiproxy:git`** Add `.gitattributes` and `.gitignore` files. (`.gitignore` provides common patterns for Javascript _and_ Java projects.)
+* **`apigee-apiproxy:jsc`** Stub a Javascript callout and its `jest` test.
+* **`apigee-apiproxy:nsp`** Add the Node Security Program's `nsp` module to check for known Node.js vulnerabilities.
+* **`apigee-apiproxy:readme`** Add are README.md to your repository's root.
+
+#### 2.2.1. `apigee-apiproxy:boilerplate` sub-generator
+
+Generate common directories and files to facilitate team communication and standardize your CI/CD workflows:
 
 ```bash
-# Add a Javascript callout and test stubs
-$ yo apigee-apiproxy:jsc foo-bar-lib
-// => create lib/foo-bar-lib.js
-// => create lib/__tests__/fooBarLib.test.js
+
+$ yo apigee-apiproxy:boilerplate
+# => create package.json
+# => create jest.config.json
+# => create sonar-project.properties
+# => create .assets/README.md
+# => create .assets/media/README.md
+# => create .assets/media/audio/README.md
+# => create .assets/media/img/README.md
+# => create .assets/media/video/README.md
+# => create .github/CODE_OF_CONDUCT.md
+# => create .github/CONTRIBUTING.md
+# => create .github/ISSUE_TEMPLATE.md
+# => create .github/PULL_REQUEST_TEMPLATE.md
+# => create .github/README.md
+# => create apiproxy/README.md
+# => create apiproxy/policies/README.md
+# => create apiproxy/proxies/README.md
+# => create apiproxy/resources/jsc/README.md
+# => create apiproxy/targets/README.md
+# => create openapi/README.md
+
+# Install all dependencies and devDependencies
+$ npm install
 
 ```
+
+> **:bulb: Don't forget to run `npm install`!**
+
+#### 2.2.2. `apigee-apiproxy:cli` sub-generator
+
+This feature has not been implemented yet, but it is available for development.
+
+#### 2.2.3. `apigee-apiproxy:editorconfig` sub-generator
+
+> :speech_balloon: [EditorConfig][editorconfig-url] helps developers define and maintain
+> consistent coding styles between different editors and IDEs. The EditorConfig
+> project consists of a file format for defining coding styles and a collection
+> of text editor plugins that enable editors to read the file format and adhere
+> to defined styles. EditorConfig files are easily readable and they work nicely
+> with version control systems.
+>
+> Team, E. (n.d.). EditorConfig. Retrieved July 11, 2017, from http://editorconfig.org/
+
+**Add an `.editorconfig` file to your project's root directory:**
+
+```bash
+# Run this from your project's root directory
+$ yo apigee-apiproxy:editorconfig
+# => create .editorconfig
+```
+
+#### 2.2.4. `apigee-apiproxy:eslint` sub-generator
+
+[ESLint][eslint-github-url] is a configurable [linting][lint-def-url] utility
+that evaluates Javascript and JSX for code standards compliance and best
+practices. ESLint enjoys a wealth of plugins that also analyze source code for
+potential security vulnerabilities.
+
+The `apigee-apiproxy:eslint` sub-generator
+
+* Updates your project's `package.json`'s `devDependencies` with:
+    * [`eslint-plugin-json`](https://github.com/sindresorhus/eslint-json): Reports invalid JSON
+	* [`eslint-plugin-no-unsafe-innerhtml`](https://www.npmjs.com/package/eslint-plugin-no-unsafe-innerhtml): Disallows unsafe HTML templating
+	* [`eslint-plugin-node`](https://www.npmjs.com/package/eslint-plugin-node): Extends rules specific to Node.js
+	* [`eslint-plugin-promise`](https://www.npmjs.com/package/eslint-plugin-promise): Enforces best practices for JavaScript promises
+	* [`eslint-plugin-scanjs-rules`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules): Supplemental security rules
+	* [`eslint-plugin-security`](https://www.npmjs.com/package/eslint-plugin-security): Identifies potential vulnerabilities
+	* [`eslint-plugin-standard`](https://www.npmjs.com/package/eslint-plugin-standard): Rules for the [JavaScript Standard Style](https://standardjs.com/)
+* Adds an `.eslintignore` pre-configured to exclude third-party dependencies
+* Adds an `.eslintrc.yml` file with `strict-standard` rules and plugins enabled.
+
+**Add ESLint to your project:**
+
+```bash
+$ yo apigee-apiproxy:eslint
+# =>  create .eslintignore
+# => create .eslintrc.yml
+
+# Install the new devDependencies
+$ npm i
+```
+
+> **:bulb: Don't forget to run `npm install`!**
+
+#### 2.2.5. `apigee-apiproxy:git` sub-generator
+
+Avoid accidentally pushing unnecessary Node.js and Java files to your Git repository
+with a `.gitignore` file created on [.gitignore.io](https://www.gitignore.io/api/node,java,java-web,code-java).
+
+**Add `.gitignore` and `.gitattributes` files to your project:**
+
+```bash
+$ yo apigee-apiproxy:git
+# => create .gitattributes
+# => create .gitignore
+```
+
+#### 2.2.6. `apigee-apiproxy:jsc` sub-generator
+
+Apigee lets you add custom JavaScript code that executes within the context of
+an API proxy flow. In your custom JavaScript code, you can use the objects,
+methods, and properties of the
+[Apigee Edge JavaScript object model][apigee-edge-js-url]. The object model lets
+you get, set, and remove variables in the proxy flow context. You can also use
+basic cryptographic functions that are provided with the object model.
+
+**Create a Javascript callout (`jsc`) source code and `jest` test stubs:**
+
+```bash
+
+# Add a Javascript callout and test stubs
+$ yo apigee-apiproxy:jsc foo-bar-lib
+# => create lib/foo-bar-lib.js
+# => create lib/__tests__/fooBarLib.test.js
+
+```
+
+#### 2.2.7. `apigee-apiproxy:nsp` sub-generator
+
+The Node Security Platform provides continuous security monitoring for Node.js
+applications. These checks also integrate into your GitHub pull request flows.
+
+**Add Node Security Program checks to your project:**
+
+```bash
+$ yo apigee-apiproxy:nsp
+# => force package.json
+
+# Install the nsp tools
+$ npm install
+```
+
+> **:bulb: Don't forget to run `npm install`!**
+
+#### 2.2.8. `apigee-apiproxy:readme` sub-generator
+
+Your repository's "home page" is the README.md file. A good README helps attract
+new consumers as well as new contributors. Consequently, this sub-generator's
+README template includes a [ScoreMe][scoreme-url] badge to grade your README's
+quality based on the same formula that CocaoPods uses to evaluate the quality of
+your copy.
+
+**Add a README (with badges) to your project:***
+
+```bash
+# Create a README.md (a repository home page)
+$ yo apigee-apiproxy:readme
+// => create README.md
+
+```
+
 
 ```bash
 # Create documentation
@@ -81,13 +279,15 @@ $ yo apigee-apiproxy:eslint
 
 ```
 
-```bash
-# Create a README.md (a repository home page)
-$ yo apigee-apiproxy:readme
-// => create README.md
+## 3. Automating API Proxy CI/CD workflows
 
-```
+Projects created with `generator-apigee-apiproxy` include `npm-scripts` that
+facilitate automated API Proxy design, builds, linting, testing, documentation,
+version control, semantic versioning, CHANGELOG generation, packaging, and deployment
+to Apigee EDGE.
 
+Here's a recommended sequence of tasks and commands you can incorporate into
+your CI/CD value streams.
 
 ### 3.1. **Design** your API with Swagger UI
 
@@ -128,7 +328,7 @@ This will execute a:
 	* Javascript callout code (both of which you'll find in the [`docs`](./docs) directory). Finally, it'll
 4. :arrow_up: Commit and push to Git.
 
-> ##### :warning: `npm run btp` generates an automated commit message
+> **:warning: `npm run btp` generates an automated commit message**
 >
 > The [`prepend-header.sh`](./.github/assets/prepend-header.sh) shell script will
 > use the default message "docs(api): auto-generate api docs and complexity report".
@@ -272,7 +472,7 @@ $ npm run release
 
 ```
 
-## 4. Contributing to `generator-apigee-apiproxy`
+## 6. Contributing to `generator-apigee-apiproxy`
 
 [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] We welcome contributors and pull requests. Check out the guidelines for
 
@@ -284,14 +484,19 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
  * [Peruse open issues][issues-url] or
  * [Open a new pull request (PR)][pr-url]
 
-## 5. License
+## 7. Version and CHANGELOG
+
+`generator-apigee-apiproxy`'s latest version is <!-- semver -->0.0.0<!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.
+
+## 8. License
 
 [Apache-2.0][license-url] © [Greg Swindle][author-url]<br>[![FOSSA Status][fossa-image]][fossa-url]
 
 
-[daviddm-dev-image]: https://david-dm.org/gregswindle/generator-apigee-apiproxy/dev-status.svg
-[daviddm-dev-url]: https://david-dm.org/gregswindle/generator-apigee-apiproxy?type=dev
+
+[lint-def-url]: https://en.wikipedia.org/wiki/Lint_(software)
 [api-docs-url]: https://github.com/gregswindle/generator-apigee-apiproxy/docs/API.md
+[apigee-edge-js-url]: http://docs.apigee.com/api-services/reference/javascript-object-model
 [author-url]: https://github.com/gregswindle
 [bithound-dep-img]: https://www.bithound.io/github/gregswindle/generator-apigee-apiproxy/badges/dependencies.svg
 [bithound-dep-url]: https://www.bithound.io/github/gregswindle/generator-apigee-apiproxy/master/dependencies/npm
@@ -304,9 +509,13 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apigee-apiproxy/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/gregswindle/generator-apigee-apiproxy?branch=master
 [coveralls-url]: https://coveralls.io/r/gregswindle/generator-apigee-apiproxy
+[daviddm-dev-image]: https://david-dm.org/gregswindle/generator-apigee-apiproxy/dev-status.svg
+[daviddm-dev-url]: https://david-dm.org/gregswindle/generator-apigee-apiproxy?type=dev
 [daviddm-image]: https://david-dm.org/gregswindle/generator-apigee-apiproxy.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/gregswindle/generator-apigee-apiproxy
+[editorconfig-url]: http://editorconfig.org/
 [eslint-dev-env-url]: http://eslint.org/docs/developer-guide/development-environment
+[eslint-github-url]: https://github.com/eslint/eslint
 [fossa-image]: https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy.svg?type=shield
 [fossa-url]: https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy?ref=badge_shield
 [greenkeeper-img]: https://badges.greenkeeper.io/gregswindle/generator-apigee-apiproxy.svg?style=flat-square
@@ -330,6 +539,7 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [pr-url]: https://github.com/gregswindle/generator-apigee-apiproxy/pulls
 [readme-score-img]: http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/gregswindle/generator-apigee-apiproxy
 [readme-score-url]: http://clayallsopp.github.io/readme-score?url=https://github.com/gregswindle/generator-apigee-apiproxy
+[scoreme-url]: http://clayallsopp.github.io/readme-score/
 [sonar-cognitive-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=cognitive_complexity
 [sonar-cognitive-url]: https://sonarcloud.io/component_measures/metric/cognitive_complexity/list?id=gregswindle-generator-apigee-apiproxy
 [sonar-complexity-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=function_complexity
@@ -355,3 +565,4 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [travis-image]: https://travis-ci.org/gregswindle/generator-apigee-apiproxy.svg?branch=master
 [travis-url]:  https://travis-ci.org/gregswindle/generator-apigee-apiproxy
 [travis-url]: https://travis-ci.org/gregswindle/generator-apigee-apiproxy
+[changelog-url]: https://github.com/gregswindle/generator-apigee-apiproxy/CHANGELOG.md

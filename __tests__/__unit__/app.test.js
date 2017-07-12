@@ -27,7 +27,7 @@ describe('apigee-apiproxy:app', () => {
 
   describe('when generating a new project,', () => {
     path.basename = jest.fn(() => 'generator-apigee-apiproxy')
-    it('scaffolds a complete directory structure', () => {
+    it('scaffolds a complete directory structure', (done) => {
       const answers = {
         description: 'A node generator',
         homepage: 'http://yeoman.io',
@@ -74,6 +74,8 @@ describe('apigee-apiproxy:app', () => {
           assert.fileContent('README.md', '[travis-image]: https://travis-ci.org/yeoman/generator-apigee-apiproxy.svg?branch=master')
           assert.fileContent('README.md', 'coveralls')
           assert.fileContent('.travis.yml', '| coveralls')
+
+          done()
         })
     })
   })
