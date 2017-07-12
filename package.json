@@ -82,7 +82,7 @@
   "scripts": {
     "docs:swagger-markdown": "swagger-markdown",
     "docs:swagger:apis": "swagger-markdown -i openapi/*.yaml -o docs/SWAGGER.e2e.md",
-    "lint": "eslint -c .eslintrc.yml generators/** __tests__/__unit__/** -f unix --fix",
+    "lint": "eslint -c .eslintrc.yml generators/** __tests__/** -f unix --fix",
     "security": "nsp check --output summary",
     "pretest": "npm run lint",
     "posttest": "npm run security",

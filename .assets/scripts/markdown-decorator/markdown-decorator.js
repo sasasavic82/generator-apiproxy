@@ -28,7 +28,6 @@ class MarkdownDecorator {
 
   decorate(options) {
     this.semver(options.version).toc()
-    console.log(this.markdown)
     return this
   }
 

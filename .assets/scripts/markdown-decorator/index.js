@@ -14,9 +14,11 @@ const files = [{
 
 const decorateFile = (file) => {
   const decorator = new MarkdownDecorator(file.content)
-  decorator.decorate({
-    version: pkg.version
-  }).save(file.filepath)
+  const opts = {
+    version: `v${pkg.version}`
+  }
+  opts.version = '[`' + opts.version + '`][changelog-url]'
+  decorator.decorate(opts).save(file.filepath)
 }
 
 files.forEach(decorateFile)

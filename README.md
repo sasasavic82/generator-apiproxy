@@ -1,6 +1,6 @@
 #  `generator-apigee-apiproxy`
 
-[![Build Status][travis-image]][travis-url] [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url] [![Quality Gate][sonar-gate-img]][sonar-gate-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![Readme Score][readme-score-img]][readme-score-url] [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] [![FOSSA Status][fossa-image]][fossa-url]
+[![Build Status][travis-image]][travis-url] [![Test Coverage][coveralls-img]][coveralls-url] [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url] [![Readme Score][readme-score-img]][readme-score-url]
 
 > ![Swagger logo][swagger-logo-20-img] Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.
 
@@ -486,23 +486,23 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 ## 7. Version and CHANGELOG
 
-`generator-apigee-apiproxy`'s latest version is <!-- semver -->0.0.0<!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.
+`generator-apigee-apiproxy`'s latest version is <!-- semver -->[`v0.0.0`][changelog-url]<!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.
 
 ## 8. License
 
-[Apache-2.0][license-url] © [Greg Swindle][author-url]<br>[![FOSSA Status][fossa-image]][fossa-url]
+[Apache-2.0][license-url] © [Greg Swindle][author-url]
+
+---
+
+[![License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url] [![Readme Score][readme-score-img]][readme-score-url] [![Greenkeeper][greenkeeper-img]][greenkeeper-url]
 
 
 
-[lint-def-url]: https://en.wikipedia.org/wiki/Lint_(software)
 [api-docs-url]: https://github.com/gregswindle/generator-apigee-apiproxy/docs/API.md
 [apigee-edge-js-url]: http://docs.apigee.com/api-services/reference/javascript-object-model
 [author-url]: https://github.com/gregswindle
-[bithound-dep-img]: https://www.bithound.io/github/gregswindle/generator-apigee-apiproxy/badges/dependencies.svg
-[bithound-dep-url]: https://www.bithound.io/github/gregswindle/generator-apigee-apiproxy/master/dependencies/npm
-[bithound-dev-dep-img]: https://www.bithound.io/github/gregswindle/generator-apigee-apiproxy/badges/devDependencies.svg
-[bithound-dev-dep-url]: https://www.bithound.io/github/gregswindle/generator-apigee-apiproxy/master/dependencies/npm
-[codacy-img]: https://api.codacy.com/project/badge/Grade/554fe390431b455a87ba6acde3ff2989?style=flat-square
+[changelog-url]: https://github.com/gregswindle/generator-apigee-apiproxy/CHANGELOG.md
+[codacy-img]: https://api.codacy.com/project/badge/Grade/fa4ade3f68a04b9cad26165a59ceb88e
 [codacy-url]: https://www.codacy.com/app/greg_7/generator-apigee-apiproxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gregswindle/generator-apigee-apiproxy&amp;utm_campaign=Badge_Grade
 [code-of-conduct-url]: ./.github/CODE_OF_CONDUCT.md
 [complexity-report-url]: https://github.com/escomplex/complexity-report
@@ -514,22 +514,16 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [daviddm-image]: https://david-dm.org/gregswindle/generator-apigee-apiproxy.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/gregswindle/generator-apigee-apiproxy
 [editorconfig-url]: http://editorconfig.org/
-[eslint-dev-env-url]: http://eslint.org/docs/developer-guide/development-environment
 [eslint-github-url]: https://github.com/eslint/eslint
 [fossa-image]: https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy.svg?type=shield
 [fossa-url]: https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy?ref=badge_shield
 [greenkeeper-img]: https://badges.greenkeeper.io/gregswindle/generator-apigee-apiproxy.svg?style=flat-square
 [greenkeeper-url]: https://greenkeeper.io/
-[inch-ci-img]: http://inch-ci.org/github/gregswindle/generator-apigee-apiproxy.svg?branch=master
-[inch-ci-url]: http://inch-ci.org/github/gregswindle/generator-apigee-apiproxy
-[issues-new-url]: https://github.com/gregswindle/generator-apigee-apiproxy/issues/new
 [issues-url]: https://github.com/gregswindle/generator-apigee-apiproxy/issues
-[js-callout-docs-url]: ./docs/README.md
-[jsdoc-url]: http://usejsdoc.org/
 [jsdoc2md-url]: https://github.com/jsdoc2md/jsdoc-to-markdown
 [license-image]: https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat
-[license-image]: https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat
 [license-url]: ./LICENSE
+[lint-def-url]: https://en.wikipedia.org/wiki/Lint_(software)
 [makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat
 [makeapullrequest-url]: http://makeapullrequest.com
 [npm-image]: https://badge.fury.io/js/generator-apigee-apiproxy.svg
@@ -548,15 +542,9 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [sonar-coverage-url]: https://sonarcloud.io/component_measures/domain/Coverage?id=gregswindle-generator-apigee-apiproxy
 [sonar-gate-img]: http://sonarcloud.io/api/badges/gate?key=gregswindle-generator-apigee-apiproxy
 [sonar-gate-url]: http://sonarcloud.io/dashboard/index/gregswindle-generator-apigee-apiproxy
-[sonar-security-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=vulnerabilities
-[sonar-security-url]: https://sonarcloud.io/component_measures/domain/Security?id=gregswindle-generator-apigee-apiproxy
 [sonar-tech-debt-img]:  https://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=sqale_debt_ratio
 [sonar-tech-debt-url]: https://sonarcloud.io/component_measures/metric/sqale_index/list?id=gregswindle-generator-apigee-apiproxy
-[stackshare-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
-[stackshare-url]: https://stackshare.io/gregswindle/generator-apigee-apiproxy
-[swagger-api-docs-url]: ./docs/SWAGGER.md
 [swagger-cli-url]: https://github.com/BigstickCarpet/swagger-cli
-[swagger-io-url]: http://swagger.io
 [swagger-logo-20-img]: ./.assets/media/img/swagger-logo-20.png
 [swagger-markdown-url]: https://github.com/syroegkin/swagger-markdown
 [swagger-validity-img]: https://img.shields.io/swagger/valid/2.0/http/api.swindle.net/cordova/v6/contacts/openapi.json.svg
@@ -565,4 +553,3 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [travis-image]: https://travis-ci.org/gregswindle/generator-apigee-apiproxy.svg?branch=master
 [travis-url]:  https://travis-ci.org/gregswindle/generator-apigee-apiproxy
 [travis-url]: https://travis-ci.org/gregswindle/generator-apigee-apiproxy
-[changelog-url]: https://github.com/gregswindle/generator-apigee-apiproxy/CHANGELOG.md

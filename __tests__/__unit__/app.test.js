@@ -81,7 +81,7 @@ describe('apigee-apiproxy:app', () => {
   })
 
   describe('when running on an existing project,', () => {
-    it('keeps the current README and extends package.json attributes', () => {
+    it('keeps the current README and extends package.json attributes', (done) => {
       const pkg = {
         version: '1.0.34',
         description: 'lots of fun',
@@ -101,10 +101,12 @@ describe('apigee-apiproxy:app', () => {
           const newPkg = _.extend({name: 'generator-node'}, pkg)
           assert.jsonFileContent('package.json', newPkg)
           assert.fileContent('README.md', 'foo')
+
+          done()
         })
     })
 
-    it('keeps existing author {object} attributes', () => {
+    it('keeps existing author {object} attributes', (done) => {
       const pkg = {
         version: '1.1.11',
         name: null,
@@ -134,10 +136,12 @@ describe('apigee-apiproxy:app', () => {
           const newPkg = _.extend({name: 'generator-node'}, pkg)
           assert.jsonFileContent('package.json', newPkg)
           assert.fileContent('README.md', 'foo')
+
+          done()
         })
     })
 
-    it('runs sub-generators based on answers', () => {
+    it('runs sub-generators based on answers', (done) => {
       const answers = {
         name: 'noop',
         description: 'A node generator',
@@ -162,15 +166,21 @@ describe('apigee-apiproxy:app', () => {
           const newPkg = _.extend({}, {license: null})
           assert.jsonFileContent('package.json', newPkg)
           assert.fileContent('README.md', 'noop')
+
+          done()
         })
     })
   })
 
   describe('when a github user cannot be identified,', () => {
-    it('prompts for a github username/organization', () => {
+    it('prompts for a github username/organization', (done) => {
       return helpers.run(require.resolve('../../generators/app'))
         .withOptions({githubAccount: 'gregswindle'})
-        .then(() => assert.file('.git/config'))
+        .then(() => {
+          assert.file('.git/config')
+
+          done()
+        })
     })
   })
 
@@ -178,10 +188,14 @@ describe('apigee-apiproxy:app', () => {
     // boilerplate (Boolean, default true) include or not the boilerplate files
     // (lib/index.js, test/index.js).
     describe('--no-boilerplate', () => {
-      it('skips boilerplate directory and file creation', () => {
+      it('skips boilerplate directory and file creation', (done) => {
         return helpers.run(require.resolve('../../generators/app'))
           .withOptions({boilerplate: false})
-          .then(() => assert.noFile('.assets/README.md'))
+          .then(() => {
+            assert.noFile('.assets/README.md')
+
+            done()
+          })
       })
     })
 
@@ -189,22 +203,28 @@ describe('apigee-apiproxy:app', () => {
 
     // editorconfig (Boolean, default true) include or not a .editorconfig file.
     describe('--no-editorconfig', () => {
-      it('does not create an .editorconfig file', () => {
+      it('does not create an .editorconfig file', (done) => {
         return helpers.run(require.resolve('../../generators/app'))
           .withOptions({editorconfig: false})
-          .then(() => assert.noFile('.editorconfig'))
+          .then(() => {
+            assert.noFile('.editorconfig')
+
+            done()
+          })
       })
     })
 
     // git (Boolean, default true) include or not the git files
     // (.gitattributes, .gitignore).
     describe('--no-git', () => {
-      it('skips git repository initialization', () => {
+      it('skips git repository initialization', (done) => {
         return helpers.run(require.resolve('../../generators/app'))
           .withOptions({git: false})
           .then(() => {
             assert.noFile('.gitattributes')
             assert.noFile('.gitignore')
+
+            done()
           })
       })
     })
@@ -225,10 +245,14 @@ describe('apigee-apiproxy:app', () => {
 
     // travis (Boolean, default true) include or not a .travis.yml file.
     describe('--no-travis', () => {
-      it('skips .travis.yml', () => {
+      it('skips .travis.yml', (done) => {
         return helpers.run(require.resolve('../../generators/app'))
           .withOptions({travis: false})
-          .then(() => assert.noFile('.travis.yml'))
+          .then(() => {
+            assert.noFile('.travis.yml')
+
+            done()
+          })
       })
     })
   })
