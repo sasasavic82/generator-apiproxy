@@ -1,20 +1,22 @@
 ## Description of change
 
-_Please provide a description of the change here If there are associated issues, please reference them here._
+_Please describe your changes here._
 
 ### Associated issue(s)
 
-_Reference issues pertinent to this PR here._
+_Reference issues pertinent to this PR here If there are no issues referenced,
+replace this line and the following task completion line._
 
-### Pull request (PR) check-list
+- [ ] The acceptance criteria for all associated issues have been completed, tested, and validated.
+
+### PR check-list
 
 > **:white_check_mark: Please review and check the appropriate items.**
 
 #### 1. **Code standards compliance**
+[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 - [ ] `ESLint` passes.
-- [ ] N/A (not applicable): _If selected, explain; else, delete
- this line._
 
 #### 2. **Code quality**. [![Quality Gate][sonar-gate-img]][sonar-gate-url]
 
@@ -28,12 +30,15 @@ Do the quality gateways pass with an "A" grade?
 - [ ] `Reliability` [![Reliability][sonar-reliability-img]][sonar-reliability-url]
 - [ ] `Security` [![Security][sonar-security-img]][sonar-security-url]
 
-#### 3. **Test coverage** [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url]
+#### 3. **Test coverage** [![Coverage Status][coveralls-img]][coveralls-url]
 
 - [ ] The source code is 100% covered with passing specs.
 
 > **:information_source: These tasks are not required to open a PR, and may be addresses while the PR is open.**
 
+
+[coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apigee-apiproxy/badge.svg
+[coveralls-url]: https://coveralls.io/github/gregswindle/generator-apigee-apiproxy
 [sonar-code-smells-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=code_smells
 [sonar-code-smells-url]: https://sonarcloud.io/component_measures/metric/code_smells/list?id=gregswindle-generator-apigee-apiproxy
 [sonar-cognitive-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=cognitive_complexity

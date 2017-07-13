@@ -1,4 +1,7 @@
+/* eslint scanjs-rules/call_write: "warn" */
+/* globals jasmine */
 'use strict'
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 const _ = require('lodash')
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')

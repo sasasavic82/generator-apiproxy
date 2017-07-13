@@ -1,0 +1,72 @@
+# appveyor.yml
+# See appveyor.yml reference https://www.appveyor.com/docs/appveyor-yml/
+# Test against this version of Node.js
+---
+# See semver's build metadata specification: http://semver.org/#spec-item-10
+version:                           0.0.0+{build}
+
+environment:
+  # COVERALLS_REPO_TOKEN:
+  #   secure:                      $COVERALLS_REPO_TOKEN
+  matrix:
+  - nodejs_version:                "8"
+  - nodejs_version:                "7"
+  - nodejs_version:                "6"
+  - nodejs_version:                "4"
+pull_requests:
+  do_not_increment_build_number:   true
+branches:
+  only:
+      - "master"
+
+# platform:
+#   - x86
+#   - x64
+
+# Install scripts. (runs after repo cloning)
+install:
+  # Get the latest stable version of Node.js or io.js
+  - ps:                            Install-Product node $env:nodejs_version
+
+  # install modules
+  - ps:                            >-
+      if ($env:nodejs_version -eq "4") {
+        npm install -g npm@3;
+      }
+  
+  - npm install
+
+  # todo:                          learn how to do this for all .\resolvers\* on Windows
+  # - cd .\resolvers\webpack && npm install && cd ..\..
+  # - cd .\resolvers\node && npm install && cd ..\..
+after_install:
+
+    - npm install -g yo@2.0.0
+
+    - yo doctor
+before_test:
+  # Prune dependencies and devDependencies
+  - npm prune
+
+# Post-install test scripts.
+test_script:
+
+  # Output useful info for debugging.
+  - ps:                            $(get-location).Path;
+  - node --version
+  - npm --version
+
+  # core tests
+  - npm test
+
+  # - sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.organization=$SONAR_ORGANIZATION -Dsonar.login=$SONAR_TOKEN -X
+
+  # resolver tests
+  # - cd .\resolvers\webpack && npm test && cd ..\..
+  # - cd .\resolvers\node && npm test && cd ..\..
+
+# on_success:
+#   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+# Don't actually build.
+build:                             off

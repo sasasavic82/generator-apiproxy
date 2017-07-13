@@ -1,9 +1,38 @@
+'use strict'
 const YeomanGenerator = require('yeoman-generator')
 const rootPkg = require('../../package.json')
 
 module.exports = class extends YeomanGenerator {
   constructor (args, options) {
     super(args, options)
+
+    this.option('authorName', {
+      type: String,
+      required: true,
+      defaults: rootPkg.author.name,
+      desc: 'License'
+    })
+
+    this.option('authorUrl', {
+      type: String,
+      required: true,
+      defaults: rootPkg.author.url,
+      desc: 'License'
+    })
+
+    this.option('license', {
+      type: String,
+      required: true,
+      defaults: rootPkg.license,
+      desc: 'License'
+    })
+
+    this.option('name', {
+      type: String,
+      required: true,
+      defaults: rootPkg.name,
+      desc: 'Module, package, or component name'
+    })
 
     this.option('generateInto', {
       type: String,

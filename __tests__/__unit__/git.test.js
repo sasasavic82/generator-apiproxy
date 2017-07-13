@@ -1,6 +1,10 @@
+/* globals jasmine */
+
+'use strict'
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 const fs = require('fs')
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
 describe('apigee-apiproxy:git', () => {
   beforeEach(() => {

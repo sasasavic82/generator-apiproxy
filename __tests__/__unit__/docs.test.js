@@ -1,6 +1,9 @@
+/* globals jasmine */
+'use strict'
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 const rootPkg = require('../../package.json')
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
 describe('apigee-apiproxy:docs', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/docs'))
@@ -49,8 +52,8 @@ describe('apigee-apiproxy:docs', () => {
 
   it('creates and fill contents in docs/README.md', () => {
     assert.file('docs/README.md')
-    assert.fileContent('docs/README.md', '`docs/` directory [![Inline docs][inch-ci-img]][inch-ci-url]')
-    assert.fileContent('docs/README.md', '> **:open_file_folder: Static API documentation for `oneapi-testproxy-lcov`\'s `/resources/jsc/` Javascript objects.**')
+    assert.fileContent('docs/README.md', '`oneapi-testproxy-lcov` API Proxy technical docs')
+    assert.fileContent('docs/README.md', 'Static API documentation for `oneapi-testproxy-lcov`\'s `/resources/jsc/` Javascript objects.**')
     assert.fileContent('docs/README.md', 'Apache-2.0 © [Neck Beard](http://neckbeard.io)')
   })
 

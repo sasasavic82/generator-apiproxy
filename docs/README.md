@@ -1,11 +1,31 @@
 # `docs/` directory
-[![Inline docs][inch-ci-img]][inch-ci-url]
 > **:open_file_folder: Parent directory for API documentation.**
 
-API documentation goes here.
+```sh
+# Documentation in this directory
+docs/
+├── COMPLEXITY.md
+├── README.md
+├── SWAGGER.md
+└── TERMS_OF_SERVICE.md
+```
 
-[![Quality Gate][sonar-gate-img]][sonar-gate-url] [![Security][sonar-security-img]][sonar-security-url] [![Code smells][sonar-code-smells-img]][sonar-code-smells-url] [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url] [![Duplications][sonar-duplications-img]][sonar-duplications-url]
-<br>[![Technical debt][sonar-tech-debt-img]][sonar-tech-debt-url] [![Reliability][sonar-reliability-img]][sonar-reliability-url]  [![Maintainability][sonar-maintainability-img]][sonar-maintainability-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url] [![Cognitive complexity][sonar-cognitive-img]][sonar-cognitive-url] [![Issues][sonar-issues-img]][sonar-issues-url]
+## Quality assurance dashboard
+[![Quality Gate][sonar-gate-img]][sonar-gate-url]
+
+> 🔬  Assess code quality, security vulnerabilities, code smells, test coverage, duplications, technical debt, reliability, maintainability, complexity, and blocking issues.
+>
+> 📊 Select the badges below for detailed SonarQube reports.
+
+| Measure             | Scores                                                             |
+|:--------------------|:-------------------------------------------------------------------|
+| **Complexity**      | [![Complexity][sonar-complexity-img]][sonar-complexity-url] [![Cognitive complexity][sonar-cognitive-img]][sonar-cognitive-url] |
+| **Coverage**        | [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url]        |
+| **Duplications**    | [![Duplications][sonar-duplications-img]][sonar-duplications-url]  |
+| **Issues**          | [![Issues][sonar-issues-img]][sonar-issues-url]                    |
+| **Maintainability** | [![Code smells][sonar-code-smells-img]][sonar-code-smells-url]  [![Maintainability][sonar-maintainability-img]][sonar-maintainability-url] [![Technical debt][sonar-tech-debt-img]][sonar-tech-debt-url] |
+| **Reliability**     | [![Reliability][sonar-reliability-img]][sonar-reliability-url]     |
+| **Security**        | [![Security][sonar-security-img]][sonar-security-url]              |
 
 ---
 

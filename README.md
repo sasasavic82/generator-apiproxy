@@ -1,6 +1,6 @@
 #  `generator-apigee-apiproxy`
 
-[![Build Status][travis-image]][travis-url] [![Test Coverage][coveralls-img]][coveralls-url] [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url] [![Readme Score][readme-score-img]][readme-score-url]
+[![Build Status][travis-image]][travis-url] [![Windows Build Status][appveyor-img]][appveyor-url] [![Test Coverage][coveralls-img]][coveralls-url] [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url] [![Readme Score][readme-score-img]][readme-score-url]
 
 > ![Swagger logo][swagger-logo-20-img] Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.
 
@@ -500,6 +500,8 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 [api-docs-url]: https://github.com/gregswindle/generator-apigee-apiproxy/docs/API.md
 [apigee-edge-js-url]: http://docs.apigee.com/api-services/reference/javascript-object-model
+[appveyor-img]: https://ci.appveyor.com/api/projects/status/soifv1lpkf5lxppg/branch/master?svg=true
+[appveyor-url]: https://ci.appveyor.com/project/gregswindle/generator-apigee-apiproxy/branch/master
 [author-url]: https://github.com/gregswindle
 [changelog-url]: https://github.com/gregswindle/generator-apigee-apiproxy/CHANGELOG.md
 [codacy-img]: https://api.codacy.com/project/badge/Grade/fa4ade3f68a04b9cad26165a59ceb88e

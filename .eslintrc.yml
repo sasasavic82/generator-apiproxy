@@ -1,25 +1,29 @@
----
 parserOptions:
   ecmaVersion:                                          8
+  sourceType:                                           module
   ecmaFeatures:
     experimentalObjectRestSpread:                       true
     jsx:                                                true
-  sourceType:                                           module
 env:
   es6:                                                  true
   node:                                                 true
   jest:                                                 true
 plugins:
-# - import
+- import
 - jsdoc
 - no-unsafe-innerhtml
+- no-unsanitized
 - node
 - promise
 - scanjs-rules
 - security
 - standard
 extends:
+  - plugin:import/errors
+  - plugin:import/warnings
+  - plugin:node/recommended
   - plugin:security/recommended
+  - plugin:eslint-plugin-no-unsanitized/DOM
 globals:
   document:                                             false
   navigator:                                            false
@@ -323,8 +327,20 @@ rules:
   jsdoc/require-param-type:                             error
   jsdoc/require-returns-description:                    error
   jsdoc/require-returns-type:                           error
+  no-unsanitized/method:                                error
+  no-unsanitized/property:                              error
+  node/exports-style:                                   off
   node/no-deprecated-api:                               error
+  node/no-extraneous-import:                            off
+  node/no-extraneous-require:                           error
+  node/no-missing-import:                               off
+  node/no-missing-require:                              error
+  node/no-unpublished-bin:                              error
+  node/no-unpublished-import:                           off
+  node/no-unpublished-require:                          error
+  node/no-unsupported-features:                         error
   node/process-exit-as-throw:                           error
+  node/shebang:                                         error
   promise/param-names:                                  error
   standard/array-bracket-even-spacing:
   - error

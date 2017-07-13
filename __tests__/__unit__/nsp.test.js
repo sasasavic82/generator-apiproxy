@@ -1,6 +1,10 @@
+/* globals jasmine */
+
+'use strict'
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 const rootPkg = require('../../package.json')
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
 describe('apigee-apiproxy:nsp', () => {
   it('setup nsp in project', () => helpers.run(require.resolve('../../generators/nsp')).then(() => {

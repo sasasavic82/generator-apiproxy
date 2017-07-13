@@ -1,5 +1,9 @@
+/* globals jasmine */
+
+'use strict'
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
 describe('apigee-apiproxy:editorconfig', () => {
   it('creates .editorconfig', () => helpers.run(require.resolve('../../generators/editorconfig'))
