@@ -1,0 +1,42 @@
+{
+  "maintainability": 171,
+  "dependencies": [
+
+  ],
+  "aggregate": {
+    "sloc": {
+      "logical": 0,
+      "physical": 0
+    },
+    "params": 0,
+    "cyclomatic": 1,
+    "cyclomaticDensity": 1,
+    "halstead": {
+      "vocabulary": 0,
+      "difficulty": 0,
+      "volume": 0,
+      "effort": 0,
+      "bugs": 0,
+      "time": 0
+    }
+  },
+  "functions": [{
+    "name": "",
+    "line": 0,
+    "sloc": {
+      "logical": 0,
+      "physical": 0
+    },
+    "params": 0,
+    "cyclomatic": 1,
+    "cyclomaticDensity": 1,
+    "halstead": {
+      "vocabulary": 0,
+      "difficulty": 0,
+      "volume": 0,
+      "effort": 0,
+      "bugs": 0,
+      "time": 0
+    }
+  }]
+}

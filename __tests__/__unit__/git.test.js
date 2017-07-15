@@ -1,6 +1,5 @@
 /* globals jasmine */
 
-'use strict'
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 const fs = require('fs')

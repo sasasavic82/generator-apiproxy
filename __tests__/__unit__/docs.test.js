@@ -1,8 +1,8 @@
 /* globals jasmine */
-'use strict'
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 const rootPkg = require('../../package.json')
+const path = require('path')
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
 describe('apigee-apiproxy:docs', () => {
@@ -13,7 +13,8 @@ describe('apigee-apiproxy:docs', () => {
       githubAccount: 'CAOV',
       authorName: 'Neck Beard',
       authorUrl: 'http://neckbeard.io',
-      license: 'Apache 2.0'
+      license: 'Apache 2.0',
+      files: path.resolve(__dirname, '../../__tests__/__fixtures__/resources/jsc/*.js')
     })
   )
 
@@ -32,15 +33,19 @@ describe('apigee-apiproxy:docs', () => {
         'docs:swagger:apis': 'swagger-markdown -i openapi/*.json -o docs/SWAGGER.md'
       }
     })
-  }))
 
-  it('creates and fill contents in docs/COMPLEXITY.md', () => {
-    assert.file('docs/COMPLEXITY.md')
-    assert.fileContent('docs/COMPLEXITY.md', '# `docs/COMPLEXITY.md`')
-    assert.fileContent('docs/COMPLEXITY.md', ':information_source: Congratulations! `oneapi-testproxy-lcov` has a mean cyclomatic complexity of 0 (since there aren\'t any custom Javascript callouts to report on).')
-    assert.fileContent('docs/COMPLEXITY.md', '## Generate complexity reports')
-    assert.fileContent('docs/COMPLEXITY.md', 'Apache-2.0 © [Neck Beard](http://neckbeard.io)')
-  })
+    it('creates and fill contents in docs/COMPLEXITY.md', () => {
+      assert.file('docs/COMPLEXITY.md')
+      assert.fileContent('docs/COMPLEXITY.md', '# Complexity Report,')
+      assert.fileContent('docs/COMPLEXITY.md', '> :white_check_mark: Congratulations! `oneapi-testproxy-lcov` has a mean cyclomatic complexity of 1.')
+      assert.fileContent('docs/COMPLEXITY.md', '### 2.1.')
+      assert.fileContent('docs/COMPLEXITY.md', '### 2.2.')
+      assert.fileContent('docs/COMPLEXITY.md', '### 2.3.')
+      assert.fileContent('docs/COMPLEXITY.md', '### 2.4.')
+      assert.fileContent('docs/COMPLEXITY.md', '## 3. How to generate complexity reports')
+      assert.fileContent('docs/COMPLEXITY.md', 'Apache-2.0 © [Neck Beard](http://neckbeard.io)')
+    })
+  }))
 
   it('creates and fill contents in docs/JSCS.md', () => {
     assert.file('docs/JSCS.md')

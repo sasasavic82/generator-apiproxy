@@ -1,6 +1,5 @@
 /* globals jasmine */
 
-'use strict'
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
@@ -60,6 +59,33 @@ describe('apigee-apiproxy:boilerplate', () => {
   it('creates openapi template boilerplate files', () => {
     assert.file('openapi/README.md')
     assert.fileContent('openapi/README.md', 'Apache-2.0 ©')
+  })
+
+  it('adds npm-scripts to the package.json', () => {
+    assert.file('package.json')
+    const npmScriptKeys = [
+      'apigee:apiproxy:deploy',
+      'apigee:apiproxy:update',
+      'apigee:deploy-api',
+      'apigee:generate-api',
+      'apigee:update:policies',
+      'apigee:update:proxies',
+      'apigee:update:resources:jsc',
+      'apigee:update:resources:openapi',
+      'apigee:update:targets',
+      'apigee:update:zip',
+      'btp',
+      'build',
+      'build-test-push',
+      'minify',
+      'readme:toc',
+      'security',
+      'swagger:lint',
+      'pretest',
+      'test',
+      'posttest'
+    ]
+    npmScriptKeys.forEach(key => assert.fileContent('package.json', key))
   })
 })
 

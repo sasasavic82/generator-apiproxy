@@ -380,7 +380,7 @@ typings/
 yarn.lock
 
 # package.json Lock file
-package-lock.json
+# package-lock.json
 
 # dotenv environment variables file
 .env
@@ -410,6 +410,6 @@ package-lock.json
 
 ### == 2. Instructions for removing https://www.gitignore.io exclusions ==== ###
 
-### == 2.1. Include package-lock.json files
+### == 2.1. Include # package-lock.json files
 ###      Find the exclusion entry package-lock.json and either remove it or
 ###      insert at comment hash (#) in front of it.

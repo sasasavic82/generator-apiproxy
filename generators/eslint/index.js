@@ -19,14 +19,18 @@ module.exports = class extends YeomanGenerator {
       const eslintDependencies = [
         'eslint',
         'eslint-config-xo-space',
+        'eslint-index',
+        'eslint-plugin-import',
         'eslint-plugin-jest',
         'eslint-plugin-jsdoc',
         'eslint-plugin-no-unsafe-innerhtml',
+        'eslint-plugin-no-unsanitized',
         'eslint-plugin-node',
         'eslint-plugin-promise',
         'eslint-plugin-scanjs-rules',
         'eslint-plugin-security',
-        'eslint-plugin-standard'
+        'eslint-plugin-standard',
+        'eslint-plugin-xss'
       ]
       return _.pick(rootPkg.devDependencies, eslintDependencies)
     })()

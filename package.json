@@ -8,6 +8,9 @@
     "email": "gregory.jay.swindle@verizon.com",
     "url": "https://github.com/gregswindle"
   },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "files": [
     "generators"
   ],
@@ -39,8 +42,10 @@
     "complexity-report": "^2.0.0-alpha",
     "copyfiles": "^1.2.0",
     "coveralls": "^2.13.1",
-    "eslint": "^4.1.0",
+    "escomplex": "^2.0.0-alpha",
+    "eslint": "^4.2.0",
     "eslint-config-xo-space": "^0.16.0",
+    "eslint-index": "^1.3.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-jsdoc": "^3.1.1",
@@ -51,6 +56,8 @@
     "eslint-plugin-scanjs-rules": "^0.1.5",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-xss": "^0.1.8",
+    "glob-promise": "^3.1.0",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
     "jsdoc-to-markdown": "^3.0.0",
@@ -84,7 +91,9 @@
   "scripts": {
     "docs:swagger-markdown": "swagger-markdown",
     "docs:swagger:apis": "swagger-markdown -i openapi/*.yaml -o docs/SWAGGER.e2e.md",
+    "docs:eslint-index": "npm run lint:rules --  --docs --format table > docs/ESLINT_RULES.md",
     "lint": "eslint -c .eslintrc.yml generators/** __tests__/** -f table --fix",
+    "lint:rules": "eslint-index .eslintrc.yml",
     "security": "nsp check --output summary",
     "pretest": "npm run lint",
     "posttest": "npm run security",

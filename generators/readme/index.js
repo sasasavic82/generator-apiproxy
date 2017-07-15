@@ -8,31 +8,6 @@ module.exports = class extends YeomanGenerator {
   constructor (args, options) {
     super(args, options)
 
-    this.option('generateInto', {
-      type: String,
-      required: false,
-      defaults: '',
-      desc: 'Relocate the location of the generated files.'
-    })
-
-    this.option('name', {
-      type: String,
-      required: true,
-      desc: 'Project name'
-    })
-
-    this.option('description', {
-      type: String,
-      required: true,
-      desc: 'Project description'
-    })
-
-    this.option('githubAccount', {
-      type: String,
-      required: true,
-      desc: 'User github account'
-    })
-
     this.option('authorName', {
       type: String,
       required: true,
@@ -55,6 +30,31 @@ module.exports = class extends YeomanGenerator {
       type: String,
       required: false,
       desc: 'Readme content'
+    })
+
+    this.option('description', {
+      type: String,
+      required: true,
+      desc: 'Project description'
+    })
+
+    this.option('generateInto', {
+      type: String,
+      required: false,
+      defaults: '',
+      desc: 'Relocate the location of the generated files.'
+    })
+
+    this.option('githubAccount', {
+      type: String,
+      required: true,
+      desc: 'User github account'
+    })
+
+    this.option('name', {
+      type: String,
+      required: true,
+      desc: 'Project name'
     })
 
     this.option('privateRepo', {

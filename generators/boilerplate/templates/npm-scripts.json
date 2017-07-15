@@ -10,12 +10,13 @@
   "apigee:update:targets": "copyfiles .tmp/<%= name %>/apiproxy/targets/** apiproxy/targets",
   "apigee:update:zip": "copyfiles .tmp/<%= name %>/apiproxy/*.zip .",
   "btp": "npm run build-test-push",
-  "build-test-push": "npm run build && npm test && npm run docs && .github/assets/prepend-header.sh --push github",
   "build": "browserify lib/*.js -t babelify --outfile apiproxy/resources/jsc/bundle.js && npm run minify",
+  "build-test-push": "npm run build && npm test && npm run docs && .github/assets/prepend-header.sh --push github",
   "minify": "uglifyjs apiproxy/resources/jsc/bundle.js  --compress -o apiproxy/resources/jsc/bundle.min.js",
-  "posttest": "npm run security",
-  "pretest": "npm run lint",
+  "readme:toc": "markdown-toc -i README.md",
   "security": "nsp check --output summary",
   "swagger:lint": "swagger validate openapi/*.yml --debug && swagger validate openapi/*.json --debug",
-  "test": "jest --config=jest.config.json"
+  "pretest": "npm run lint",
+  "test": "jest --config=jest.config.json",
+  "posttest": "npm run security"
 }

@@ -1,6 +1,8 @@
 'use strict'
+
 const YeomanGenerator = require('yeoman-generator')
 const rootPkg = require('../../package.json')
+const complexity = require('./complexity')
 
 module.exports = class extends YeomanGenerator {
   constructor (args, options) {
@@ -40,6 +42,13 @@ module.exports = class extends YeomanGenerator {
       defaults: 'docs',
       desc: 'Relocate the location of the generated files.'
     })
+
+    this.option('files', {
+      type: String,
+      required: false,
+      defaults: 'lib/*.js',
+      desc: 'The files (or glob) you want to generate docs for'
+    })
   }
 
   writing () {
@@ -58,18 +67,15 @@ module.exports = class extends YeomanGenerator {
       }
     })
 
-    this.fs.copyTpl(
-      this.templatePath('COMPLEXITY.md'),
-      this.destinationPath(this.options.generateInto, 'COMPLEXITY.md'),
-      {
-        projectName: this.options.name,
-        author: {
-          name: this.options.authorName,
-          url: this.options.authorUrl
-        },
-        license: rootPkg.license
-      }
-    )
+    complexity.report.factory(this)
+      .then(report => {
+        this.fs.copyTpl(
+          this.templatePath('../complexity/templates/COMPLEXITY.erb.md'),
+          this.destinationPath(this.options.generateInto, 'COMPLEXITY.md'),
+          report
+        )
+      })
+      .catch(err => this.log(`Error: ${err}`))
 
     this.fs.copyTpl(
       this.templatePath('JSCS.md'),
