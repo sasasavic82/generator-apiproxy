@@ -1,4 +1,6 @@
 /* eslint scanjs-rules/call_write: "warn" */
+/* eslint node/no-unsupported-features: ["warn", {version: 4}] */
+/* eslint-env es6 */
 /* globals jasmine */
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
@@ -7,7 +9,7 @@ const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 const path = require('path')
 
-describe('apigee-apiproxy:app', () => {
+describe('apiproxy:app', () => {
   beforeEach(() => {
     jest.mock('npm-name', () => {
       return () => Promise.resolve(true)
@@ -29,8 +31,8 @@ describe('apigee-apiproxy:app', () => {
   })
 
   describe('when generating a new project,', () => {
-    path.basename = jest.fn(() => 'generator-apigee-apiproxy')
-    it('scaffolds a complete directory structure', (done) => {
+    path.basename = jest.fn(() => 'generator-apiproxy')
+    it('scaffolds a complete directory structure', async () => {
       const answers = {
         description: 'A node generator',
         homepage: 'http://yeoman.io',
@@ -54,11 +56,11 @@ describe('apigee-apiproxy:app', () => {
 
           assert.file('package.json')
           assert.jsonFileContent('package.json', {
-            name: 'generator-apigee-apiproxy',
+            name: 'generator-apiproxy',
             version: '0.0.0',
             description: answers.description,
             homepage: answers.homepage,
-            repository: 'yeoman/generator-apigee-apiproxy',
+            repository: 'yeoman/generator-apiproxy',
             author: {
               name: answers.authorName,
               email: answers.authorEmail,
@@ -70,15 +72,13 @@ describe('apigee-apiproxy:app', () => {
           })
 
           assert.file('README.md')
-          assert.fileContent('README.md', 'const generatorApigeeApiproxy = require(\'generator-apigee-apiproxy\');')
+          assert.fileContent('README.md', 'const generatorApiproxy = require(\'generator-apiproxy\');')
           assert.fileContent('README.md', '> A node generator')
-          assert.fileContent('README.md', '$ npm install --save generator-apigee-apiproxy')
+          assert.fileContent('README.md', '$ npm install --save generator-apiproxy')
           assert.fileContent('README.md', '© [The Yeoman Team](http://yeoman.io)')
-          assert.fileContent('README.md', '[travis-image]: https://travis-ci.org/yeoman/generator-apigee-apiproxy.svg?branch=master')
+          assert.fileContent('README.md', '[travis-image]: https://travis-ci.org/yeoman/generator-apiproxy.svg?branch=master')
           assert.fileContent('README.md', 'coveralls')
           assert.fileContent('.travis.yml', '| coveralls')
-
-          done()
         })
     })
   })

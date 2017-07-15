@@ -29,7 +29,7 @@
 >     * **Jenkins**: [Provision a Verizon service account in ADOM](https://atyourservice.verizon.com/ays?id=ays_kb_article&sys_id=327d5ccfdb886200025e59ffdf961927) to trigger Jenkins workflows (if you do not have an active Service Account already).
 >     * **SonarQube**: [On-board your API Proxy with OneSonarQube](https://devops.verizon.com/Helpdesk/SonarOnboarding.aspx) to trigger quality gateway analysis.
 >
-> ##### Thank you for using `generator-apigee-apiproxy` :smile:!
+> ##### Thank you for using `generator-apiproxy` :smile:!
 > ##### :heavy_minus_sign::x::heavy_minus_sign: _Delete this section before you push to your Git repository._ :heavy_minus_sign::x::heavy_minus_sign:
 
 ## Table of contents

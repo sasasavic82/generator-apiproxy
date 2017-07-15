@@ -70,7 +70,7 @@ members of the project's leadership.
 This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
 available at [http://contributor-covenant.org/version/1/4][version].
 
-[team-email-mailto]: mailto:gregory.jay.swindle@verizon.com?Subject=%5Bgenerator-apigee-apiproxy%5D%20Code%20of%20conduct%20concern
+[team-email-mailto]: mailto:gregory.jay.swindle@verizon.com?Subject=%5Bgenerator-apiproxy%5D%20Code%20of%20conduct%20concern
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/
-[team-issues-url]: https://github.com/gregswindle/generator-apigee-apiproxy/issues/new
+[team-issues-url]: https://github.com/gregswindle/generator-apiproxy/issues/new

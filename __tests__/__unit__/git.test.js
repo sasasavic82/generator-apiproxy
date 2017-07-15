@@ -5,7 +5,7 @@ const helpers = require('yeoman-test')
 const fs = require('fs')
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
-describe('apigee-apiproxy:git', () => {
+describe('apiproxy:git', () => {
   beforeEach(() => {
     jest.mock('git-remote-origin-url', () => {
       const url = 'git@github.com:talk-the-talk/mock-the-mock.git'
@@ -18,7 +18,7 @@ describe('apigee-apiproxy:git', () => {
   it('creates the git config files and initializes the repository', () => {
     return helpers.run(require.resolve('../../generators/git'))
       .withOptions({
-        repositoryPath: 'gregswindle/generator-apigee-apiproxy'
+        repositoryPath: 'gregswindle/generator-apiproxy'
       })
       .then(() => {
         assert.file('.gitignore')
@@ -30,7 +30,7 @@ describe('apigee-apiproxy:git', () => {
   it('respects --generate-into option', () => {
     return helpers.run(require.resolve('../../generators/git'))
       .withOptions({
-        repositoryPath: 'gregswindle/generator-apigee-apiproxy',
+        repositoryPath: 'gregswindle/generator-apiproxy',
         generateInto: 'other/'
       })
       .then(() => {

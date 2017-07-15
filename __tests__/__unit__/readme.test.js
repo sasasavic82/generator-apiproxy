@@ -4,7 +4,7 @@ const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
-describe('apigee-apiproxy:readme', () => {
+describe('apiproxy:readme', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/readme'))
     .withOptions({
       name: 'my-project',
@@ -32,7 +32,7 @@ describe('apigee-apiproxy:readme', () => {
   })
 })
 
-describe('apigee-apiproxy:readme for private repositories', () => {
+describe('apiproxy:readme for private repositories', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/readme'))
     .withOptions({
       name: 'my-project',
@@ -59,7 +59,7 @@ describe('apigee-apiproxy:readme for private repositories', () => {
   })
 })
 
-describe('apigee-apiproxy:readme --content', () => {
+describe('apiproxy:readme --content', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/readme'))
     .withOptions({
       name: 'my-project',
@@ -85,7 +85,7 @@ describe('apigee-apiproxy:readme --content', () => {
   })
 })
 
-describe('apigee-apiproxy:readme --no-coveralls', () => {
+describe('apiproxy:readme --no-coveralls', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/readme'))
     .withOptions({
       name: 'my-project',
@@ -106,7 +106,7 @@ describe('apigee-apiproxy:readme --no-coveralls', () => {
   })
 })
 
-describe('apigee-apiproxy:readme --generate-into', () => {
+describe('apiproxy:readme --generate-into', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/readme'))
     .withOptions({
       name: 'my-project',
@@ -134,7 +134,7 @@ describe('apigee-apiproxy:readme --generate-into', () => {
   })
 })
 
-describe('apigee-apiproxy:readme --content and --generate-into', () => {
+describe('apiproxy:readme --content and --generate-into', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/readme'))
     .withOptions({
       name: 'my-project',
@@ -161,7 +161,7 @@ describe('apigee-apiproxy:readme --content and --generate-into', () => {
   })
 })
 
-describe('apigee-apiproxy:readme --no-coveralls and --generate-into', () => {
+describe('apiproxy:readme --no-coveralls and --generate-into', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/readme'))
     .withOptions({
       name: 'my-project',

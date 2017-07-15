@@ -1,6 +1,6 @@
 # `ESLint` rules
 
-`generator-apigee-apiproxy` enforces the following code standards with `ESLint`.
+`generator-apiproxy` enforces the following code standards with `ESLint`.
 
 | Rule                                                             | Enforcement           |
 |------------------------------------------------------------------|-----------------------|

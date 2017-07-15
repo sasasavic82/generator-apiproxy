@@ -39,16 +39,16 @@ Sometimes an API Proxy requires policy enforcement that cannot be declared with 
 
 > **:mortar_board: When Javascript callouts are warrented: the [`cordova-contacts-swagger-api`][cc-swagger-api-url]**
 >
-> Adapting one interface to conform to another is a common use case that's appropriate for Javascript callouts. Check out the [`cordova-contacts-swagger-api`][cc-swagger-api-url] project--which was build with `generator-apigee-apiproxy`--as an example.
+> Adapting one interface to conform to another is a common use case that's appropriate for Javascript callouts. Check out the [`cordova-contacts-swagger-api`][cc-swagger-api-url] project--which was build with `generator-apiproxy`--as an example.
 
-The `apigee-apiproxy:jsc` sub-generator scaffolds these callouts.
+The `apiproxy:jsc` sub-generator scaffolds these callouts.
 
 ### 2.1 Create Javascript callout (`jsc`) source code and test stubs
 
 Open a Terminal and run:
 
 ```sh
-$ yo apigee-apiproxy:jsc foo-bar-lib
+$ yo apiproxy:jsc foo-bar-lib
 # Creates a callout stub and its spec (aka "test")
 # =>     lib/foo-bar-lib.js
 # =>     lib/__tests__/fooBarLib.test.js

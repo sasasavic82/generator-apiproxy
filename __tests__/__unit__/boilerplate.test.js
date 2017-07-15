@@ -4,7 +4,7 @@ const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
-describe('apigee-apiproxy:boilerplate', () => {
+describe('apiproxy:boilerplate', () => {
   beforeEach(() => {
     return helpers.run(require.resolve('../../generators/boilerplate'))
       .withOptions({
@@ -89,7 +89,7 @@ describe('apigee-apiproxy:boilerplate', () => {
   })
 })
 
-describe('apigee-apiproxy:boilerplate --generate-into', () => {
+describe('apiproxy:boilerplate --generate-into', () => {
   beforeEach(() => {
     return helpers.run(require.resolve('../../generators/boilerplate'))
       .withOptions({name: 'my-module', generateInto: 'other/'})

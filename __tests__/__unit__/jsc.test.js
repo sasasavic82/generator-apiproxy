@@ -4,7 +4,7 @@ const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
-describe('apigee-apiproxy:jsc', () => {
+describe('apiproxy:jsc', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/jsc'))
     .withArguments([
       'someSidebar'
@@ -22,7 +22,7 @@ describe('apigee-apiproxy:jsc', () => {
   })
 })
 
-describe('apigee-apiproxy:jsc --generate-into', () => {
+describe('apiproxy:jsc --generate-into', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/jsc'))
     .withArguments([
       'another-sidebar'

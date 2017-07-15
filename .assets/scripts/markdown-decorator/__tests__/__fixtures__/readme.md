@@ -1,4 +1,4 @@
-#  `generator-apigee-apiproxy`
+#  `generator-apiproxy`
 
 ## Table of contents
 
@@ -8,14 +8,14 @@
 - [2. Usage](#2-usage)
   * [2.1. Generate a new API Proxy project](#21-generate-a-new-api-proxy-project)
   * [2.2. Sub-generators](#22-sub-generators)
-    + [2.2.1. `apigee-apiproxy:boilerplate` sub-generator](#221-apigee-apiproxyboilerplate-sub-generator)
-    + [2.2.2. `apigee-apiproxy:cli` sub-generator](#222-apigee-apiproxycli-sub-generator)
-    + [2.2.3. `apigee-apiproxy:editorconfig` sub-generator](#223-apigee-apiproxyeditorconfig-sub-generator)
-    + [2.2.4. `apigee-apiproxy:eslint` sub-generator](#224-apigee-apiproxyeslint-sub-generator)
-    + [2.2.5. `apigee-apiproxy:git` sub-generator](#225-apigee-apiproxygit-sub-generator)
-    + [2.2.6. `apigee-apiproxy:jsc` sub-generator](#226-apigee-apiproxyjsc-sub-generator)
-    + [2.2.7. `apigee-apiproxy:nsp` sub-generator](#227-apigee-apiproxynsp-sub-generator)
-    + [2.2.8. `apigee-apiproxy:readme` sub-generator](#228-apigee-apiproxyreadme-sub-generator)
+    + [2.2.1. `apiproxy:boilerplate` sub-generator](#221-apigee-apiproxyboilerplate-sub-generator)
+    + [2.2.2. `apiproxy:cli` sub-generator](#222-apigee-apiproxycli-sub-generator)
+    + [2.2.3. `apiproxy:editorconfig` sub-generator](#223-apigee-apiproxyeditorconfig-sub-generator)
+    + [2.2.4. `apiproxy:eslint` sub-generator](#224-apigee-apiproxyeslint-sub-generator)
+    + [2.2.5. `apiproxy:git` sub-generator](#225-apigee-apiproxygit-sub-generator)
+    + [2.2.6. `apiproxy:jsc` sub-generator](#226-apigee-apiproxyjsc-sub-generator)
+    + [2.2.7. `apiproxy:nsp` sub-generator](#227-apigee-apiproxynsp-sub-generator)
+    + [2.2.8. `apiproxy:readme` sub-generator](#228-apigee-apiproxyreadme-sub-generator)
 - [3. Automating API Proxy CI/CD workflows](#3-automating-api-proxy-cicd-workflows)
   * [3.1. **Design** your API with Swagger UI](#31-design-your-api-with-swagger-ui)
   * [3.2. **Build**, **lint**, **test**, **document**, and **push** to Git](#32-build-lint-test-document-and-push-to-git)
@@ -29,7 +29,7 @@
     + [4.4.1. Only generate OpenAPI/Swagger docs](#441-only-generate-openapiswagger-docs)
     + [4.4.2. Only generate `jsc` API docs and complexity reports](#442-only-generate-jsc-api-docs-and-complexity-reports)
 - [5. Release management automation](#5-release-management-automation)
-- [6. Contributing to `generator-apigee-apiproxy`](#6-contributing-to-generator-apigee-apiproxy)
+- [6. Contributing to `generator-apiproxy`](#6-contributing-to-generator-apiproxy)
 - [7. License](#7-license)
 
 <!-- tocstop -->
@@ -38,19 +38,19 @@
 
 ## 1. Installation
 
-To install `generator-apigee-apiproxy`, open a terminal and run:
+To install `generator-apiproxy`, open a terminal and run:
 
 ```bash
 
-$ npm install generator-apigee-apiproxy --global
+$ npm install generator-apiproxy --global
 ```
 
 ## 2. Usage
 
-> :information_source: `generator-apigee-apiproxy` will generate files in the current working directory, so be sure to change to a new directory first if you don't want to overwrite existing files.
+> :information_source: `generator-apiproxy` will generate files in the current working directory, so be sure to change to a new directory first if you don't want to overwrite existing files.
 
-`generator-apigee-apiproxy` supports CD workflows that can be executed in a command-line interface.
+`generator-apiproxy` supports CD workflows that can be executed in a command-line interface.
 
 ## 3. Version and CHANGELOG
 
-`generator-apigee-apiproxy`'s latest version is <!-- semver --><!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.
+`generator-apiproxy`'s latest version is <!-- semver --><!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.

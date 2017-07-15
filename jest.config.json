@@ -1,5 +1,5 @@
 {
-  "name": "generator-apigee-apiproxy",
+  "name": "generator-apiproxy",
   "automock": false,
   "collectCoverage": true,
   "coverageDirectory": "./coverage",

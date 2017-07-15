@@ -1,4 +1,4 @@
-# Contributing to `generator-apigee-apiproxy`
+# Contributing to `generator-apiproxy`
 > [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] Contributions are stories with a beginning, a middle, and an end, all told through issues, comments, commit logs, and pull requests.
 
 ## 1. Table of contents
@@ -253,12 +253,12 @@ test(<scope>): <subject>
 ```
 
 ## 6. Development
-`generator-apigee-apiproxy` is dedicated to enabling best practices. It is therefore crucial that the generator itself follows strong engineering standards to assure quality and performance.
+`generator-apiproxy` is dedicated to enabling best practices. It is therefore crucial that the generator itself follows strong engineering standards to assure quality and performance.
 
 ### 6.1. Code standards
 
 ESLint evaluates Javascript code standards before each test run with the `npm-script pretest`.
-Heres' a [table of `generator-apigee-apiproxy's` ESLint rules][eslint-rules-table-url] and their enforcement.
+Heres' a [table of `generator-apiproxy's` ESLint rules][eslint-rules-table-url] and their enforcement.
 
 ### 6.2. Testing
 
@@ -287,8 +287,8 @@ Thank you for contributing, and welcome to the community!
 [commitplease-url]: https://www.npmjs.com/package/commitplease
 [eslint-rules-table-url]: ESLINT_RULES.md
 [git-commit-guidelines-url]: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit
-[issues-new-url]: https://github.com/gregswindle/generator-apigee-apiproxy/issues/new
-[issues-url]: https://github.com/gregswindle/generator-apigee-apiproxy/issues
+[issues-new-url]: https://github.com/gregswindle/generator-apiproxy/issues/new
+[issues-url]: https://github.com/gregswindle/generator-apiproxy/issues
 [label-status-available-url]: ../labels/Status%3A%20Available
 [lint-software-url]: https://en.wikipedia.org/wiki/Lint_(software)
 [makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
@@ -296,5 +296,5 @@ Thank you for contributing, and welcome to the community!
 [new-issue-url]: https://oneconfluence.verizon.com/x/So_PCw
 [php-codesniffer-url]: https://github.com/squizlabs/ESLint
 [pr-course-url]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
-[pr-url]: https://github.com/gregswindle/generator-apigee-apiproxy/pulls
+[pr-url]: https://github.com/gregswindle/generator-apiproxy/pulls
 [standard-version-url]: https://github.com/conventional-changelog/standard-version

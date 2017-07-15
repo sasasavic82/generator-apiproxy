@@ -1,15 +1,15 @@
 {
-  "name": "generator-apigee-apiproxy",
+  "name": "generator-apiproxy",
   "version": "0.0.0",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "description": "Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.",
-  "homepage": "https://github.com/gregswindle/generator-apigee-apiproxy",
+  "homepage": "https://github.com/gregswindle/generator-apiproxy",
   "author": {
     "name": "Swindle, Gregory Jay (Greg)",
     "email": "gregory.jay.swindle@verizon.com",
     "url": "https://github.com/gregswindle"
-  },
-  "engines": {
-    "node": ">=4.0.0"
   },
   "files": [
     "generators"
@@ -113,7 +113,7 @@
       "node": true
     }
   },
-  "repository": "https://github.com/gregswindle/generator-apigee-apiproxy.git",
+  "repository": "https://github.com/gregswindle/generator-apiproxy.git",
   "license": "Apache-2.0",
   "commitplease": {
     "style": "angular",

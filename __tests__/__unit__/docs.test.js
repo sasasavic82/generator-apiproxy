@@ -5,7 +5,7 @@ const rootPkg = require('../../package.json')
 const path = require('path')
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
-describe('apigee-apiproxy:docs', () => {
+describe('apiproxy:docs', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/docs'))
     .withOptions({
       name: 'oneapi-testproxy-lcov',

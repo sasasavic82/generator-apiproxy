@@ -345,9 +345,9 @@ rules:
       - glob-promise
       - escomplex
   node/no-unsupported-features:
-    - error
-    - version: 4
-      ignores: []
+  - error
+  - version: 4
+    ignores: []
   node/process-exit-as-throw: error
   node/shebang: error
   promise/param-names: error

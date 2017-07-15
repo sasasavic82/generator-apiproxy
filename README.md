@@ -1,10 +1,10 @@
-#  `generator-apigee-apiproxy`
+#  `generator-apiproxy`
 
 [![Build Status][travis-image]][travis-url] [![Windows Build Status][appveyor-img]][appveyor-url] [![Test Coverage][coveralls-img]][coveralls-url] [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url] [![Readme Score][readme-score-img]][readme-score-url]
 
 > ![Swagger logo][swagger-logo-20-img] Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.
 
-`generator-apigee-apiproxy` creates a base template to start a new API Proxy with optional tools for custom Javascript callouts. It generates a repeatable, testable, and measurable workflow that lets you focus on innovation without sacrificing quality or extensibility.
+`generator-apiproxy` creates a base template to start a new API Proxy with optional tools for custom Javascript callouts. It generates a repeatable, testable, and measurable workflow that lets you focus on innovation without sacrificing quality or extensibility.
 
 ## Table of contents
 
@@ -14,14 +14,14 @@
 - [2. Usage](#2-usage)
   * [2.1. Generate a new API Proxy project](#21-generate-a-new-api-proxy-project)
   * [2.2. Sub-generators](#22-sub-generators)
-    + [2.2.1. `apigee-apiproxy:boilerplate` sub-generator](#221-apigee-apiproxyboilerplate-sub-generator)
-    + [2.2.2. `apigee-apiproxy:cli` sub-generator](#222-apigee-apiproxycli-sub-generator)
-    + [2.2.3. `apigee-apiproxy:editorconfig` sub-generator](#223-apigee-apiproxyeditorconfig-sub-generator)
-    + [2.2.4. `apigee-apiproxy:eslint` sub-generator](#224-apigee-apiproxyeslint-sub-generator)
-    + [2.2.5. `apigee-apiproxy:git` sub-generator](#225-apigee-apiproxygit-sub-generator)
-    + [2.2.6. `apigee-apiproxy:jsc` sub-generator](#226-apigee-apiproxyjsc-sub-generator)
-    + [2.2.7. `apigee-apiproxy:nsp` sub-generator](#227-apigee-apiproxynsp-sub-generator)
-    + [2.2.8. `apigee-apiproxy:readme` sub-generator](#228-apigee-apiproxyreadme-sub-generator)
+    + [2.2.1. `apiproxy:boilerplate` sub-generator](#221-apigee-apiproxyboilerplate-sub-generator)
+    + [2.2.2. `apiproxy:cli` sub-generator](#222-apigee-apiproxycli-sub-generator)
+    + [2.2.3. `apiproxy:editorconfig` sub-generator](#223-apigee-apiproxyeditorconfig-sub-generator)
+    + [2.2.4. `apiproxy:eslint` sub-generator](#224-apigee-apiproxyeslint-sub-generator)
+    + [2.2.5. `apiproxy:git` sub-generator](#225-apigee-apiproxygit-sub-generator)
+    + [2.2.6. `apiproxy:jsc` sub-generator](#226-apigee-apiproxyjsc-sub-generator)
+    + [2.2.7. `apiproxy:nsp` sub-generator](#227-apigee-apiproxynsp-sub-generator)
+    + [2.2.8. `apiproxy:readme` sub-generator](#228-apigee-apiproxyreadme-sub-generator)
 - [3. Automating API Proxy CI/CD workflows](#3-automating-api-proxy-cicd-workflows)
   * [3.1. **Design** your API with Swagger UI](#31-design-your-api-with-swagger-ui)
   * [3.2. **Build**, **lint**, **test**, **document**, and **push** to Git](#32-build-lint-test-document-and-push-to-git)
@@ -35,7 +35,7 @@
     + [4.4.1. Only generate OpenAPI/Swagger docs](#441-only-generate-openapiswagger-docs)
     + [4.4.2. Only generate `jsc` API docs and complexity reports](#442-only-generate-jsc-api-docs-and-complexity-reports)
 - [5. Release management automation](#5-release-management-automation)
-- [6. Contributing to `generator-apigee-apiproxy`](#6-contributing-to-generator-apigee-apiproxy)
+- [6. Contributing to `generator-apiproxy`](#6-contributing-to-generator-apiproxy)
 - [7. Version and CHANGELOG](#7-version-and-changelog)
 - [8. License](#8-license)
 
@@ -45,18 +45,18 @@
 
 ## 1. Installation
 
-To install `generator-apigee-apiproxy`, open a terminal and run:
+To install `generator-apiproxy`, open a terminal and run:
 
 ```bash
 
-$ npm install generator-apigee-apiproxy --global
+$ npm install generator-apiproxy --global
 ```
 
 ## 2. Usage
 
-> :information_source: `generator-apigee-apiproxy` will generate files in the current working directory, so be sure to change to a new directory first if you don't want to overwrite existing files.
+> :information_source: `generator-apiproxy` will generate files in the current working directory, so be sure to change to a new directory first if you don't want to overwrite existing files.
 
-`generator-apigee-apiproxy` supports CD workflows that can be executed in a command-line interface.
+`generator-apiproxy` supports CD workflows that can be executed in a command-line interface.
 
 ### 2.1. Generate a new API Proxy project
 
@@ -89,25 +89,25 @@ these sub-generators directly.
 >
 > ```sh
 > # View usage help for a sub-generator
-> $ yo apigee-apiproxy:<sub-generator-name> --help
+> $ yo apiproxy:<sub-generator-name> --help
 > ```
 
-* **`apigee-apiproxy:boilerplate`** Generate common directories and files.
-* **`apigee-apiproxy:cli`** Generate a `lib/cli.js` executable.
-* **`apigee-apiproxy:editorconfig`** Generate an `.editorconfig` file.
-* **`apigee-apiproxy:eslint`** Add ESLint with a standard configuration for code quality and vulnerability inspection.
-* **`apigee-apiproxy:git`** Add `.gitattributes` and `.gitignore` files. (`.gitignore` provides common patterns for Javascript _and_ Java projects.)
-* **`apigee-apiproxy:jsc`** Stub a Javascript callout and its `jest` test.
-* **`apigee-apiproxy:nsp`** Add the Node Security Program's `nsp` module to check for known Node.js vulnerabilities.
-* **`apigee-apiproxy:readme`** Add are README.md to your repository's root.
+* **`apiproxy:boilerplate`** Generate common directories and files.
+* **`apiproxy:cli`** Generate a `lib/cli.js` executable.
+* **`apiproxy:editorconfig`** Generate an `.editorconfig` file.
+* **`apiproxy:eslint`** Add ESLint with a standard configuration for code quality and vulnerability inspection.
+* **`apiproxy:git`** Add `.gitattributes` and `.gitignore` files. (`.gitignore` provides common patterns for Javascript _and_ Java projects.)
+* **`apiproxy:jsc`** Stub a Javascript callout and its `jest` test.
+* **`apiproxy:nsp`** Add the Node Security Program's `nsp` module to check for known Node.js vulnerabilities.
+* **`apiproxy:readme`** Add are README.md to your repository's root.
 
-#### 2.2.1. `apigee-apiproxy:boilerplate` sub-generator
+#### 2.2.1. `apiproxy:boilerplate` sub-generator
 
 Generate common directories and files to facilitate team communication and standardize your CI/CD workflows:
 
 ```bash
 
-$ yo apigee-apiproxy:boilerplate
+$ yo apiproxy:boilerplate
 # => create package.json
 # => create jest.config.json
 # => create sonar-project.properties
@@ -135,11 +135,11 @@ $ npm install
 
 > **:bulb: Don't forget to run `npm install`!**
 
-#### 2.2.2. `apigee-apiproxy:cli` sub-generator
+#### 2.2.2. `apiproxy:cli` sub-generator
 
 This feature has not been implemented yet, but it is available for development.
 
-#### 2.2.3. `apigee-apiproxy:editorconfig` sub-generator
+#### 2.2.3. `apiproxy:editorconfig` sub-generator
 
 > :speech_balloon: [EditorConfig][editorconfig-url] helps developers define and maintain
 > consistent coding styles between different editors and IDEs. The EditorConfig
@@ -154,18 +154,18 @@ This feature has not been implemented yet, but it is available for development.
 
 ```bash
 # Run this from your project's root directory
-$ yo apigee-apiproxy:editorconfig
+$ yo apiproxy:editorconfig
 # => create .editorconfig
 ```
 
-#### 2.2.4. `apigee-apiproxy:eslint` sub-generator
+#### 2.2.4. `apiproxy:eslint` sub-generator
 
 [ESLint][eslint-github-url] is a configurable [linting][lint-def-url] utility
 that evaluates Javascript and JSX for code standards compliance and best
 practices. ESLint enjoys a wealth of plugins that also analyze source code for
 potential security vulnerabilities.
 
-The `apigee-apiproxy:eslint` sub-generator
+The `apiproxy:eslint` sub-generator
 
 * Updates your project's `package.json`'s `devDependencies` with:
     * [`eslint-plugin-json`](https://github.com/sindresorhus/eslint-json): Reports invalid JSON
@@ -181,7 +181,7 @@ The `apigee-apiproxy:eslint` sub-generator
 **Add ESLint to your project:**
 
 ```bash
-$ yo apigee-apiproxy:eslint
+$ yo apiproxy:eslint
 # =>  create .eslintignore
 # => create .eslintrc.yml
 
@@ -191,7 +191,7 @@ $ npm i
 
 > **:bulb: Don't forget to run `npm install`!**
 
-#### 2.2.5. `apigee-apiproxy:git` sub-generator
+#### 2.2.5. `apiproxy:git` sub-generator
 
 Avoid accidentally pushing unnecessary Node.js and Java files to your Git repository
 with a `.gitignore` file created on [.gitignore.io](https://www.gitignore.io/api/node,java,java-web,code-java).
@@ -199,12 +199,12 @@ with a `.gitignore` file created on [.gitignore.io](https://www.gitignore.io/api
 **Add `.gitignore` and `.gitattributes` files to your project:**
 
 ```bash
-$ yo apigee-apiproxy:git
+$ yo apiproxy:git
 # => create .gitattributes
 # => create .gitignore
 ```
 
-#### 2.2.6. `apigee-apiproxy:jsc` sub-generator
+#### 2.2.6. `apiproxy:jsc` sub-generator
 
 Apigee lets you add custom JavaScript code that executes within the context of
 an API proxy flow. In your custom JavaScript code, you can use the objects,
@@ -218,13 +218,13 @@ basic cryptographic functions that are provided with the object model.
 ```bash
 
 # Add a Javascript callout and test stubs
-$ yo apigee-apiproxy:jsc foo-bar-lib
+$ yo apiproxy:jsc foo-bar-lib
 # => create lib/foo-bar-lib.js
 # => create lib/__tests__/fooBarLib.test.js
 
 ```
 
-#### 2.2.7. `apigee-apiproxy:nsp` sub-generator
+#### 2.2.7. `apiproxy:nsp` sub-generator
 
 The Node Security Platform provides continuous security monitoring for Node.js
 applications. These checks also integrate into your GitHub pull request flows.
@@ -232,7 +232,7 @@ applications. These checks also integrate into your GitHub pull request flows.
 **Add Node Security Program checks to your project:**
 
 ```bash
-$ yo apigee-apiproxy:nsp
+$ yo apiproxy:nsp
 # => force package.json
 
 # Install the nsp tools
@@ -241,7 +241,7 @@ $ npm install
 
 > **:bulb: Don't forget to run `npm install`!**
 
-#### 2.2.8. `apigee-apiproxy:readme` sub-generator
+#### 2.2.8. `apiproxy:readme` sub-generator
 
 Your repository's "home page" is the README.md file. A good README helps attract
 new consumers as well as new contributors. Consequently, this sub-generator's
@@ -253,7 +253,7 @@ your copy.
 
 ```bash
 # Create a README.md (a repository home page)
-$ yo apigee-apiproxy:readme
+$ yo apiproxy:readme
 // => create README.md
 
 ```
@@ -261,7 +261,7 @@ $ yo apigee-apiproxy:readme
 
 ```bash
 # Create documentation
-$ yo apigee-apiproxy:docs
+$ yo apiproxy:docs
 // => create package.json
 // => create docs/COMPLEXITY.md
 // => create docs/JSCS.md
@@ -273,7 +273,7 @@ $ yo apigee-apiproxy:docs
 
 ```bash
 # Add code quality and security analysis for Javascript callouts
-$ yo apigee-apiproxy:eslint
+$ yo apiproxy:eslint
 // => create .eslintignore
 // => create .eslintrc.yml
 
@@ -281,7 +281,7 @@ $ yo apigee-apiproxy:eslint
 
 ## 3. Automating API Proxy CI/CD workflows
 
-Projects created with `generator-apigee-apiproxy` include `npm-scripts` that
+Projects created with `generator-apiproxy` include `npm-scripts` that
 facilitate automated API Proxy design, builds, linting, testing, documentation,
 version control, semantic versioning, CHANGELOG generation, packaging, and deployment
 to Apigee EDGE.
@@ -361,10 +361,10 @@ This not only generates `apiproxy` artifacts, but also deploys to an Apigee EDGE
 
 ## 4. Quality gates, reports, and documentation
 
-`generator-apigee-apiproxy` creates a consistent repository with tools that enforce Swagger quality; Javascript quality; and Javascript unit tests and code coverage.
+`generator-apiproxy` creates a consistent repository with tools that enforce Swagger quality; Javascript quality; and Javascript unit tests and code coverage.
 
 ### 4.1. **Validate** Swagger documentation
-> :trophy: `generator-apigee-apiproxy` validates Swagger docs with [`swagger-cli`][swagger-cli-url].
+> :trophy: `generator-apiproxy` validates Swagger docs with [`swagger-cli`][swagger-cli-url].
 
 [`swagger-cli`][swagger-cli-url] validation runs before every test execution:
 
@@ -377,11 +377,11 @@ $ npm test
 [`swagger-api/validator-badge`](https://github.com/swagger-api/validator-badge)s display whether there are syntactic issues with you Swagger/OpenAPI 2.0 document:
 
 * **Valid:** [![Swagger Validity][swagger-validity-img]][swagger-validity-url] `cordova-contacts.swagger.yaml`
-* **Invalid:** [![Swagger Validity](https://img.shields.io/swagger/valid/2.0/http/api.swindle.net/cordova/v6/contacts/openapi.md.svg)](http://online.swagger.io/validator/debug?url=https://raw.githubusercontent.com/gregswindle/generator-apigee-apiproxy/master/README.md)
+* **Invalid:** [![Swagger Validity](https://img.shields.io/swagger/valid/2.0/http/api.swindle.net/cordova/v6/contacts/openapi.md.svg)](http://online.swagger.io/validator/debug?url=https://raw.githubusercontent.com/gregswindle/generator-apiproxy/master/README.md)
 
 
 ### 4.2. **Analyze** Javascript callout source code
-> :closed_lock_with_key: :bath: :ocean: `generator-apigee-apiproxy` lints source code; checks for vulnerabilities; assesses dependency drift; and executes quality gates with `BitHound`, `eslint`, `nsp`, and `SonarQube`/`sonarcloud`.
+> :closed_lock_with_key: :bath: :ocean: `generator-apiproxy` lints source code; checks for vulnerabilities; assesses dependency drift; and executes quality gates with `BitHound`, `eslint`, `nsp`, and `SonarQube`/`sonarcloud`.
 >
 > The results are displayed real-time with README badges.
 
@@ -402,7 +402,7 @@ $ npm run eslint:html
 ```
 
 ### 4.3. **Test** Javascript callouts
-> :100: `generator-apigee-apiproxy` uses `jest` for BDD spec execution and code coverage analysis.
+> :100: `generator-apiproxy` uses `jest` for BDD spec execution and code coverage analysis.
 >
 > The results are displayed real-time with README badges.
 
@@ -421,7 +421,7 @@ This generates:
 * Static markdown API documentation with complexity reports in the `docs/` directory.
 
 ### 4.4. **Generate** API documentation and complexity reports
-> :page_facing_up: `generator-apigee-apiproxy` comes with [`jsdoc-to-markdown`][jsdoc2md-url], [`complexity-report`][complexity-report-url], and [`swagger-markdown`][swagger-markdown-url] that generate static markdown documentation.
+> :page_facing_up: `generator-apiproxy` comes with [`jsdoc-to-markdown`][jsdoc2md-url], [`complexity-report`][complexity-report-url], and [`swagger-markdown`][swagger-markdown-url] that generate static markdown documentation.
 
 To generate API docs, Swagger docs, and complexity reports in the `docs` directory, run:
 
@@ -459,7 +459,7 @@ $ npm run docs:jsdoc2md --  --partial .assets/jsdoc2md/*.hbs --files lib/*.js > 
 
 ## 5. Release management automation
 
-If you and your team write commit messages that comply with the the Conventional Commit Message Specification, `generator-apigee-apiproxy` can use `standard-version` to automate
+If you and your team write commit messages that comply with the the Conventional Commit Message Specification, `generator-apiproxy` can use `standard-version` to automate
 
 * Semantic versioning (with Git tags), and
 * CHANGELOG generation
@@ -472,11 +472,11 @@ $ npm run release
 
 ```
 
-## 6. Contributing to `generator-apigee-apiproxy`
+## 6. Contributing to `generator-apiproxy`
 
 [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] We welcome contributors and pull requests. Check out the guidelines for
 
-* [Contributing to `generator-apigee-apiproxy`](./.github/CONTRIBUTING.md) and our
+* [Contributing to `generator-apiproxy`](./.github/CONTRIBUTING.md) and our
 * [Contributor Covenant Code of Conduct][code-of-conduct-url].
 
 Contributions are stories with a beginning, a middle, and an end, all told through issues, comments, commit logs, and pull requests.
@@ -486,7 +486,7 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 ## 7. Version and CHANGELOG
 
-`generator-apigee-apiproxy`'s latest version is <!-- semver -->[`v0.0.0`][changelog-url]<!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.
+`generator-apiproxy`'s latest version is <!-- semver -->[`v0.0.0`][changelog-url]<!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.
 
 ## 8. License
 
@@ -498,60 +498,60 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 
 
-[api-docs-url]: https://github.com/gregswindle/generator-apigee-apiproxy/docs/API.md
+[api-docs-url]: https://github.com/gregswindle/generator-apiproxy/docs/API.md
 [apigee-edge-js-url]: http://docs.apigee.com/api-services/reference/javascript-object-model
 [appveyor-img]: https://ci.appveyor.com/api/projects/status/soifv1lpkf5lxppg/branch/master?svg=true
-[appveyor-url]: https://ci.appveyor.com/project/gregswindle/generator-apigee-apiproxy/branch/master
+[appveyor-url]: https://ci.appveyor.com/project/gregswindle/generator-apiproxy/branch/master
 [author-url]: https://github.com/gregswindle
-[changelog-url]: https://github.com/gregswindle/generator-apigee-apiproxy/CHANGELOG.md
+[changelog-url]: https://github.com/gregswindle/generator-apiproxy/CHANGELOG.md
 [codacy-img]: https://api.codacy.com/project/badge/Grade/fa4ade3f68a04b9cad26165a59ceb88e
-[codacy-url]: https://www.codacy.com/app/greg_7/generator-apigee-apiproxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gregswindle/generator-apigee-apiproxy&amp;utm_campaign=Badge_Grade
+[codacy-url]: https://www.codacy.com/app/greg_7/generator-apiproxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gregswindle/generator-apiproxy&amp;utm_campaign=Badge_Grade
 [code-of-conduct-url]: ./.github/CODE_OF_CONDUCT.md
 [complexity-report-url]: https://github.com/escomplex/complexity-report
-[coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apigee-apiproxy/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/github/gregswindle/generator-apigee-apiproxy?branch=master
-[coveralls-url]: https://coveralls.io/r/gregswindle/generator-apigee-apiproxy
-[daviddm-dev-image]: https://david-dm.org/gregswindle/generator-apigee-apiproxy/dev-status.svg
-[daviddm-dev-url]: https://david-dm.org/gregswindle/generator-apigee-apiproxy?type=dev
-[daviddm-image]: https://david-dm.org/gregswindle/generator-apigee-apiproxy.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/gregswindle/generator-apigee-apiproxy
+[coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apiproxy/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/gregswindle/generator-apiproxy?branch=master
+[coveralls-url]: https://coveralls.io/r/gregswindle/generator-apiproxy
+[daviddm-dev-image]: https://david-dm.org/gregswindle/generator-apiproxy/dev-status.svg
+[daviddm-dev-url]: https://david-dm.org/gregswindle/generator-apiproxy?type=dev
+[daviddm-image]: https://david-dm.org/gregswindle/generator-apiproxy.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/gregswindle/generator-apiproxy
 [editorconfig-url]: http://editorconfig.org/
 [eslint-github-url]: https://github.com/eslint/eslint
-[fossa-image]: https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy.svg?type=shield
-[fossa-url]: https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy?ref=badge_shield
-[greenkeeper-img]: https://badges.greenkeeper.io/gregswindle/generator-apigee-apiproxy.svg?style=flat-square
+[fossa-image]: https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apiproxy.svg?type=shield
+[fossa-url]: https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apiproxy?ref=badge_shield
+[greenkeeper-img]: https://badges.greenkeeper.io/gregswindle/generator-apiproxy.svg?style=flat-square
 [greenkeeper-url]: https://greenkeeper.io/
-[issues-url]: https://github.com/gregswindle/generator-apigee-apiproxy/issues
+[issues-url]: https://github.com/gregswindle/generator-apiproxy/issues
 [jsdoc2md-url]: https://github.com/jsdoc2md/jsdoc-to-markdown
 [license-image]: https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat
 [license-url]: ./LICENSE
 [lint-def-url]: https://en.wikipedia.org/wiki/Lint_(software)
 [makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat
 [makeapullrequest-url]: http://makeapullrequest.com
-[npm-image]: https://badge.fury.io/js/generator-apigee-apiproxy.svg
-[npm-url]: https://npmjs.org/package/generator-apigee-apiproxy
+[npm-image]: https://badge.fury.io/js/generator-apiproxy.svg
+[npm-url]: https://npmjs.org/package/generator-apiproxy
 [nsp-img]: https://nodesecurity.io/orgs/gregswindle/projects/a3912719-529f-457f-9ff6-53fa70d8f475/badge
 [nsp-url]: https://nodesecurity.io/orgs/gregswindle/projects/a3912719-529f-457f-9ff6-53fa70d8f475
-[pr-url]: https://github.com/gregswindle/generator-apigee-apiproxy/pulls
-[readme-score-img]: http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/gregswindle/generator-apigee-apiproxy
-[readme-score-url]: http://clayallsopp.github.io/readme-score?url=https://github.com/gregswindle/generator-apigee-apiproxy
+[pr-url]: https://github.com/gregswindle/generator-apiproxy/pulls
+[readme-score-img]: http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/gregswindle/generator-apiproxy
+[readme-score-url]: http://clayallsopp.github.io/readme-score?url=https://github.com/gregswindle/generator-apiproxy
 [scoreme-url]: http://clayallsopp.github.io/readme-score/
-[sonar-cognitive-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=cognitive_complexity
-[sonar-cognitive-url]: https://sonarcloud.io/component_measures/metric/cognitive_complexity/list?id=gregswindle-generator-apigee-apiproxy
-[sonar-complexity-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=function_complexity
-[sonar-complexity-url]: https://sonarcloud.io/component_measures/domain/Complexity?id=gregswindle-generator-apigee-apiproxy
-[sonar-coverage-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=coverage
-[sonar-coverage-url]: https://sonarcloud.io/component_measures/domain/Coverage?id=gregswindle-generator-apigee-apiproxy
-[sonar-gate-img]: http://sonarcloud.io/api/badges/gate?key=gregswindle-generator-apigee-apiproxy
-[sonar-gate-url]: http://sonarcloud.io/dashboard/index/gregswindle-generator-apigee-apiproxy
-[sonar-tech-debt-img]:  https://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apigee-apiproxy&metric=sqale_debt_ratio
-[sonar-tech-debt-url]: https://sonarcloud.io/component_measures/metric/sqale_index/list?id=gregswindle-generator-apigee-apiproxy
+[sonar-cognitive-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apiproxy&metric=cognitive_complexity
+[sonar-cognitive-url]: https://sonarcloud.io/component_measures/metric/cognitive_complexity/list?id=gregswindle-generator-apiproxy
+[sonar-complexity-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apiproxy&metric=function_complexity
+[sonar-complexity-url]: https://sonarcloud.io/component_measures/domain/Complexity?id=gregswindle-generator-apiproxy
+[sonar-coverage-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apiproxy&metric=coverage
+[sonar-coverage-url]: https://sonarcloud.io/component_measures/domain/Coverage?id=gregswindle-generator-apiproxy
+[sonar-gate-img]: http://sonarcloud.io/api/badges/gate?key=gregswindle-generator-apiproxy
+[sonar-gate-url]: http://sonarcloud.io/dashboard/index/gregswindle-generator-apiproxy
+[sonar-tech-debt-img]:  https://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apiproxy&metric=sqale_debt_ratio
+[sonar-tech-debt-url]: https://sonarcloud.io/component_measures/metric/sqale_index/list?id=gregswindle-generator-apiproxy
 [swagger-cli-url]: https://github.com/BigstickCarpet/swagger-cli
 [swagger-logo-20-img]: ./.assets/media/img/swagger-logo-20.png
 [swagger-markdown-url]: https://github.com/syroegkin/swagger-markdown
 [swagger-validity-img]: https://img.shields.io/swagger/valid/2.0/http/api.swindle.net/cordova/v6/contacts/openapi.json.svg
 [swagger-validity-url]: http://online.swagger.io/validator/debug?url=http://api.swindle.net/cordova/v6/contacts/openapi.json
-[travis-image]: https://travis-ci.org/gregswindle/generator-apigee-apiproxy.svg?branch=master
-[travis-image]: https://travis-ci.org/gregswindle/generator-apigee-apiproxy.svg?branch=master
-[travis-url]:  https://travis-ci.org/gregswindle/generator-apigee-apiproxy
-[travis-url]: https://travis-ci.org/gregswindle/generator-apigee-apiproxy
+[travis-image]: https://travis-ci.org/gregswindle/generator-apiproxy.svg?branch=master
+[travis-image]: https://travis-ci.org/gregswindle/generator-apiproxy.svg?branch=master
+[travis-url]:  https://travis-ci.org/gregswindle/generator-apiproxy
+[travis-url]: https://travis-ci.org/gregswindle/generator-apiproxy
