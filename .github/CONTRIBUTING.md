@@ -23,6 +23,7 @@
 - [6. Development](#6-development)
 	- [6.1. Code standards](#61-code-standards)
 	- [6.2. Testing](#62-testing)
+- [7. Contributors](#7-contributors)
 
 <!-- /TOC -->
 
@@ -274,11 +275,21 @@ $ npm test
 
 ```
 
+## 7. Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| [<img src="https://avatars3.githubusercontent.com/u/6599333?v=4" width="100px;"/><br /><sub>rm-cortez</sub>](https://github.com/rm-cortez)<br />[👀](#review-rm-cortez "Reviewed Pull Requests") | [<img src="https://avatars2.githubusercontent.com/u/1043478?v=4" width="100px;"/><br /><sub>Spencer Hamm</sub>](http://spencerhamm.com)<br />[👀](#review-spentacular "Reviewed Pull Requests") |
+| :---: | :---: |
+| Reviewed Pull Requests | Reviewed Pull Requests |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 Thank you for contributing, and welcome to the community!
 
 ---
 
-2017, [Greg Swindle](mailto:gregory.jay.swindle@verizon.com).
+[![License][license-image]][license-url] © [Greg Swindle](mailto:gregory.jay.swindle@verizon.com).
 
 
 [bdd-url]: https://en.wikipedia.org/wiki/Behavior-driven_development
@@ -290,6 +301,8 @@ Thank you for contributing, and welcome to the community!
 [issues-new-url]: https://github.com/gregswindle/generator-apiproxy/issues/new
 [issues-url]: https://github.com/gregswindle/generator-apiproxy/issues
 [label-status-available-url]: ../labels/Status%3A%20Available
+[license-image]: https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat
+[license-url]: ../LICENSE
 [lint-software-url]: https://en.wikipedia.org/wiki/Lint_(software)
 [makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [makeapullrequest-url]: http://makeapullrequest.com

@@ -1,6 +1,6 @@
 #  `generator-apiproxy`
 
-[![Build Status][travis-image]][travis-url] [![Windows Build Status][appveyor-img]][appveyor-url] [![Test Coverage][coveralls-img]][coveralls-url] [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url] [![Readme Score][readme-score-img]][readme-score-url]
+[![Build Status][travis-image]][travis-url] [![Windows Build Status][appveyor-img]][appveyor-url] [![Test Coverage][coveralls-img]][coveralls-url] [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url]
 
 > ![Swagger logo][swagger-logo-20-img] Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.
 
@@ -484,6 +484,15 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
  * [Peruse open issues][issues-url] or
  * [Open a new pull request (PR)][pr-url]
 
+---
+
+ [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors) Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+ <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+ | [<img src="https://avatars3.githubusercontent.com/u/6599333?v=4" width="100px;"/><br /><sub>rm-cortez</sub>](https://github.com/rm-cortez)<br />[👀](#review-rm-cortez "Reviewed Pull Requests") | [<img src="https://avatars2.githubusercontent.com/u/1043478?v=4" width="100px;"/><br /><sub>Spencer Hamm</sub>](http://spencerhamm.com)<br />[👀](#review-spentacular "Reviewed Pull Requests") |
+ | :---: | :---: |
+ <!-- ALL-CONTRIBUTORS-LIST:END -->
+
 ## 7. Version and CHANGELOG
 
 `generator-apiproxy`'s latest version is <!-- semver -->[`v0.0.0`][changelog-url]<!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.
@@ -492,10 +501,11 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 [Apache-2.0][license-url] © [Greg Swindle][author-url]
 
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apiproxy.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apiproxy?ref=badge_large)
+
 ---
 
-[![License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url] [![Readme Score][readme-score-img]][readme-score-url] [![Greenkeeper][greenkeeper-img]][greenkeeper-url]
-
+[![License][license-image]][license-url] [![Readme Score][readme-score-img]][readme-score-url] [![Greenkeeper][greenkeeper-img]][greenkeeper-url]
 
 
 [api-docs-url]: https://github.com/gregswindle/generator-apiproxy/docs/API.md
@@ -508,8 +518,8 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [codacy-url]: https://www.codacy.com/app/greg_7/generator-apiproxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gregswindle/generator-apiproxy&amp;utm_campaign=Badge_Grade
 [code-of-conduct-url]: ./.github/CODE_OF_CONDUCT.md
 [complexity-report-url]: https://github.com/escomplex/complexity-report
-[coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apiproxy/badge.svg
-[coveralls-url]: https://coveralls.io/r/gregswindle/generator-apiproxy
+[coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apiproxy/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/r/gregswindle/generator-apiproxy?branch=master
 [daviddm-dev-image]: https://david-dm.org/gregswindle/generator-apiproxy/dev-status.svg
 [daviddm-dev-url]: https://david-dm.org/gregswindle/generator-apiproxy?type=dev
 [daviddm-image]: https://david-dm.org/gregswindle/generator-apiproxy.svg?theme=shields.io

@@ -1,0 +1,30 @@
+{
+  "projectName": "generator-apiproxy",
+  "projectOwner": "@gregswindle",
+  "files": [
+    "README.md",
+    ".github/CONTRIBUTING.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "rm-cortez",
+      "name": "rm-cortez",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6599333?v=4",
+      "profile": "https://github.com/rm-cortez",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "spentacular",
+      "name": "Spencer Hamm",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1043478?v=4",
+      "profile": "http://spencerhamm.com",
+      "contributions": [
+        "review"
+      ]
+    }
+  ]
+}
