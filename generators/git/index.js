@@ -18,10 +18,16 @@ module.exports = class extends YeomanGenerator {
       desc: 'Module name'
     })
 
-    this.option('github-account', {
+    this.option('scmAccount', {
       type: String,
       required: true,
-      desc: 'GitHub username or organization'
+      desc: 'Source control account name'
+    })
+
+    this.option('originUrl', {
+      type: String,
+      required: true,
+      desc: 'Git remote origin URL'
     })
   }
 
@@ -37,22 +43,16 @@ module.exports = class extends YeomanGenerator {
     )
 
     return originUrl(this.destinationPath(this.options.generateInto))
-      .then(function (url) {
-        this.originUrl = url
-      }.bind(this), function () {
-        this.originUrl = ''
-      }.bind(this))
+      .then(url => (this.originUrl = url))
+      .catch(() => {
+        this.originUrl = this.options.originUrl
+      })
   }
 
   writing () {
     this.pkg = this.fs.readJSON(this.destinationPath(this.options.generateInto, 'package.json'), {})
 
-    let repository = ''
-    if (this.originUrl) {
-      repository = this.originUrl
-    } else {
-      repository = this.options.githubAccount + '/' + this.options.name
-    }
+    let repository = this.originUrl
 
     this.pkg.repository = this.pkg.repository || repository
 
@@ -64,13 +64,9 @@ module.exports = class extends YeomanGenerator {
       cwd: this.destinationPath(this.options.generateInto)
     })
 
-    if (!this.originUrl) {
-      let repoSSH = this.pkg.repository
-      /* istanbul ignore else */
-      if (this.pkg.repository && this.pkg.repository.indexOf('.git') === -1) {
-        repoSSH = 'git@github.com:' + this.pkg.repository + '.git'
-      }
-      this.spawnCommandSync('git', ['remote', 'add', 'origin', repoSSH], {
+    /* istanbul ignore else */
+    if (this.pkg.repository) {
+      this.spawnCommandSync('git', ['remote', 'add', 'origin', this.pkg.repository], {
         cwd: this.destinationPath(this.options.generateInto)
       })
     }

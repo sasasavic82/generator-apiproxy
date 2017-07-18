@@ -45,7 +45,7 @@ module.exports = class extends YeomanGenerator {
       desc: 'Relocate the location of the generated files.'
     })
 
-    this.option('githubAccount', {
+    this.option('scmAccount', {
       type: String,
       required: true,
       desc: 'User github account'
@@ -91,7 +91,7 @@ module.exports = class extends YeomanGenerator {
         projectName: this.options.name,
         safeProjectName: _.camelCase(this.options.name),
         description: this.options.description,
-        githubAccount: this.options.githubAccount,
+        scmAccount: this.options.scmAccount,
         author: {
           name: this.options.authorName,
           url: this.options.authorUrl

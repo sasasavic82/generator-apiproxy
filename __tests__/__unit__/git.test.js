@@ -30,7 +30,7 @@ describe('apiproxy:git', () => {
   it('respects --generate-into option', () => {
     return helpers.run(require.resolve('../../generators/git'))
       .withOptions({
-        repositoryPath: 'gregswindle/generator-apiproxy',
+        repositoryPath: 'https://github.com/gregswindle/generator-apiproxy.git',
         generateInto: 'other/'
       })
       .then(() => {
@@ -52,14 +52,15 @@ describe('apiproxy:git', () => {
 
     return helpers.run(require.resolve('../../generators/git'))
       .withOptions({
-        repositoryPath: null
+        repositoryPath: null,
+        originUrl: 'gregswindle/repo'
       })
       .on('ready', function (generator) {
         gen = generator
         generator.spawnCommandSync = jest.fn()
       })
       .on('end', function () {
-        expect(gen.spawnCommandSync.mock.calls.length).toBe(1)
+        expect(gen.spawnCommandSync.mock.calls.length).toBe(2)
         fs.readJSON.mockClear()
         gen.spawnCommandSync.mockClear()
       })

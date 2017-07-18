@@ -1,5 +1,6 @@
 /* eslint scanjs-rules/call_write: "warn" */
 /* eslint node/no-unsupported-features: ["warn", {version: 4}] */
+/* eslint no-inline-comments: "off" */
 /* eslint-env es6 */
 /* globals jasmine */
 
@@ -11,14 +12,6 @@ const path = require('path')
 
 describe('apiproxy:app', () => {
   beforeEach(() => {
-    jest.mock('npm-name', () => {
-      return () => Promise.resolve(true)
-    })
-
-    jest.mock('github-username', () => {
-      return () => Promise.resolve('unicornUser')
-    })
-
     jest.mock('generator-license/app', () => {
       const helpers = require('yeoman-test')
       return helpers.createDummyGenerator()
@@ -28,15 +21,21 @@ describe('apiproxy:app', () => {
       const helpers = require('yeoman-test')
       return helpers.createDummyGenerator()
     })
+
+    jest.mock('git-remote-origin-url', () => {
+      return () => Promise.resolve('ssh://git@onestash.verizon.com:7999/caov/vzatwork.git')
+    })
   })
 
   describe('when generating a new project,', () => {
     path.basename = jest.fn(() => 'generator-apiproxy')
+
     it('scaffolds a complete directory structure', async () => {
       const answers = {
+        name: 'generator-apiproxy',
         description: 'A node generator',
         homepage: 'http://yeoman.io',
-        githubAccount: 'yeoman',
+        originUrl: 'ssh://git@onestash.verizon.com:7999/caov/vzatwork.git',
         authorName: 'The Yeoman Team',
         authorEmail: 'hi@yeoman.io',
         authorUrl: 'http://yeoman.io',
@@ -60,7 +59,7 @@ describe('apiproxy:app', () => {
             version: '0.0.0',
             description: answers.description,
             homepage: answers.homepage,
-            repository: 'yeoman/generator-apiproxy',
+            repository: 'ssh://git@onestash.verizon.com:7999/caov/vzatwork.git',
             author: {
               name: answers.authorName,
               email: answers.authorEmail,
@@ -76,7 +75,7 @@ describe('apiproxy:app', () => {
           assert.fileContent('README.md', '> A node generator')
           assert.fileContent('README.md', '$ npm install --save generator-apiproxy')
           assert.fileContent('README.md', '© [The Yeoman Team](http://yeoman.io)')
-          assert.fileContent('README.md', '[travis-image]: https://travis-ci.org/yeoman/generator-apiproxy.svg?branch=master')
+          assert.fileContent('README.md', '[travis-image]: https://travis-ci.org/')
           assert.fileContent('README.md', 'coveralls')
           assert.fileContent('.travis.yml', '| coveralls')
         })
@@ -84,12 +83,19 @@ describe('apiproxy:app', () => {
   })
 
   describe('when running on an existing project,', () => {
+    beforeEach(() => {
+      jest.mock('git-remote-origin-url', () => {
+        return () => Promise.reject(new Error('fatal: no git remote'))
+      })
+    })
     it('keeps the current README and extends package.json attributes', (done) => {
       const pkg = {
         version: '1.0.34',
         description: 'lots of fun',
         homepage: 'http://yeoman.io',
-        repository: 'yeoman/generator-node',
+        repository: {
+          url: 'yeoman/generator-node'
+        },
         author: 'The Yeoman Team',
         files: ['lib'],
         keywords: ['bar']
@@ -149,7 +155,7 @@ describe('apiproxy:app', () => {
         name: 'noop',
         description: 'A node generator',
         homepage: 'http://yeoman.io',
-        githubAccount: 'yeoman',
+        originUrl: 'yeoman',
         license: undefined,
         authorName: 'The Yeoman Team',
         authorEmail: 'hi@yeoman.io',
@@ -178,7 +184,7 @@ describe('apiproxy:app', () => {
   describe('when a github user cannot be identified,', () => {
     it('prompts for a github username/organization', (done) => {
       return helpers.run(require.resolve('../../generators/app'))
-        .withOptions({githubAccount: 'gregswindle'})
+        .withOptions({originUrl: 'gregswindle'})
         .then(() => {
           assert.file('.git/config')
 
@@ -226,12 +232,11 @@ describe('apiproxy:app', () => {
           .then(() => {
             assert.noFile('.gitattributes')
             assert.noFile('.gitignore')
-
             done()
           })
       })
     })
-    // githubAccount (String) Account name for GitHub repo location.
+    // originUrl (String) Account name for GitHub repo location.
 
     // license (Boolean, default true) include or not a LICENSE file.
     describe('--no-license', () => {

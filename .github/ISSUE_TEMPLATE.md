@@ -14,6 +14,7 @@ In order to {achieve business value}.
     tests pass with full coverage.
 -->
 ## Acceptance criteria
+
 - [ ] 1. {criterion-one}
 - [ ] 2. {criterion-two}
 - [ ] 3. {criterion-three}
@@ -51,4 +52,22 @@ In order to {achieve business value}.
 * Operating System and version (desktop or mobile):
 * Link to your project: -->
 
-[eslint-plugin-dev-env-url]: http://eslint.org/docs/developer-guide/development-environment
+<!-- DECISION LOG -->
+
+<!-- decision-log
+## Decision Log
+
+| Category         |                                |
+|:-----------------|:-------------------------------|
+| **Status**       | TODO \| IN-PROGRESS \| DECIDED |
+| **Stakeholders** |                                |
+| **Outcome**      |                                |
+| **Due date**     |  DD, MMM, dd, yyyy             |
+| **Owner**        |                                |
+
+## Background, motivations, and goals
+
+
+## Actions
+
+ decision-log-end -->

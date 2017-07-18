@@ -1,18 +1,28 @@
 /* eslint security/detect-non-literal-fs-filename: "off" */
 'use strict'
 const _ = require('lodash')
-const extend = _.merge
-const YeomanGenerator = require('yeoman-generator')
-const parseAuthor = require('parse-author')
-const githubUsername = require('github-username')
-const path = require('path')
-const askName = require('inquirer-npm-name')
 const chalk = require('chalk')
+const extend = _.merge
+const parseAuthor = require('parse-author')
+const path = require('path')
 const pkgJson = require('../../package.json')
+const YeomanGenerator = require('yeoman-generator')
 
 module.exports = class extends YeomanGenerator {
   constructor (args, options) {
     super(args, options)
+
+    this.option('name', {
+      type: String,
+      required: true,
+      default: path.basename(process.cwd()),
+      desc: 'API Proxy machine name',
+      filter: _.kebabCase,
+      validate (str) {
+        /* istanbul ignore next: research inquirer.js filter test coverage */
+        return str.length > 0
+      }
+    })
 
     this.option('travis', {
       type: Boolean,
@@ -55,12 +65,6 @@ module.exports = class extends YeomanGenerator {
       desc: 'Include a license'
     })
 
-    this.option('name', {
-      type: String,
-      required: false,
-      desc: 'Project name'
-    })
-
     this.option('git', {
       type: Boolean,
       required: false,
@@ -68,10 +72,10 @@ module.exports = class extends YeomanGenerator {
       desc: 'Initialize a Git repository'
     })
 
-    this.option('githubAccount', {
+    this.option('originUrl', {
       type: String,
-      required: false,
-      desc: 'GitHub username or organization'
+      required: true,
+      desc: 'Git remote origin URL'
     })
 
     this.option('projectRoot', {
@@ -103,30 +107,25 @@ module.exports = class extends YeomanGenerator {
       this.props.authorEmail = info.email
       this.props.authorUrl = info.url
     }
-  }
 
-  _askForModuleName () {
-    if (this.pkg.name || this.options.name) {
-      this.props.name = this.pkg.name || _.kebabCase(this.options.name)
-      return Promise.resolve()
+    if (_.isObject(this.pkg.repository)) {
+      this.props.originUrl = this.pkg.repository.url
+    } else {
+      this.props.originUrl = this.pkg.repository
     }
-
-    return askName({
-      name: 'name',
-      message: 'Module Name',
-      default: path.basename(process.cwd()),
-      filter: _.kebabCase,
-      validate (str) {
-        /* istanbul ignore next: research inquirer.js filter test coverage */
-        return str.length > 0
-      }
-    }, this).then(answer => {
-      this.props.name = answer.name
-    })
   }
 
   _askFor () {
     const prompts = [{
+      name: 'name',
+      message: 'API Proxy machine name',
+      filter: _.kebabCase,
+      validate (str) {
+        /* istanbul ignore next: research inquirer.js filter test coverage */
+        return str.length > 0
+      },
+      when: !this.props.name
+    }, {
       name: 'description',
       message: 'Description',
       when: !this.props.description
@@ -164,6 +163,11 @@ module.exports = class extends YeomanGenerator {
       type: 'confirm',
       message: 'Send coverage reports to coveralls',
       when: this.options.coveralls === undefined
+    }, {
+      name: 'originUrl',
+      message: 'Git remote origin URL',
+      default: this.originUrl,
+      when: !this.props.originUrl
     }]
 
     return this.prompt(prompts).then(props => {
@@ -171,34 +175,8 @@ module.exports = class extends YeomanGenerator {
     })
   }
 
-  _askForGithubAccount () {
-    if (this.options.githubAccount) {
-      this.props.githubAccount = this.options.githubAccount
-      return Promise.resolve()
-    }
-
-    return githubUsername(this.props.authorEmail)
-
-      .then(username => username,
-        /* istanbul ignore next: defer testing the promise rejection */
-        () => {
-          return ''
-        })
-      .then(username => {
-        return this.prompt({
-          name: 'githubAccount',
-          message: 'GitHub username or organization',
-          default: username
-        }).then(prompt => {
-          this.props.githubAccount = prompt.githubAccount
-        })
-      })
-  }
-
   prompting () {
-    return this._askForModuleName()
-      .then(this._askFor.bind(this))
-      .then(this._askForGithubAccount.bind(this))
+    return this._askFor()
   }
 
   writing () {
@@ -253,7 +231,8 @@ module.exports = class extends YeomanGenerator {
     if (this.options.git) {
       this.composeWith(require.resolve('../git'), {
         name: this.props.name,
-        githubAccount: this.props.githubAccount
+        originUrl: this.props.originUrl,
+        scmAccount: this.props.scmAccount
       })
     }
 
@@ -296,11 +275,12 @@ module.exports = class extends YeomanGenerator {
       this.composeWith(require.resolve('../readme'), {
         name: this.props.name,
         description: this.props.description,
-        githubAccount: this.props.githubAccount,
+        originUrl: this.props.originUrl,
         authorName: this.props.authorName,
         authorUrl: this.props.authorUrl,
         coveralls: this.props.includeCoveralls,
-        content: this.options.readme
+        content: this.options.readme,
+        scmAccount: this.props.scmAccount
       })
     }
   }
@@ -314,7 +294,7 @@ module.exports = class extends YeomanGenerator {
 
     if (this.options.travis) {
       /* istanbul ignore next: defer */
-      let travisUrl = chalk.cyan(`https://travis-ci.org/profile/${this.props.githubAccount || ''}`)
+      let travisUrl = chalk.cyan(`https://travis-ci.org/profile/${this.props.scmAccount || ''}`)
       this.log(`- Enable Travis integration at ${travisUrl}`)
     }
 

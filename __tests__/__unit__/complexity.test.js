@@ -1,4 +1,10 @@
-/* eslint node/no-unsupported-features: "warn" */
+/* eslint node/no-unsupported-features: ["warn", {
+  version: 4,
+  ignores: [
+    "asyncAwait"
+  ]}] */
+/* eslint-env es6 */
+
 const _ = require('lodash')
 const complexity = require('../../generators/docs/complexity')
 

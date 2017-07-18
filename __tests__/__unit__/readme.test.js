@@ -9,7 +9,7 @@ describe('apiproxy:readme', () => {
     .withOptions({
       name: 'my-project',
       description: 'a cool project',
-      githubAccount: 'yeoman',
+      scmAccount: 'yeoman',
       authorName: 'Yeoman',
       authorUrl: 'http://yeoman.io',
       coveralls: true,
@@ -37,7 +37,7 @@ describe('apiproxy:readme for private repositories', () => {
     .withOptions({
       name: 'my-project',
       description: 'a cool project',
-      githubAccount: 'yeoman',
+      scmAccount: 'yeoman',
       authorName: 'Yeoman',
       authorUrl: 'http://yeoman.io',
       coveralls: false,
@@ -64,7 +64,7 @@ describe('apiproxy:readme --content', () => {
     .withOptions({
       name: 'my-project',
       description: 'a cool project',
-      githubAccount: 'yeoman',
+      scmAccount: 'yeoman',
       authorName: 'Yeoman',
       authorUrl: 'http://yeoman.io',
       coveralls: true,
@@ -90,7 +90,7 @@ describe('apiproxy:readme --no-coveralls', () => {
     .withOptions({
       name: 'my-project',
       description: 'a cool project',
-      githubAccount: 'yeoman',
+      scmAccount: 'yeoman',
       authorName: 'Yeoman',
       authorUrl: 'http://yeoman.io',
       coveralls: false
@@ -111,7 +111,7 @@ describe('apiproxy:readme --generate-into', () => {
     .withOptions({
       name: 'my-project',
       description: 'a cool project',
-      githubAccount: 'yeoman',
+      scmAccount: 'yeoman',
       authorName: 'Yeoman',
       authorUrl: 'http://yeoman.io',
       coveralls: true,
@@ -139,7 +139,7 @@ describe('apiproxy:readme --content and --generate-into', () => {
     .withOptions({
       name: 'my-project',
       description: 'a cool project',
-      githubAccount: 'yeoman',
+      scmAccount: 'yeoman',
       authorName: 'Yeoman',
       authorUrl: 'http://yeoman.io',
       coveralls: true,
@@ -166,7 +166,7 @@ describe('apiproxy:readme --no-coveralls and --generate-into', () => {
     .withOptions({
       name: 'my-project',
       description: 'a cool project',
-      githubAccount: 'yeoman',
+      scmAccount: 'yeoman',
       authorName: 'Yeoman',
       authorUrl: 'http://yeoman.io',
       coveralls: false,

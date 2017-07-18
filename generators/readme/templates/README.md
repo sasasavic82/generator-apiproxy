@@ -16,8 +16,8 @@
 > **`<%= projectName %>`** has been set up to check for known vulnerabilities with `nsp`. If you want to display `nsp's` vulnerabilities status on your README page, however, you need to [set up a Node Security Program account][nsp-sign-up-url] to activate your NSP badge.
 > Once you've activated an account, update the HREFs at the bottom of this README:<br><br>
 > ```text
-> [nsp-image]: https://nodesecurity.io/orgs/<%= githubAccount %>/projects/REPLACE-THIS-WITH-YOUR-NSP-UUID/badge
-> [nsp-url]: https://nodesecurity.io/orgs/<%= githubAccount %>/projects/REPLACE-THIS-WITH-YOUR-NSP-UUID
+> [nsp-image]: https://nodesecurity.io/orgs/<%= scmAccount %>/projects/REPLACE-THIS-WITH-YOUR-NSP-UUID/badge
+> [nsp-url]: https://nodesecurity.io/orgs/<%= scmAccount %>/projects/REPLACE-THIS-WITH-YOUR-NSP-UUID
 > ```
 > 2. #### Swagger validity badge activation
 > If you want to display Swagger status, update these HREFs at the bottom of README.md:<br><br>
@@ -170,16 +170,16 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [code-of-conduct-url]: .github/CODE_OF_CONDUCT.md
 [complexity-report-url]: ./docs/COMPLEXITY.md
 [contributing-url]: .github/CONTRIBUTING.md
-[daviddm-image]: https://david-dm.org/<%= githubAccount %>/<%= projectName %>.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/<%= githubAccount %>/<%= projectName %>
+[daviddm-image]: https://david-dm.org/<%= scmAccount %>/<%= projectName %>.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/<%= scmAccount %>/<%= projectName %>
 [js-callout-docs-url]: ./docs/JSCAPIS.md
 [jsdoc-url]: http://usejsdoc.org/
 [jsdoc2md-url]: https://github.com/jsdoc2md/jsdoc-to-markdown
 [npm-image]: https://badge.fury.io/js/<%= projectName %>.svg
 [npm-url]: https://npmjs.org/package/<%= projectName %>
-[nsp-image]: https://nodesecurity.io/orgs/<%= githubAccount %>/projects/REPLACE-THIS-WITH-YOUR-NSP-UUID/badge
+[nsp-image]: https://nodesecurity.io/orgs/<%= scmAccount %>/projects/REPLACE-THIS-WITH-YOUR-NSP-UUID/badge
 [nsp-sign-up-url]: https://nodesecurity.io/signup
-[nsp-url]: https://nodesecurity.io/orgs/<%= githubAccount %>/projects/REPLACE-THIS-WITH-YOUR-NSP-UUID
+[nsp-url]: https://nodesecurity.io/orgs/<%= scmAccount %>/projects/REPLACE-THIS-WITH-YOUR-NSP-UUID
 [one-sonar-url]: http://onesonar.verizon.com/
 [sonarcloud-url]: https://sonarcloud.io
 [swagger-api-docs-url]: ./docs/SWAGGER.md
@@ -189,9 +189,9 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [swagger-markdown-url]: https://github.com/syroegkin/swagger-markdown
 [swagger-validity-image]: https://img.shields.io/swagger/valid/2.0/PROTOCOL/HOSTNAME/PATHNAME/openapi.json.svg
 [swagger-validity-url]: http://online.swagger.io/validator/debug?url=http://HOSTNAME/PATHNAME/openapi.json
-[travis-image]: https://travis-ci.org/<%= githubAccount %>/<%= projectName %>.svg?branch=master
-[travis-url]: https://travis-ci.org/<%= githubAccount %>/<%= projectName %>
+[travis-image]: https://travis-ci.org/<%= scmAccount %>/<%= projectName %>.svg?branch=master
+[travis-url]: https://travis-ci.org/<%= scmAccount %>/<%= projectName %>
 <% if (includeCoveralls) { -%>
-[coveralls-image]: https://coveralls.io/repos/<%= githubAccount %>/<%= projectName %>/badge.svg
-[coveralls-url]: https://coveralls.io/r/<%= githubAccount %>/<%= projectName %>
+[coveralls-image]: https://coveralls.io/repos/<%= scmAccount %>/<%= projectName %>/badge.svg
+[coveralls-url]: https://coveralls.io/r/<%= scmAccount %>/<%= projectName %>
 <% } -%>

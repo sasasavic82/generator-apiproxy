@@ -96,7 +96,7 @@ module.exports = class extends YeomanGenerator {
       {
         projectName: this.options.name,
         description: this.options.description,
-        githubAccount: this.options.githubAccount,
+        scmAccount: this.options.scmAccount,
         author: {
           name: this.options.authorName,
           url: this.options.authorUrl

@@ -16,7 +16,7 @@ module.exports = class extends YeomanGenerator {
       desc: 'Relocate the location of the generated files.'
     })
 
-    this.option('githubAccount', {
+    this.option('scmAccount', {
       type: String,
       required: true,
       desc: 'GitHub username or organization'
@@ -76,7 +76,7 @@ module.exports = class extends YeomanGenerator {
     filepath = this.destinationPath(this.options.generateInto, 'sonar-project.properties')
 
     this.fs.copyTpl(this.templatePath('sonar-project.properties'), filepath, {
-      githubAccount: 'CAOV',
+      scmAccount: 'CAOV',
       projectName: this.options.name,
       version: rootPkg.version
     })

@@ -10,7 +10,7 @@ describe('apiproxy:docs', () => {
     .withOptions({
       name: 'oneapi-testproxy-lcov',
       description: 'A cool project.',
-      githubAccount: 'CAOV',
+      scmAccount: 'CAOV',
       authorName: 'Neck Beard',
       authorUrl: 'http://neckbeard.io',
       license: 'Apache 2.0',

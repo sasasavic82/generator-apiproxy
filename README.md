@@ -508,8 +508,7 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [codacy-url]: https://www.codacy.com/app/greg_7/generator-apiproxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gregswindle/generator-apiproxy&amp;utm_campaign=Badge_Grade
 [code-of-conduct-url]: ./.github/CODE_OF_CONDUCT.md
 [complexity-report-url]: https://github.com/escomplex/complexity-report
-[coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apiproxy/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/github/gregswindle/generator-apiproxy?branch=master
+[coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apiproxy/badge.svg
 [coveralls-url]: https://coveralls.io/r/gregswindle/generator-apiproxy
 [daviddm-dev-image]: https://david-dm.org/gregswindle/generator-apiproxy/dev-status.svg
 [daviddm-dev-url]: https://david-dm.org/gregswindle/generator-apiproxy?type=dev

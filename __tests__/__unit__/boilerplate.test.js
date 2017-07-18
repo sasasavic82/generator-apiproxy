@@ -8,7 +8,7 @@ describe('apiproxy:boilerplate', () => {
   beforeEach(() => {
     return helpers.run(require.resolve('../../generators/boilerplate'))
       .withOptions({
-        githubAccount: 'CAOV',
+        scmAccount: 'CAOV',
         license: 'Apache-2.0',
         name: 'my-module'
       })
