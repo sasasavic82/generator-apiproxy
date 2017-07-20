@@ -8,7 +8,10 @@ describe('apiproxy:jsc', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/jsc'))
     .withArguments([
       'someSidebar'
-    ]))
+    ])
+    .withOptions({
+      name: 'someSidebar'
+    }))
 
   it('creates and fill contents in lib/some-sidebar.js', () => {
     assert.file('lib/some-sidebar.js')
@@ -18,7 +21,7 @@ describe('apiproxy:jsc', () => {
 
   it('creates a jest BDD stub in lib/__tests__/some-sidebar.test.js', () => {
     assert.file('lib/__tests__/someSidebar.test.js')
-    assert.fileContent('lib/__tests__/someSidebar.test.js', 'const someSidebar = require(\'../some-sidebar.js\')')
+    assert.fileContent('lib/__tests__/someSidebar.test.js', 'const someSidebar = require')
   })
 })
 
@@ -26,7 +29,8 @@ describe('apiproxy:jsc --generate-into', () => {
   beforeEach(() => helpers.run(require.resolve('../../generators/jsc'))
     .withArguments([
       'another-sidebar'
-    ]).withOptions({
+    ])
+    .withOptions({
       generateInto: 'other/'
     }))
 
@@ -38,6 +42,6 @@ describe('apiproxy:jsc --generate-into', () => {
 
   it('creates a jest BDD stub in __tests__/another-sidebar.test.js', () => {
     assert.file('other/__tests__/anotherSidebar.test.js')
-    assert.fileContent('other/__tests__/anotherSidebar.test.js', 'const anotherSidebar = require(\'../another-sidebar.js\')')
+    assert.fileContent('other/__tests__/anotherSidebar.test.js', 'const anotherSidebar = require')
   })
 })

@@ -27,6 +27,13 @@ describe('apiproxy:app', () => {
     })
   })
 
+  afterAll(() => {
+    jest.clearAllMocks()
+    jest.unmock('generator-license/app')
+    jest.unmock('../../generators/jsc')
+    jest.unmock('git-remote-origin-url')
+  })
+
   describe('when generating a new project,', () => {
     path.basename = jest.fn(() => 'generator-apiproxy')
 

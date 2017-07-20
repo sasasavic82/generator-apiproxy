@@ -2,7 +2,6 @@
 
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
-const fs = require('fs')
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
 
 describe('apiproxy:git', () => {
@@ -11,58 +10,41 @@ describe('apiproxy:git', () => {
       const url = 'git@github.com:talk-the-talk/mock-the-mock.git'
       return () => Promise.resolve(url)
     })
+
+    return helpers.run(require.resolve('../../generators/git'))
+      .withOptions({
+        repositoryPath: 'gregswindle/generator-apiproxy'
+      })
   })
 
   afterAll(() => jest.clearAllMocks())
 
   it('creates the git config files and initializes the repository', () => {
-    return helpers.run(require.resolve('../../generators/git'))
-      .withOptions({
-        repositoryPath: 'gregswindle/generator-apiproxy'
-      })
-      .then(() => {
-        assert.file('.gitignore')
-        assert.file('.gitattributes')
-        assert.file('.git')
-      })
+    assert.file('.gitignore')
+    assert.file('.gitattributes')
+    assert.file('.git')
   })
+})
 
-  it('respects --generate-into option', () => {
+describe('apiproxy:git cli', () => {
+  beforeEach(() => {
+    jest.mock('git-remote-origin-url', () => {
+      const url = 'git@github.com:talk-the-talk/mock-the-mock.git'
+      return () => Promise.resolve(url)
+    })
+
     return helpers.run(require.resolve('../../generators/git'))
       .withOptions({
         repositoryPath: 'https://github.com/gregswindle/generator-apiproxy.git',
         generateInto: 'other/'
       })
-      .then(() => {
-        assert.file('other/.gitignore')
-        assert.file('other/.gitattributes')
-        assert.file('other/.git')
-      })
   })
 
-  it('builds an ssh uri from package.json if the remote call fails', () => {
-    let gen = null
-    jest.mock('git-remote-origin-url', () => {
-      return () => Promise.reject(new Error('git remote unreachable'))
-    })
+  afterAll(() => jest.clearAllMocks())
 
-    fs.readJSON = jest.fn(() => {
-      return {repository: 'talk-the-talk/mock-the-mock'}
-    })
-
-    return helpers.run(require.resolve('../../generators/git'))
-      .withOptions({
-        repositoryPath: null,
-        originUrl: 'gregswindle/repo'
-      })
-      .on('ready', function (generator) {
-        gen = generator
-        generator.spawnCommandSync = jest.fn()
-      })
-      .on('end', function () {
-        expect(gen.spawnCommandSync.mock.calls.length).toBe(2)
-        fs.readJSON.mockClear()
-        gen.spawnCommandSync.mockClear()
-      })
+  it('respects --generate-into option', () => {
+    assert.file('other/.gitignore')
+    assert.file('other/.gitattributes')
+    assert.file('other/.git')
   })
 })

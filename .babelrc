@@ -1,7 +1,7 @@
 {
   "presets": [
     ["env", {
-      "targets": {
+      "test": {
         "node": "current"
       },
       "debug": true

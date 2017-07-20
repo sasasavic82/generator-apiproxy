@@ -11,7 +11,10 @@ describe('apiproxy:git', () => {
     })
   })
 
-  afterAll(() => jest.clearAllMocks())
+  afterAll(() => {
+    jest.clearAllMocks()
+    jest.unmock('git-remote-origin-url')
+  })
 
   it('--originUrl', () => {
     let gen = null

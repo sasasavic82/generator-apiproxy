@@ -1,15 +1,16 @@
 /* eslint security/detect-non-literal-fs-filename: "off" */
 'use strict'
 const _ = require('lodash')
-const YeomanGenerator = require('yeoman-generator')
 const path = require('path')
+const YeomanGenerator = require('yeoman-generator')
 
 module.exports = class extends YeomanGenerator {
   constructor (args, options) {
     super(args, options)
 
-    this.argument('name', {
+    this.argument('componentName', {
       type: String,
+      defaults: 'index',
       required: true,
       desc: 'Javascript callout name'
     })
@@ -18,14 +19,14 @@ module.exports = class extends YeomanGenerator {
       type: String,
       required: false,
       defaults: 'lib',
-      desc: 'Relocate the location of the generated files.'
+      desc: 'Destination path of the Javascript callout files.'
     })
   }
 
   initializing () {
     this._lintJsc = () => {
       this.spawnCommand(path.resolve('node_modules', '.bin', 'eslint'), [
-        'lib/__tests__/*.js',
+        '.',
         '--config',
         '.eslintrc.yml',
         '--fix',
@@ -39,21 +40,21 @@ module.exports = class extends YeomanGenerator {
   }
 
   writing () {
-    const jscFilename = _.kebabCase(this.options.name) + '.js'
+    const extname = path.extname(this.options.componentName) || '.js'
+    const filename = _.kebabCase(this.options.componentName) + extname
 
-    const filepath =
-      this.destinationPath(this.options.generateInto, jscFilename)
-
-    this.fs.copyTpl(
-      this.templatePath('jsc'),
-      filepath, {
-        name: _.camelCase(this.options.name)
-      }
+    const destinationPath = this.destinationPath(
+      this.options.generateInto,
+      filename
     )
 
+    this.fs.copyTpl(this.templatePath('jsc'), destinationPath, {
+      componentName: _.camelCase(this.options.componentName)
+    })
+
     this.composeWith(require.resolve('generator-jest/generators/test'), {
-      arguments: [filepath],
-      componentName: _.camelCase(this.options.name)
+      arguments: [destinationPath],
+      componentName: _.camelCase(this.options.componentName)
     })
   }
 

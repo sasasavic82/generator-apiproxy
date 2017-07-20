@@ -510,8 +510,8 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 [api-docs-url]: https://github.com/gregswindle/generator-apiproxy/docs/API.md
 [apigee-edge-js-url]: http://docs.apigee.com/api-services/reference/javascript-object-model
-[appveyor-img]: https://ci.appveyor.com/api/projects/status/soifv1lpkf5lxppg/branch/master?svg=true
-[appveyor-url]: https://ci.appveyor.com/project/gregswindle/generator-apiproxy/branch/master
+[appveyor-img]: https://ci.appveyor.com/api/projects/status/qcsxteena4etjlfe?svg=true
+[appveyor-url]: https://ci.appveyor.com/project/gregswindle/generator-apiproxy
 [author-url]: https://github.com/gregswindle
 [changelog-url]: https://github.com/gregswindle/generator-apiproxy/CHANGELOG.md
 [codacy-img]: https://api.codacy.com/project/badge/Grade/fa4ade3f68a04b9cad26165a59ceb88e
