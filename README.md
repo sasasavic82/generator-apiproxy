@@ -1,6 +1,6 @@
 #  `generator-apiproxy`
 
-[![Build Status][travis-image]][travis-url] [![Windows Build Status][appveyor-img]][appveyor-url] [![Test Coverage][coveralls-img]][coveralls-url] [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url]
+[![Build Status][travis-image]][travis-url] [![Windows Build Status][appveyor-img]][appveyor-url] [![Test Coverage][coveralls-img]][coveralls-url] [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy?ref=badge_shield)
 
 > ![Swagger logo][swagger-logo-20-img] Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.
 
@@ -501,7 +501,7 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 [Apache-2.0][license-url] © [Greg Swindle][author-url]
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apiproxy.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apiproxy?ref=badge_large)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy?ref=badge_large)
 
 ---
 
@@ -519,16 +519,16 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [code-of-conduct-url]: ./.github/CODE_OF_CONDUCT.md
 [complexity-report-url]: https://github.com/escomplex/complexity-report
 [coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apiproxy/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/r/gregswindle/generator-apiproxy?branch=master
+[coveralls-url]: https://coveralls.io/github/gregswindle/generator-apiproxy?branch=master
 [daviddm-dev-image]: https://david-dm.org/gregswindle/generator-apiproxy/dev-status.svg
 [daviddm-dev-url]: https://david-dm.org/gregswindle/generator-apiproxy?type=dev
 [daviddm-image]: https://david-dm.org/gregswindle/generator-apiproxy.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/gregswindle/generator-apiproxy
 [editorconfig-url]: http://editorconfig.org/
 [eslint-github-url]: https://github.com/eslint/eslint
-[fossa-image]: https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apiproxy.svg?type=shield
-[fossa-url]: https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apiproxy?ref=badge_shield
-[greenkeeper-img]: https://badges.greenkeeper.io/gregswindle/generator-apiproxy.svg?style=flat-square
+[fossa-image]: https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy.svg?type=shield
+[fossa-url]: https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy?ref=badge_shield
+[greenkeeper-img]: https://badges.greenkeeper.io/gregswindle/generator-apiproxy.svg
 [greenkeeper-url]: https://greenkeeper.io/
 [issues-url]: https://github.com/gregswindle/generator-apiproxy/issues
 [jsdoc2md-url]: https://github.com/jsdoc2md/jsdoc-to-markdown
