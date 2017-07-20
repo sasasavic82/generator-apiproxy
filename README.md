@@ -1,6 +1,6 @@
 #  `generator-apiproxy`
 
-[![Build Status][travis-image]][travis-url] [![Windows Build Status][appveyor-img]][appveyor-url] [![Test Coverage][coveralls-img]][coveralls-url] [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy?ref=badge_shield)
+[![Build Status][travis-image]][travis-url] [![Windows Build Status][appveyor-img]][appveyor-url] [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/fa4ade3f68a04b9cad26165a59ceb88e)](https://www.codacy.com/app/greg_7/generator-apiproxy?utm_source=github.com&utm_medium=referral&utm_content=gregswindle/generator-apiproxy&utm_campaign=Badge_Coverage) [![Quality Gate][codacy-img]][codacy-url] [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![NSP Status][nsp-img]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]<br>[![NPM version][npm-image]][npm-url] [![License][license-image]][license-url] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fgregswindle%2Fgenerator-apigee-apiproxy?ref=badge_shield)
 
 > ![Swagger logo][swagger-logo-20-img] Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.
 
@@ -508,12 +508,15 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [![License][license-image]][license-url] [![Readme Score][readme-score-img]][readme-score-url] [![Greenkeeper][greenkeeper-img]][greenkeeper-url]
 
 
+
 [api-docs-url]: https://github.com/gregswindle/generator-apiproxy/docs/API.md
 [apigee-edge-js-url]: http://docs.apigee.com/api-services/reference/javascript-object-model
 [appveyor-img]: https://ci.appveyor.com/api/projects/status/qcsxteena4etjlfe?svg=true
 [appveyor-url]: https://ci.appveyor.com/project/gregswindle/generator-apiproxy
 [author-url]: https://github.com/gregswindle
 [changelog-url]: https://github.com/gregswindle/generator-apiproxy/CHANGELOG.md
+[codacy-coverage-image]: https://api.codacy.com/project/badge/Coverage/fa4ade3f68a04b9cad26165a59ceb88e
+[codacy-coverage-url]: https://www.codacy.com/app/greg_7/generator-apiproxy?utm_source=github.com&utm_medium=referral&utm_content=gregswindle/generator-apiproxy&utm_campaign=Badge_Coverage
 [codacy-img]: https://api.codacy.com/project/badge/Grade/fa4ade3f68a04b9cad26165a59ceb88e
 [codacy-url]: https://www.codacy.com/app/greg_7/generator-apiproxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gregswindle/generator-apiproxy&amp;utm_campaign=Badge_Grade
 [code-of-conduct-url]: ./.github/CODE_OF_CONDUCT.md
