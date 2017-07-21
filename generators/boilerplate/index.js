@@ -107,8 +107,7 @@ module.exports = class extends YeomanGenerator {
       '.github/CODE_OF_CONDUCT.md',
       '.github/CONTRIBUTING.md',
       '.github/ISSUE_TEMPLATE.md',
-      '.github/PULL_REQUEST_TEMPLATE.md',
-      '.github/README.md'
+      '.github/PULL_REQUEST_TEMPLATE.md'
     ]
 
     templates.forEach(template => {
@@ -119,7 +118,8 @@ module.exports = class extends YeomanGenerator {
           name: this.options.authorName,
           url: this.options.authorUrl
         },
-        license: rootPkg.license
+        license: rootPkg.license,
+        scmAccount: this.options.scmAccount
       })
     })
 

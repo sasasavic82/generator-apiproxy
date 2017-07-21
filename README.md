@@ -14,14 +14,13 @@
 - [2. Usage](#2-usage)
   * [2.1. Generate a new API Proxy project](#21-generate-a-new-api-proxy-project)
   * [2.2. Sub-generators](#22-sub-generators)
-    + [2.2.1. `apiproxy:boilerplate` sub-generator](#221-apigee-apiproxyboilerplate-sub-generator)
-    + [2.2.2. `apiproxy:cli` sub-generator](#222-apigee-apiproxycli-sub-generator)
-    + [2.2.3. `apiproxy:editorconfig` sub-generator](#223-apigee-apiproxyeditorconfig-sub-generator)
-    + [2.2.4. `apiproxy:eslint` sub-generator](#224-apigee-apiproxyeslint-sub-generator)
-    + [2.2.5. `apiproxy:git` sub-generator](#225-apigee-apiproxygit-sub-generator)
-    + [2.2.6. `apiproxy:jsc` sub-generator](#226-apigee-apiproxyjsc-sub-generator)
-    + [2.2.7. `apiproxy:nsp` sub-generator](#227-apigee-apiproxynsp-sub-generator)
-    + [2.2.8. `apiproxy:readme` sub-generator](#228-apigee-apiproxyreadme-sub-generator)
+    + [2.2.1. `apiproxy:boilerplate` sub-generator](#221-apiproxyboilerplate-sub-generator)
+    + [2.2.2. `apiproxy:editorconfig` sub-generator](#222-apiproxyeditorconfig-sub-generator)
+    + [2.2.3. `apiproxy:eslint` sub-generator](#223-apiproxyeslint-sub-generator)
+    + [2.2.4. `apiproxy:git` sub-generator](#224-apiproxygit-sub-generator)
+    + [2.2.5. `apiproxy:jsc` sub-generator](#225-apiproxyjsc-sub-generator)
+    + [2.2.6. `apiproxy:nsp` sub-generator](#226-apiproxynsp-sub-generator)
+    + [2.2.7. `apiproxy:readme` sub-generator](#227-apiproxyreadme-sub-generator)
 - [3. Automating API Proxy CI/CD workflows](#3-automating-api-proxy-cicd-workflows)
   * [3.1. **Design** your API with Swagger UI](#31-design-your-api-with-swagger-ui)
   * [3.2. **Build**, **lint**, **test**, **document**, and **push** to Git](#32-build-lint-test-document-and-push-to-git)
@@ -93,7 +92,6 @@ these sub-generators directly.
 > ```
 
 * **`apiproxy:boilerplate`** Generate common directories and files.
-* **`apiproxy:cli`** Generate a `lib/cli.js` executable.
 * **`apiproxy:editorconfig`** Generate an `.editorconfig` file.
 * **`apiproxy:eslint`** Add ESLint with a standard configuration for code quality and vulnerability inspection.
 * **`apiproxy:git`** Add `.gitattributes` and `.gitignore` files. (`.gitignore` provides common patterns for Javascript _and_ Java projects.)
@@ -135,11 +133,7 @@ $ npm install
 
 > **:bulb: Don't forget to run `npm install`!**
 
-#### 2.2.2. `apiproxy:cli` sub-generator
-
-This feature has not been implemented yet, but it is available for development.
-
-#### 2.2.3. `apiproxy:editorconfig` sub-generator
+#### 2.2.2. `apiproxy:editorconfig` sub-generator
 
 > :speech_balloon: [EditorConfig][editorconfig-url] helps developers define and maintain
 > consistent coding styles between different editors and IDEs. The EditorConfig
@@ -158,7 +152,7 @@ $ yo apiproxy:editorconfig
 # => create .editorconfig
 ```
 
-#### 2.2.4. `apiproxy:eslint` sub-generator
+#### 2.2.3. `apiproxy:eslint` sub-generator
 
 [ESLint][eslint-github-url] is a configurable [linting][lint-def-url] utility
 that evaluates Javascript and JSX for code standards compliance and best
@@ -168,13 +162,20 @@ potential security vulnerabilities.
 The `apiproxy:eslint` sub-generator
 
 * Updates your project's `package.json`'s `devDependencies` with:
-    * [`eslint-plugin-json`](https://github.com/sindresorhus/eslint-json): Reports invalid JSON
-	* [`eslint-plugin-no-unsafe-innerhtml`](https://www.npmjs.com/package/eslint-plugin-no-unsafe-innerhtml): Disallows unsafe HTML templating
-	* [`eslint-plugin-node`](https://www.npmjs.com/package/eslint-plugin-node): Extends rules specific to Node.js
-	* [`eslint-plugin-promise`](https://www.npmjs.com/package/eslint-plugin-promise): Enforces best practices for JavaScript promises
-	* [`eslint-plugin-scanjs-rules`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules): Supplemental security rules
-	* [`eslint-plugin-security`](https://www.npmjs.com/package/eslint-plugin-security): Identifies potential vulnerabilities
-	* [`eslint-plugin-standard`](https://www.npmjs.com/package/eslint-plugin-standard): Rules for the [JavaScript Standard Style](https://standardjs.com/)
+  * [`eslint`](https://www.npmjs.com/package/eslint)
+  * [`eslint-config-xo-space`](https://www.npmjs.com/package/eslint-config-xo-space)
+  * [`eslint-index`](https://www.npmjs.com/package/eslint-index)
+  * [`eslint-plugin-import`](https://www.npmjs.com/package/eslint-plugin-import)
+  * [`eslint-plugin-jest`](https://www.npmjs.com/package/eslint-plugin-jest)
+  * [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc)
+  * [`eslint-plugin-no-unsafe-innerhtml`](https://www.npmjs.com/package/eslint-plugin-no-unsafe-innerhtml)
+  * [`eslint-plugin-no-unsanitized`](https://www.npmjs.com/package/eslint-plugin-no-unsanitized)
+  * [`eslint-plugin-node`](https://www.npmjs.com/package/eslint-plugin-node)
+  * [`eslint-plugin-promise`](https://www.npmjs.com/package/eslint-plugin-promise)
+  * [`eslint-plugin-scanjs-rules`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules)
+  * [`eslint-plugin-security`](https://www.npmjs.com/package/eslint-plugin-security)
+  * [`eslint-plugin-standard`](https://www.npmjs.com/package/eslint-plugin-standard)
+  * [`eslint-plugin-xss`](https://www.npmjs.com/package/eslint-plugin-xss)
 * Adds an `.eslintignore` pre-configured to exclude third-party dependencies
 * Adds an `.eslintrc.yml` file with `strict-standard` rules and plugins enabled.
 
@@ -191,7 +192,7 @@ $ npm i
 
 > **:bulb: Don't forget to run `npm install`!**
 
-#### 2.2.5. `apiproxy:git` sub-generator
+#### 2.2.4. `apiproxy:git` sub-generator
 
 Avoid accidentally pushing unnecessary Node.js and Java files to your Git repository
 with a `.gitignore` file created on [.gitignore.io](https://www.gitignore.io/api/node,java,java-web,code-java).
@@ -204,7 +205,7 @@ $ yo apiproxy:git
 # => create .gitignore
 ```
 
-#### 2.2.6. `apiproxy:jsc` sub-generator
+#### 2.2.5. `apiproxy:jsc` sub-generator
 
 Apigee lets you add custom JavaScript code that executes within the context of
 an API proxy flow. In your custom JavaScript code, you can use the objects,
@@ -224,7 +225,7 @@ $ yo apiproxy:jsc foo-bar-lib
 
 ```
 
-#### 2.2.7. `apiproxy:nsp` sub-generator
+#### 2.2.6. `apiproxy:nsp` sub-generator
 
 The Node Security Platform provides continuous security monitoring for Node.js
 applications. These checks also integrate into your GitHub pull request flows.
@@ -241,7 +242,7 @@ $ npm install
 
 > **:bulb: Don't forget to run `npm install`!**
 
-#### 2.2.8. `apiproxy:readme` sub-generator
+#### 2.2.7. `apiproxy:readme` sub-generator
 
 Your repository's "home page" is the README.md file. A good README helps attract
 new consumers as well as new contributors. Consequently, this sub-generator's
@@ -514,7 +515,7 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [appveyor-img]: https://ci.appveyor.com/api/projects/status/qcsxteena4etjlfe?svg=true
 [appveyor-url]: https://ci.appveyor.com/project/gregswindle/generator-apiproxy
 [author-url]: https://github.com/gregswindle
-[changelog-url]: https://github.com/gregswindle/generator-apiproxy/CHANGELOG.md
+[changelog-url]: ./CHANGELOG.md
 [codacy-coverage-image]: https://api.codacy.com/project/badge/Coverage/fa4ade3f68a04b9cad26165a59ceb88e
 [codacy-coverage-url]: https://www.codacy.com/app/greg_7/generator-apiproxy?utm_source=github.com&utm_medium=referral&utm_content=gregswindle/generator-apiproxy&utm_campaign=Badge_Coverage
 [codacy-img]: https://api.codacy.com/project/badge/Grade/fa4ade3f68a04b9cad26165a59ceb88e

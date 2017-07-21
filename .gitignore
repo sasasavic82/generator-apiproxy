@@ -413,3 +413,5 @@ yarn.lock
 ### == 2.1. Include # package-lock.json files
 ###      Find the exclusion entry package-lock.json and either remove it or
 ###      insert at comment hash (#) in front of it.
+
+.assets/scripts/eslint*.*

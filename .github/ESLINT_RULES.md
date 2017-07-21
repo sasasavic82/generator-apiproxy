@@ -2,508 +2,523 @@
 
 `generator-apiproxy` enforces the following code standards with `ESLint`.
 
-| Rule                                                             | Enforcement           |
-|------------------------------------------------------------------|-----------------------|
-| [accessor-pairs][accessor-pairs-url]                             | error                 |
-| [array-bracket-spacing][array-bracket-spacing-url]               | off                   |
-| [array-callback-return][array-callback-return-url]               | off                   |
-| [arrow-body-style][arrow-body-style-url]                         | error                 |
-| [arrow-parens][arrow-parens-url]                                 | error                 |
-| [arrow-spacing][arrow-spacing-url]                               | error                 |
-| [block-scoped-var][block-scoped-var-url]                         | off                   |
-| [block-spacing][block-spacing-url]                               | off                   |
-| [brace-style][brace-style-url]                                   | off                   |
-| [callback-return][callback-return-url]                           | error                 |
-| [camelcase][camelcase-url]                                       | warn                  |
-| [capitalized-comments][capitalized-comments-url]                 | warn                  |
-| [class-methods-use-this][class-methods-use-this-url]             | off                   |
-| [comma-dangle][comma-dangle-url]                                 | error,never           |
-| [comma-spacing][comma-spacing-url]                               | off                   |
-| [comma-style][comma-style-url]                                   | off                   |
-| [complexity][complexity-url]                                     | error,4               |
-| [computed-property-spacing][computed-property-spacing-url]       | off                   |
-| [consistent-return][consistent-return-url]                       | off                   |
-| [consistent-this][consistent-this-url]                           | off                   |
-| [constructor-super][constructor-super-url]                       | error                 |
-| [curly][curly-url]                                               | off                   |
-| [default-case][default-case-url]                                 | off                   |
-| [dot-location][dot-location-url]                                 | off                   |
-| [dot-notation][dot-notation-url]                                 | off                   |
-| [eol-last][eol-last-url]                                         | off                   |
-| [eqeqeq][eqeqeq-url]                                             | error                 |
-| [func-call-spacing][func-call-spacing-url]                       | off                   |
-| [func-name-matching][func-name-matching-url]                     | off                   |
-| [func-names][func-names-url]                                     | off                   |
-| [func-style][func-style-url]                                     | off                   |
-| [generator-star-spacing][generator-star-spacing-url]             | error                 |
-| [global-require][global-require-url]                             | error                 |
-| [guard-for-in][guard-for-in-url]                                 | error                 |
-| [handle-callback-err][handle-callback-err-url]                   | error                 |
-| [id-length][id-length-url]                                       | off                   |
-| [id-match][id-match-url]                                         | off                   |
-| [indent][indent-url]                                             | error,4               |
-| [init-declarations][init-declarations-url]                       | off                   |
-| [jsx-quotes][jsx-quotes-url]                                     | off                   |
-| [key-spacing][key-spacing-url]                                   | off                   |
-| [keyword-spacing][keyword-spacing-url]                           | off                   |
-| [line-comment-position][line-comment-position-url]               | off                   |
-| [linebreak-style][linebreak-style-url]                           | error,unix            |
-| [lines-around-comment][lines-around-comment-url]                 | off                   |
-| [lines-around-directive][lines-around-directive-url]             | off                   |
-| [max-depth][max-depth-url]                                       | off                   |
-| [max-len][max-len-url]                                           | off                   |
-| [max-nested-callbacks][max-nested-callbacks-url]                 | off                   |
-| [max-params][max-params-url]                                     | off                   |
-| [max-statements][max-statements-url]                             | error,30              |
-| [max-statements-per-line][max-statements-per-line-url]           | off                   |
-| [multiline-ternary][multiline-ternary-url]                       | off                   |
-| [new-cap][new-cap-url]                                           | off                   |
-| [new-parens][new-parens-url]                                     | off                   |
-| [newline-after-var][newline-after-var-url]                       | off                   |
-| [newline-before-return][newline-before-return-url]               | off                   |
-| [newline-per-chained-call][newline-per-chained-call-url]         | off                   |
-| [no-alert][no-alert-url]                                         | error                 |
-| [no-array-constructor][no-array-constructor-url]                 | off                   |
-| [no-await-in-loop][no-await-in-loop-url]                         | error                 |
-| [no-bitwise][no-bitwise-url]                                     | off                   |
-| [no-caller][no-caller-url]                                       | error                 |
-| [no-case-declarations][no-case-declarations-url]                 | error                 |
-| [no-catch-shadow][no-catch-shadow-url]                           | off                   |
-| [no-class-assign][no-class-assign-url]                           | error                 |
-| [no-cond-assign][no-cond-assign-url]                             | error                 |
-| [no-confusing-arrow][no-confusing-arrow-url]                     | error                 |
-| [no-console][no-console-url]                                     | error                 |
-| [no-const-assign][no-const-assign-url]                           | error                 |
-| [no-constant-condition][no-constant-condition-url]               | error                 |
-| [no-continue][no-continue-url]                                   | off                   |
-| [no-control-regex][no-control-regex-url]                         | error                 |
-| [no-debugger][no-debugger-url]                                   | error                 |
-| [no-delete-var][no-delete-var-url]                               | error                 |
-| [no-div-regex][no-div-regex-url]                                 | error                 |
-| [no-dupe-args][no-dupe-args-url]                                 | error                 |
-| [no-dupe-class-members][no-dupe-class-members-url]               | error                 |
-| [no-dupe-keys][no-dupe-keys-url]                                 | error                 |
-| [no-duplicate-case][no-duplicate-case-url]                       | error                 |
-| [no-duplicate-imports][no-duplicate-imports-url]                 | error                 |
-| [no-else-return][no-else-return-url]                             | off                   |
-| [no-empty][no-empty-url]                                         | error                 |
-| [no-empty-character-class][no-empty-character-class-url]         | error                 |
-| [no-empty-function][no-empty-function-url]                       | off                   |
-| [no-empty-pattern][no-empty-pattern-url]                         | error                 |
-| [no-eq-null][no-eq-null-url]                                     | error                 |
-| [no-eval][no-eval-url]                                           | error                 |
-| [no-ex-assign][no-ex-assign-url]                                 | error                 |
-| [no-extend-native][no-extend-native-url]                         | error                 |
-| [no-extra-bind][no-extra-bind-url]                               | error                 |
-| [no-extra-boolean-cast][no-extra-boolean-cast-url]               | error                 |
-| [no-extra-label][no-extra-label-url]                             | off                   |
-| [no-extra-parens][no-extra-parens-url]                           | off                   |
-| [no-extra-semi][no-extra-semi-url]                               | error                 |
-| [no-fallthrough][no-fallthrough-url]                             | error                 |
-| [no-floating-decimal][no-floating-decimal-url]                   | off                   |
-| [no-func-assign][no-func-assign-url]                             | error                 |
-| [no-global-assign][no-global-assign-url]                         | off                   |
-| [no-implicit-coercion][no-implicit-coercion-url]                 | off                   |
-| [no-implied-eval][no-implied-eval-url]                           | error                 |
-| [no-inline-comments][no-inline-comments-url]                     | off                   |
-| [no-inner-declarations][no-inner-declarations-url]               | error,functions       |
-| [no-invalid-regexp][no-invalid-regexp-url]                       | error                 |
-| [no-invalid-this][no-invalid-this-url]                           | off                   |
-| [no-irregular-whitespace][no-irregular-whitespace-url]           | error                 |
-| [no-iterator][no-iterator-url]                                   | error                 |
-| [no-label-var][no-label-var-url]                                 | error                 |
-| [no-labels][no-labels-url]                                       | error,[object Object] |
-| [no-lone-blocks][no-lone-blocks-url]                             | error                 |
-| [no-lonely-if][no-lonely-if-url]                                 | off                   |
-| [no-loop-func][no-loop-func-url]                                 | error                 |
-| [no-magic-number][no-magic-number-url]                           | off                   |
-| [no-mixed-operators][no-mixed-operators-url]                     | off                   |
-| [no-mixed-requires][no-mixed-requires-url]                       | off                   |
-| [no-mixed-spaces-and-tabs][no-mixed-spaces-and-tabs-url]         | off                   |
-| [no-multi-assign][no-multi-assign-url]                           | off                   |
-| [no-multi-spaces][no-multi-spaces-url]                           | off                   |
-| [no-multi-str][no-multi-str-url]                                 | off                   |
-| [no-multiple-empty-lines][no-multiple-empty-lines-url]           | off                   |
-| [no-native-reassign][no-native-reassign-url]                     | error                 |
-| [no-negated-condition][no-negated-condition-url]                 | off                   |
-| [no-negated-in-lhs][no-negated-in-lhs-url]                       | error                 |
-| [no-nested-ternary][no-nested-ternary-url]                       | off                   |
-| [no-new][no-new-url]                                             | error                 |
-| [no-new-func][no-new-func-url]                                   | error                 |
-| [no-new-object][no-new-object-url]                               | off                   |
-| [no-new-require][no-new-require-url]                             | off                   |
-| [no-new-symbol][no-new-symbol-url]                               | off                   |
-| [no-new-wrappers][no-new-wrappers-url]                           | error                 |
-| [no-obj-calls][no-obj-calls-url]                                 | error                 |
-| [no-octal][no-octal-url]                                         | error                 |
-| [no-octal-escape][no-octal-escape-url]                           | error                 |
-| [no-param-reassign][no-param-reassign-url]                       | off                   |
-| [no-path-concat][no-path-concat-url]                             | error                 |
-| [no-plusplus][no-plusplus-url]                                   | off                   |
-| [no-process-env][no-process-env-url]                             | off                   |
-| [no-process-exit][no-process-exit-url]                           | error                 |
-| [no-proto][no-proto-url]                                         | error                 |
-| [no-prototype-builtins][no-prototype-builtins-url]               | off                   |
-| [no-redeclare][no-redeclare-url]                                 | error                 |
-| [no-regex-spaces][no-regex-spaces-url]                           | error                 |
-| [no-restricted-globals][no-restricted-globals-url]               | off                   |
-| [no-restricted-imports][no-restricted-imports-url]               | off                   |
-| [no-restricted-modules][no-restricted-modules-url]               | off                   |
-| [no-restricted-properties][no-restricted-properties-url]         | off                   |
-| [no-restricted-syntax][no-restricted-syntax-url]                 | off                   |
-| [no-return-assign][no-return-assign-url]                         | error                 |
-| [no-return-await][no-return-await-url]                           | off                   |
-| [no-script-url][no-script-url-url]                               | error                 |
-| [no-self-assign][no-self-assign-url]                             | off                   |
-| [no-self-compare][no-self-compare-url]                           | error                 |
-| [no-sequences][no-sequences-url]                                 | off                   |
-| [no-shadow][no-shadow-url]                                       | off                   |
-| [no-shadow-restricted-names][no-shadow-restricted-names-url]     | error                 |
-| [no-spaced-func][no-spaced-func-url]                             | off                   |
-| [no-sparse-arrays][no-sparse-arrays-url]                         | error                 |
-| [no-sync][no-sync-url]                                           | off                   |
-| [no-tabs][no-tabs-url]                                           | off                   |
-| [no-template-curly-in-string][no-template-curly-in-string-url]   | off                   |
-| [no-ternary][no-ternary-url]                                     | off                   |
-| [no-this-before-super][no-this-before-super-url]                 | error                 |
-| [no-throw-literal][no-throw-literal-url]                         | off                   |
-| [no-trailing-spaces][no-trailing-spaces-url]                     | error                 |
-| [no-undef][no-undef-url]                                         | off                   |
-| [no-undef-init][no-undef-init-url]                               | error                 |
-| [no-undefined][no-undefined-url]                                 | off                   |
-| [no-underscore-dangle][no-underscore-dangle-url]                 | off                   |
-| [no-unexpected-multiline][no-unexpected-multiline-url]           | error                 |
-| [no-unmodified-loop-condition][no-unmodified-loop-condition-url] | off                   |
-| [no-unneeded-ternary][no-unneeded-ternary-url]                   | error                 |
-| [no-unreachable][no-unreachable-url]                             | error                 |
-| [no-unsafe-finally][no-unsafe-finally-url]                       | off                   |
-| [no-unsafe-negation][no-unsafe-negation-url]                     | off                   |
-| [no-unused-expressions][no-unused-expressions-url]               | error                 |
-| [no-unused-labels][no-unused-labels-url]                         | error                 |
-| [no-unused-vars][no-unused-vars-url]                             | error                 |
-| [no-use-before-define][no-use-before-define-url]                 | error                 |
-| [no-useless-call][no-useless-call-url]                           | error                 |
-| [no-useless-computed-key][no-useless-computed-key-url]           | error                 |
-| [no-useless-concat][no-useless-concat-url]                       | error                 |
-| [no-useless-constructor][no-useless-constructor-url]             | error                 |
-| [no-useless-escape][no-useless-escape-url]                       | off                   |
-| [no-useless-rename][no-useless-rename-url]                       | error                 |
-| [no-useless-return][no-useless-return-url]                       | off                   |
-| [no-var][no-var-url]                                             | error                 |
-| [no-void][no-void-url]                                           | error                 |
-| [no-warning-comments][no-warning-comments-url]                   | off                   |
-| [no-with][no-with-url]                                           | error                 |
-| [object-curly-newline][object-curly-newline-url]                 | off                   |
-| [object-curly-spacing][object-curly-spacing-url]                 | off                   |
-| [object-property-newline][object-property-newline-url]           | off                   |
-| [object-shorthand][object-shorthand-url]                         | error                 |
-| [one-var][one-var-url]                                           | off                   |
-| [one-var-declaration-per-line][one-var-declaration-per-line-url] | warn                  |
-| [operator-assignment][operator-assignment-url]                   | off                   |
-| [operator-linebreak][operator-linebreak-url]                     | off                   |
-| [padded-blocks][padded-blocks-url]                               | off                   |
-| [prefer-arrow-callback][prefer-arrow-callback-url]               | error                 |
-| [prefer-const][prefer-const-url]                                 | error                 |
-| [prefer-destructuring][prefer-destructuring-url]                 | error                 |
-| [prefer-numeric-literals][prefer-numeric-literals-url]           | error                 |
-| [prefer-promise-reject-errors][prefer-promise-reject-errors-url] | off                   |
-| [prefer-reflect][prefer-reflect-url]                             | off                   |
-| [prefer-rest-params][prefer-rest-params-url]                     | off                   |
-| [prefer-spread][prefer-spread-url]                               | off                   |
-| [prefer-template][prefer-template-url]                           | off                   |
-| [quote-props][quote-props-url]                                   | off                   |
-| [quotes][quotes-url]                                             | error,single          |
-| [radix][radix-url]                                               | error                 |
-| [require-await][require-await-url]                               | off                   |
-| [require-jsdoc][require-jsdoc-url]                               | error                 |
-| [require-yield][require-yield-url]                               | off                   |
-| [rest-spread-spacing][rest-spread-spacing-url]                   | off                   |
-| [security][security-url]/detect-buffer-noassert                  | error                 |
-| [security][security-url]/detect-child-process                    | error                 |
-| [security][security-url]/detect-disable-mustache-escape          | error                 |
-| [security][security-url]/detect-eval-with-expression             | error                 |
-| [security][security-url]/detect-no-csrf-before-method-override   | error                 |
-| [security][security-url]/detect-non-literal-fs-filename          | error                 |
-| [security][security-url]/detect-non-literal-regexp               | error                 |
-| [security][security-url]/detect-non-literal-require              | error                 |
-| [security][security-url]/detect-object-injection                 | error                 |
-| [security][security-url]/detect-possible-timing-attacks          | error                 |
-| [security][security-url]/detect-pseudoRandomBytes                | error                 |
-| [security][security-url]/detect-unsafe-regex                     | error                 |
-| [semi][semi-url]                                                 | error,always          |
-| [semi-spacing][semi-spacing-url]                                 | off                   |
-| [sort-imports][sort-imports-url]                                 | warn                  |
-| [sort-keys][sort-keys-url]                                       | off                   |
-| [sort-vars][sort-vars-url]                                       | warn                  |
-| [space-before-blocks][space-before-blocks-url]                   | off                   |
-| [space-before-function-paren][space-before-function-paren-url]   | off                   |
-| [space-in-parens][space-in-parens-url]                           | off                   |
-| [space-infix-ops][space-infix-ops-url]                           | off                   |
-| [space-unary-ops][space-unary-ops-url]                           | off                   |
-| [spaced-comment][spaced-comment-url]                             | off                   |
-| [strict][strict-url]                                             | error                 |
-| [symbol-description][symbol-description-url]                     | off                   |
-| [template-curly-spacing][template-curly-spacing-url]             | off                   |
-| [template-tag-spacing][template-tag-spacing-url]                 | off                   |
-| [unicode-bom][unicode-bom-url]                                   | off                   |
-| [use-isnan][use-isnan-url]                                       | error                 |
-| [valid-jsdoc][valid-jsdoc-url]                                   | off                   |
-| [valid-typeof][valid-typeof-url]                                 | error                 |
-| [vars-on-top][vars-on-top-url]                                   | off                   |
-| [wrap-iife][wrap-iife-url]                                       | error                 |
-| [wrap-regex][wrap-regex-url]                                     | off                   |
-| [yield-star-spacing][yield-star-spacing-url]                     | off                   |
-| [yoda][yoda-url]                                                 | off                   |
+## Table of contents
+
+<!-- toc -->
+
+- [1. Rule summary](#1-rule-summary)
+- [2. Rules](#2-rules)
+  * [2.1. `eslint`](#21-eslint)
+  * [2.2. `import`](#22-import)
+  * [2.3. `security`](#23-security)
+  * [2.4. `jsdoc`](#24-jsdoc)
+  * [2.5. `no-unsanitized`](#25-no-unsanitized)
+  * [2.6. `node`](#26-node)
+  * [2.7. `promise`](#27-promise)
+  * [2.8. `standard`](#28-standard)
+  * [2.9. `xss`](#29-xss)
+  * [2.10. `no-unsafe-innerhtml`](#210-no-unsafe-innerhtml)
+  * [2.11. `scanjs-rules`](#211-scanjs-rules)
+
+<!-- tocstop -->
+
+<!-- tocend -->
+
+## 1. Rule summary
+
+|                       | total   | omitted | off     | warn    | error   |
+|:----------------------|--------:|--------:|--------:|--------:|--------:|
+| `eslint`              | 245     | 115     | -       | 1       | 129     |
+| `import`              | 30      | 22      | -       | 3       | 5       |
+| `security`            | 13      | -       | -       | 1       | 12      |
+| `jsdoc`               | 12      | -       | -       | -       | 12      |
+| `no-unsafe-innerhtml` | 1       | 1       | -       | -       | -       |
+| `no-unsanitized`      | 2       | -       | -       | -       | 2       |
+| `node`                | 12      | -       | -       | -       | 12      |
+| `promise`             | 11      | 10      | -       | -       | 1       |
+| `scanjs-rules`        | 88      | -       | -       | 88      | -       |
+| `standard`            | 4       | -       | -       | -       | 4       |
+| `xss`                 | 2       | -       | -       | -       | 2       |
+| **TOTALS**            | **420** | **147** | -       | **93**  | **181** |
+
+## 2. Rules
+
+### 2.1. `eslint`
+
+| Name | Status |
+|:-----|:-------|
+| [`accessor-pairs`](http://eslint.org/docs/rules/accessor-pairs) | error |
+| [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing) | error |
+| [`block-spacing`](http://eslint.org/docs/rules/block-spacing) | error |
+| [`brace-style`](http://eslint.org/docs/rules/brace-style) | error |
+| [`camelcase`](http://eslint.org/docs/rules/camelcase) | error |
+| [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle) | error |
+| [`comma-spacing`](http://eslint.org/docs/rules/comma-spacing) | error |
+| [`comma-style`](http://eslint.org/docs/rules/comma-style) | error |
+| [`constructor-super`](http://eslint.org/docs/rules/constructor-super) | error |
+| [`curly`](http://eslint.org/docs/rules/curly) | error |
+| [`dot-location`](http://eslint.org/docs/rules/dot-location) | error |
+| [`eol-last`](http://eslint.org/docs/rules/eol-last) | error |
+| [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq) | error |
+| [`func-call-spacing`](http://eslint.org/docs/rules/func-call-spacing) | error |
+| [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing) | error |
+| [`handle-callback-err`](http://eslint.org/docs/rules/handle-callback-err) | error |
+| [`indent`](http://eslint.org/docs/rules/indent) | error |
+| [`key-spacing`](http://eslint.org/docs/rules/key-spacing) | error |
+| [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing) | error |
+| [`new-cap`](http://eslint.org/docs/rules/new-cap) | error |
+| [`new-parens`](http://eslint.org/docs/rules/new-parens) | error |
+| [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor) | error |
+| [`no-caller`](http://eslint.org/docs/rules/no-caller) | error |
+| [`no-class-assign`](http://eslint.org/docs/rules/no-class-assign) | error |
+| [`no-compare-neg-zero`](http://eslint.org/docs/rules/no-compare-neg-zero) | error |
+| [`no-cond-assign`](http://eslint.org/docs/rules/no-cond-assign) | error |
+| [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign) | error |
+| [`no-constant-condition`](http://eslint.org/docs/rules/no-constant-condition) | error |
+| [`no-control-regex`](http://eslint.org/docs/rules/no-control-regex) | error |
+| [`no-debugger`](http://eslint.org/docs/rules/no-debugger) | error |
+| [`no-delete-var`](http://eslint.org/docs/rules/no-delete-var) | error |
+| [`no-dupe-args`](http://eslint.org/docs/rules/no-dupe-args) | error |
+| [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members) | error |
+| [`no-dupe-keys`](http://eslint.org/docs/rules/no-dupe-keys) | error |
+| [`no-duplicate-case`](http://eslint.org/docs/rules/no-duplicate-case) | error |
+| [`no-empty-character-class`](http://eslint.org/docs/rules/no-empty-character-class) | error |
+| [`no-empty-pattern`](http://eslint.org/docs/rules/no-empty-pattern) | error |
+| [`no-eval`](http://eslint.org/docs/rules/no-eval) | error |
+| [`no-ex-assign`](http://eslint.org/docs/rules/no-ex-assign) | error |
+| [`no-extend-native`](http://eslint.org/docs/rules/no-extend-native) | error |
+| [`no-extra-bind`](http://eslint.org/docs/rules/no-extra-bind) | error |
+| [`no-extra-boolean-cast`](http://eslint.org/docs/rules/no-extra-boolean-cast) | error |
+| [`no-extra-parens`](http://eslint.org/docs/rules/no-extra-parens) | error |
+| [`no-fallthrough`](http://eslint.org/docs/rules/no-fallthrough) | error |
+| [`no-floating-decimal`](http://eslint.org/docs/rules/no-floating-decimal) | error |
+| [`no-func-assign`](http://eslint.org/docs/rules/no-func-assign) | error |
+| [`no-global-assign`](http://eslint.org/docs/rules/no-global-assign) | error |
+| [`no-implied-eval`](http://eslint.org/docs/rules/no-implied-eval) | error |
+| [`no-inner-declarations`](http://eslint.org/docs/rules/no-inner-declarations) | error |
+| [`no-invalid-regexp`](http://eslint.org/docs/rules/no-invalid-regexp) | error |
+| [`no-irregular-whitespace`](http://eslint.org/docs/rules/no-irregular-whitespace) | error |
+| [`no-iterator`](http://eslint.org/docs/rules/no-iterator) | error |
+| [`no-label-var`](http://eslint.org/docs/rules/no-label-var) | error |
+| [`no-labels`](http://eslint.org/docs/rules/no-labels) | error |
+| [`no-lone-blocks`](http://eslint.org/docs/rules/no-lone-blocks) | error |
+| [`no-mixed-operators`](http://eslint.org/docs/rules/no-mixed-operators) | error |
+| [`no-mixed-spaces-and-tabs`](http://eslint.org/docs/rules/no-mixed-spaces-and-tabs) | error |
+| [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces) | error |
+| [`no-multi-str`](http://eslint.org/docs/rules/no-multi-str) | error |
+| [`no-multiple-empty-lines`](http://eslint.org/docs/rules/no-multiple-empty-lines) | error |
+| [`no-new`](http://eslint.org/docs/rules/no-new) | error |
+| [`no-new-func`](http://eslint.org/docs/rules/no-new-func) | error |
+| [`no-new-object`](http://eslint.org/docs/rules/no-new-object) | error |
+| [`no-new-require`](http://eslint.org/docs/rules/no-new-require) | error |
+| [`no-new-symbol`](http://eslint.org/docs/rules/no-new-symbol) | error |
+| [`no-new-wrappers`](http://eslint.org/docs/rules/no-new-wrappers) | error |
+| [`no-obj-calls`](http://eslint.org/docs/rules/no-obj-calls) | error |
+| [`no-octal`](http://eslint.org/docs/rules/no-octal) | error |
+| [`no-octal-escape`](http://eslint.org/docs/rules/no-octal-escape) | error |
+| [`no-path-concat`](http://eslint.org/docs/rules/no-path-concat) | error |
+| [`no-process-exit`](http://eslint.org/docs/rules/no-process-exit) | error |
+| [`no-proto`](http://eslint.org/docs/rules/no-proto) | error |
+| [`no-redeclare`](http://eslint.org/docs/rules/no-redeclare) | error |
+| [`no-regex-spaces`](http://eslint.org/docs/rules/no-regex-spaces) | error |
+| [`no-return-assign`](http://eslint.org/docs/rules/no-return-assign) | error |
+| [`no-return-await`](http://eslint.org/docs/rules/no-return-await) | error |
+| [`no-self-assign`](http://eslint.org/docs/rules/no-self-assign) | error |
+| [`no-self-compare`](http://eslint.org/docs/rules/no-self-compare) | error |
+| [`no-sequences`](http://eslint.org/docs/rules/no-sequences) | error |
+| [`no-shadow-restricted-names`](http://eslint.org/docs/rules/no-shadow-restricted-names) | error |
+| [`no-sparse-arrays`](http://eslint.org/docs/rules/no-sparse-arrays) | error |
+| [`no-tabs`](http://eslint.org/docs/rules/no-tabs) | error |
+| [`no-template-curly-in-string`](http://eslint.org/docs/rules/no-template-curly-in-string) | error |
+| [`no-this-before-super`](http://eslint.org/docs/rules/no-this-before-super) | error |
+| [`no-throw-literal`](http://eslint.org/docs/rules/no-throw-literal) | error |
+| [`no-trailing-spaces`](http://eslint.org/docs/rules/no-trailing-spaces) | error |
+| [`no-undef`](http://eslint.org/docs/rules/no-undef) | error |
+| [`no-undef-init`](http://eslint.org/docs/rules/no-undef-init) | error |
+| [`no-unexpected-multiline`](http://eslint.org/docs/rules/no-unexpected-multiline) | error |
+| [`no-unmodified-loop-condition`](http://eslint.org/docs/rules/no-unmodified-loop-condition) | error |
+| [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary) | error |
+| [`no-unreachable`](http://eslint.org/docs/rules/no-unreachable) | error |
+| [`no-unsafe-finally`](http://eslint.org/docs/rules/no-unsafe-finally) | error |
+| [`no-unsafe-negation`](http://eslint.org/docs/rules/no-unsafe-negation) | error |
+| [`no-unused-expressions`](http://eslint.org/docs/rules/no-unused-expressions) | error |
+| [`no-unused-vars`](http://eslint.org/docs/rules/no-unused-vars) | error |
+| [`no-use-before-define`](http://eslint.org/docs/rules/no-use-before-define) | error |
+| [`no-useless-call`](http://eslint.org/docs/rules/no-useless-call) | error |
+| [`no-useless-computed-key`](http://eslint.org/docs/rules/no-useless-computed-key) | error |
+| [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor) | error |
+| [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape) | error |
+| [`no-useless-rename`](http://eslint.org/docs/rules/no-useless-rename) | error |
+| [`no-useless-return`](http://eslint.org/docs/rules/no-useless-return) | error |
+| [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property) | error |
+| [`no-with`](http://eslint.org/docs/rules/no-with) | error |
+| [`object-property-newline`](http://eslint.org/docs/rules/object-property-newline) | error |
+| [`one-var`](http://eslint.org/docs/rules/one-var) | error |
+| [`operator-linebreak`](http://eslint.org/docs/rules/operator-linebreak) | error |
+| [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks) | error |
+| [`prefer-promise-reject-errors`](http://eslint.org/docs/rules/prefer-promise-reject-errors) | error |
+| [`quotes`](http://eslint.org/docs/rules/quotes) | error |
+| [`rest-spread-spacing`](http://eslint.org/docs/rules/rest-spread-spacing) | error |
+| [`semi`](http://eslint.org/docs/rules/semi) | error |
+| [`semi-spacing`](http://eslint.org/docs/rules/semi-spacing) | error |
+| [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks) | error |
+| [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) | error |
+| [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens) | error |
+| [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops) | error |
+| [`space-unary-ops`](http://eslint.org/docs/rules/space-unary-ops) | error |
+| [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment) | error |
+| [`symbol-description`](http://eslint.org/docs/rules/symbol-description) | error |
+| [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) | error |
+| [`template-tag-spacing`](http://eslint.org/docs/rules/template-tag-spacing) | error |
+| [`unicode-bom`](http://eslint.org/docs/rules/unicode-bom) | error |
+| [`use-isnan`](http://eslint.org/docs/rules/use-isnan) | error |
+| [`valid-typeof`](http://eslint.org/docs/rules/valid-typeof) | error |
+| [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife) | error |
+| [`yield-star-spacing`](http://eslint.org/docs/rules/yield-star-spacing) | error |
+| [`yoda`](http://eslint.org/docs/rules/yoda) | error |
+| [`array-bracket-newline`](http://eslint.org/docs/rules/array-bracket-newline) | omitted |
+| [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing) | omitted |
+| [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return) | omitted |
+| [`array-element-newline`](http://eslint.org/docs/rules/array-element-newline) | omitted |
+| [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style) | omitted |
+| [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens) | omitted |
+| [`block-scoped-var`](http://eslint.org/docs/rules/block-scoped-var) | omitted |
+| [`callback-return`](http://eslint.org/docs/rules/callback-return) | omitted |
+| [`capitalized-comments`](http://eslint.org/docs/rules/capitalized-comments) | omitted |
+| [`class-methods-use-this`](http://eslint.org/docs/rules/class-methods-use-this) | omitted |
+| [`complexity`](http://eslint.org/docs/rules/complexity) | omitted |
+| [`computed-property-spacing`](http://eslint.org/docs/rules/computed-property-spacing) | omitted |
+| [`consistent-return`](http://eslint.org/docs/rules/consistent-return) | omitted |
+| [`consistent-this`](http://eslint.org/docs/rules/consistent-this) | omitted |
+| [`default-case`](http://eslint.org/docs/rules/default-case) | omitted |
+| [`dot-notation`](http://eslint.org/docs/rules/dot-notation) | omitted |
+| [`for-direction`](http://eslint.org/docs/rules/for-direction) | omitted |
+| [`func-name-matching`](http://eslint.org/docs/rules/func-name-matching) | omitted |
+| [`func-names`](http://eslint.org/docs/rules/func-names) | omitted |
+| [`func-style`](http://eslint.org/docs/rules/func-style) | omitted |
+| [`getter-return`](http://eslint.org/docs/rules/getter-return) | omitted |
+| [`global-require`](http://eslint.org/docs/rules/global-require) | omitted |
+| [`guard-for-in`](http://eslint.org/docs/rules/guard-for-in) | omitted |
+| [`id-blacklist`](http://eslint.org/docs/rules/id-blacklist) | omitted |
+| [`id-length`](http://eslint.org/docs/rules/id-length) | omitted |
+| [`id-match`](http://eslint.org/docs/rules/id-match) | omitted |
+| [`init-declarations`](http://eslint.org/docs/rules/init-declarations) | omitted |
+| [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes) | omitted |
+| [`line-comment-position`](http://eslint.org/docs/rules/line-comment-position) | omitted |
+| [`linebreak-style`](http://eslint.org/docs/rules/linebreak-style) | omitted |
+| [`lines-around-comment`](http://eslint.org/docs/rules/lines-around-comment) | omitted |
+| [`max-depth`](http://eslint.org/docs/rules/max-depth) | omitted |
+| [`max-len`](http://eslint.org/docs/rules/max-len) | omitted |
+| [`max-lines`](http://eslint.org/docs/rules/max-lines) | omitted |
+| [`max-nested-callbacks`](http://eslint.org/docs/rules/max-nested-callbacks) | omitted |
+| [`max-params`](http://eslint.org/docs/rules/max-params) | omitted |
+| [`max-statements`](http://eslint.org/docs/rules/max-statements) | omitted |
+| [`max-statements-per-line`](http://eslint.org/docs/rules/max-statements-per-line) | omitted |
+| [`multiline-ternary`](http://eslint.org/docs/rules/multiline-ternary) | omitted |
+| [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) | omitted |
+| [`no-alert`](http://eslint.org/docs/rules/no-alert) | omitted |
+| [`no-await-in-loop`](http://eslint.org/docs/rules/no-await-in-loop) | omitted |
+| [`no-bitwise`](http://eslint.org/docs/rules/no-bitwise) | omitted |
+| [`no-buffer-constructor`](http://eslint.org/docs/rules/no-buffer-constructor) | omitted |
+| [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations) | omitted |
+| [`no-catch-shadow`](http://eslint.org/docs/rules/no-catch-shadow) | omitted |
+| [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow) | omitted |
+| [`no-console`](http://eslint.org/docs/rules/no-console) | omitted |
+| [`no-continue`](http://eslint.org/docs/rules/no-continue) | omitted |
+| [`no-div-regex`](http://eslint.org/docs/rules/no-div-regex) | omitted |
+| [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports) | omitted |
+| [`no-else-return`](http://eslint.org/docs/rules/no-else-return) | omitted |
+| [`no-empty`](http://eslint.org/docs/rules/no-empty) | omitted |
+| [`no-empty-function`](http://eslint.org/docs/rules/no-empty-function) | omitted |
+| [`no-eq-null`](http://eslint.org/docs/rules/no-eq-null) | omitted |
+| [`no-extra-label`](http://eslint.org/docs/rules/no-extra-label) | omitted |
+| [`no-extra-semi`](http://eslint.org/docs/rules/no-extra-semi) | omitted |
+| [`no-implicit-coercion`](http://eslint.org/docs/rules/no-implicit-coercion) | omitted |
+| [`no-implicit-globals`](http://eslint.org/docs/rules/no-implicit-globals) | omitted |
+| [`no-invalid-this`](http://eslint.org/docs/rules/no-invalid-this) | omitted |
+| [`no-lonely-if`](http://eslint.org/docs/rules/no-lonely-if) | omitted |
+| [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func) | omitted |
+| [`no-magic-numbers`](http://eslint.org/docs/rules/no-magic-numbers) | omitted |
+| [`no-mixed-requires`](http://eslint.org/docs/rules/no-mixed-requires) | omitted |
+| [`no-multi-assign`](http://eslint.org/docs/rules/no-multi-assign) | omitted |
+| [`no-negated-condition`](http://eslint.org/docs/rules/no-negated-condition) | omitted |
+| [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary) | omitted |
+| [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign) | omitted |
+| [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus) | omitted |
+| [`no-process-env`](http://eslint.org/docs/rules/no-process-env) | omitted |
+| [`no-prototype-builtins`](http://eslint.org/docs/rules/no-prototype-builtins) | omitted |
+| [`no-restricted-globals`](http://eslint.org/docs/rules/no-restricted-globals) | omitted |
+| [`no-restricted-imports`](http://eslint.org/docs/rules/no-restricted-imports) | omitted |
+| [`no-restricted-modules`](http://eslint.org/docs/rules/no-restricted-modules) | omitted |
+| [`no-restricted-properties`](http://eslint.org/docs/rules/no-restricted-properties) | omitted |
+| [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax) | omitted |
+| [`no-script-url`](http://eslint.org/docs/rules/no-script-url) | omitted |
+| [`no-shadow`](http://eslint.org/docs/rules/no-shadow) | omitted |
+| [`no-sync`](http://eslint.org/docs/rules/no-sync) | omitted |
+| [`no-ternary`](http://eslint.org/docs/rules/no-ternary) | omitted |
+| [`no-undefined`](http://eslint.org/docs/rules/no-undefined) | omitted |
+| [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle) | omitted |
+| [`no-unused-labels`](http://eslint.org/docs/rules/no-unused-labels) | omitted |
+| [`no-useless-concat`](http://eslint.org/docs/rules/no-useless-concat) | omitted |
+| [`no-var`](http://eslint.org/docs/rules/no-var) | omitted |
+| [`no-void`](http://eslint.org/docs/rules/no-void) | omitted |
+| [`no-warning-comments`](http://eslint.org/docs/rules/no-warning-comments) | omitted |
+| [`nonblock-statement-body-position`](http://eslint.org/docs/rules/nonblock-statement-body-position) | omitted |
+| [`object-curly-newline`](http://eslint.org/docs/rules/object-curly-newline) | omitted |
+| [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing) | omitted |
+| [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand) | omitted |
+| [`one-var-declaration-per-line`](http://eslint.org/docs/rules/one-var-declaration-per-line) | omitted |
+| [`operator-assignment`](http://eslint.org/docs/rules/operator-assignment) | omitted |
+| [`padding-line-between-statements`](http://eslint.org/docs/rules/padding-line-between-statements) | omitted |
+| [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback) | omitted |
+| [`prefer-const`](http://eslint.org/docs/rules/prefer-const) | omitted |
+| [`prefer-destructuring`](http://eslint.org/docs/rules/prefer-destructuring) | omitted |
+| [`prefer-numeric-literals`](http://eslint.org/docs/rules/prefer-numeric-literals) | omitted |
+| [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params) | omitted |
+| [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread) | omitted |
+| [`prefer-template`](http://eslint.org/docs/rules/prefer-template) | omitted |
+| [`quote-props`](http://eslint.org/docs/rules/quote-props) | omitted |
+| [`radix`](http://eslint.org/docs/rules/radix) | omitted |
+| [`require-await`](http://eslint.org/docs/rules/require-await) | omitted |
+| [`require-jsdoc`](http://eslint.org/docs/rules/require-jsdoc) | omitted |
+| [`require-yield`](http://eslint.org/docs/rules/require-yield) | omitted |
+| [`semi-style`](http://eslint.org/docs/rules/semi-style) | omitted |
+| [`sort-imports`](http://eslint.org/docs/rules/sort-imports) | omitted |
+| [`sort-keys`](http://eslint.org/docs/rules/sort-keys) | omitted |
+| [`sort-vars`](http://eslint.org/docs/rules/sort-vars) | omitted |
+| [`strict`](http://eslint.org/docs/rules/strict) | omitted |
+| [`switch-colon-spacing`](http://eslint.org/docs/rules/switch-colon-spacing) | omitted |
+| [`valid-jsdoc`](http://eslint.org/docs/rules/valid-jsdoc) | omitted |
+| [`vars-on-top`](http://eslint.org/docs/rules/vars-on-top) | omitted |
+| [`wrap-regex`](http://eslint.org/docs/rules/wrap-regex) | omitted |
+| [`no-inline-comments`](http://eslint.org/docs/rules/no-inline-comments) | warn |
+
+### 2.2. `import`
+
+| Name | Status |
+|:-----|:-------|
+| [`import/default`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/default.md) | error |
+| [`import/export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/export.md) | error |
+| [`import/named`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md) | error |
+| [`import/namespace`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/namespace.md) | error |
+| [`import/no-unresolved`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md) | error |
+| [`import/extensions`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md) | omitted |
+| [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md) | omitted |
+| [`import/max-dependencies`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/max-dependencies.md) | omitted |
+| [`import/newline-after-import`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md) | omitted |
+| [`import/no-absolute-path`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-absolute-path.md) | omitted |
+| [`import/no-amd`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-amd.md) | omitted |
+| [`import/no-anonymous-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md) | omitted |
+| [`import/no-commonjs`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-commonjs.md) | omitted |
+| [`import/no-deprecated`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md) | omitted |
+| [`import/no-dynamic-require`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-dynamic-require.md) | omitted |
+| [`import/no-extraneous-dependencies`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md) | omitted |
+| [`import/no-internal-modules`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md) | omitted |
+| [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md) | omitted |
+| [`import/no-named-default`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-default.md) | omitted |
+| [`import/no-namespace`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-namespace.md) | omitted |
+| [`import/no-nodejs-modules`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-nodejs-modules.md) | omitted |
+| [`import/no-restricted-paths`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-restricted-paths.md) | omitted |
+| [`import/no-unassigned-import`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md) | omitted |
+| [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md) | omitted |
+| [`import/order`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md) | omitted |
+| [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md) | omitted |
+| [`import/unambiguous`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/unambiguous.md) | omitted |
+| [`import/no-duplicates`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md) | warn |
+| [`import/no-named-as-default`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md) | warn |
+| [`import/no-named-as-default-member`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default-member.md) | warn |
+
+### 2.3. `security`
+
+| Name | Status |
+|:-----|:-------|
+| [`security/detect-buffer-noassert`](https://www.npmjs.com/package/eslint-plugin-security#detect-buffer-noassert) | error |
+| [`security/detect-child-process`](https://www.npmjs.com/package/eslint-plugin-security#detect-child-process) | error |
+| [`security/detect-disable-mustache-escape`](https://www.npmjs.com/package/eslint-plugin-security#detect-disable-mustache-escape) | error |
+| [`security/detect-eval-with-expression`](https://www.npmjs.com/package/eslint-plugin-security#detect-eval-with-expression) | error |
+| [`security/detect-no-csrf-before-method-override`](https://www.npmjs.com/package/eslint-plugin-security#detect-no-csrf-before-method-override) | error |
+| [`security/detect-non-literal-fs-filename`](https://www.npmjs.com/package/eslint-plugin-security#detect-non-literal-fs-filename) | error |
+| [`security/detect-non-literal-regexp`](https://www.npmjs.com/package/eslint-plugin-security#detect-non-literal-regexp) | error |
+| [`security/detect-non-literal-require`](https://www.npmjs.com/package/eslint-plugin-security#detect-non-literal-require) | error |
+| [`security/detect-object-injection`](https://www.npmjs.com/package/eslint-plugin-security#detect-object-injection) | error |
+| [`security/detect-possible-timing-attacks`](https://www.npmjs.com/package/eslint-plugin-security#detect-possible-timing-attacks) | error |
+| [`security/detect-pseudoRandomBytes`](https://www.npmjs.com/package/eslint-plugin-security#detect-pseudoRandomBytes) | error |
+| [`security/detect-unsafe-regex`](https://www.npmjs.com/package/eslint-plugin-security#detect-unsafe-regex) | error |
+| [`security/detect-new-buffer`](https://www.npmjs.com/package/eslint-plugin-security#detect-new-buffer) | warn |
+
+### 2.4. `jsdoc`
+
+| Name | Status |
+|:-----|:-------|
+| [`jsdoc/check-param-names`](https://github.com/gajus/eslint-plugin-jsdoc#check-param-names) | error |
+| [`jsdoc/check-tag-names`](https://github.com/gajus/eslint-plugin-jsdoc#check-tag-names) | error |
+| [`jsdoc/check-types`](https://github.com/gajus/eslint-plugin-jsdoc#check-types) | error |
+| [`jsdoc/newline-after-description`](https://github.com/gajus/eslint-plugin-jsdoc#newline-after-description) | error |
+| [`jsdoc/require-description-complete-sentence`](https://github.com/gajus/eslint-plugin-jsdoc#require-description-complete-sentence) | error |
+| [`jsdoc/require-example`](https://github.com/gajus/eslint-plugin-jsdoc#require-example) | error |
+| [`jsdoc/require-hyphen-before-param-description`](https://github.com/gajus/eslint-plugin-jsdoc#require-hyphen-before-param-description) | error |
+| [`jsdoc/require-param`](https://github.com/gajus/eslint-plugin-jsdoc#require-param) | error |
+| [`jsdoc/require-param-description`](https://github.com/gajus/eslint-plugin-jsdoc#require-param-description) | error |
+| [`jsdoc/require-param-type`](https://github.com/gajus/eslint-plugin-jsdoc#require-param-type) | error |
+| [`jsdoc/require-returns-description`](https://github.com/gajus/eslint-plugin-jsdoc#require-returns-description) | error |
+| [`jsdoc/require-returns-type`](https://github.com/gajus/eslint-plugin-jsdoc#require-returns-type) | error |
+
+### 2.5. `no-unsanitized`
+
+| Name | Status |
+|:-----|:-------|
+| [`no-unsanitized/method`](https://www.npmjs.com/package/eslint-plugin-no-unsanitized#method) | error |
+| [`no-unsanitized/property`](https://www.npmjs.com/package/eslint-plugin-no-unsanitized#property) | error |
+
+### 2.6. `node`
+
+| Name | Status |
+|:-----|:-------|
+| [`node/exports-style`](https://www.npmjs.com/package/eslint-plugin-node#exports-style) | error |
+| [`node/no-deprecated-api`](https://www.npmjs.com/package/eslint-plugin-node#no-deprecated-api) | error |
+| [`node/no-extraneous-import`](https://www.npmjs.com/package/eslint-plugin-node#no-extraneous-import) | error |
+| [`node/no-extraneous-require`](https://www.npmjs.com/package/eslint-plugin-node#no-extraneous-require) | error |
+| [`node/no-missing-import`](https://www.npmjs.com/package/eslint-plugin-node#no-missing-import) | error |
+| [`node/no-missing-require`](https://www.npmjs.com/package/eslint-plugin-node#no-missing-require) | error |
+| [`node/no-unpublished-bin`](https://www.npmjs.com/package/eslint-plugin-node#no-unpublished-bin) | error |
+| [`node/no-unpublished-import`](https://www.npmjs.com/package/eslint-plugin-node#no-unpublished-import) | error |
+| [`node/no-unpublished-require`](https://www.npmjs.com/package/eslint-plugin-node#no-unpublished-require) | error |
+| [`node/no-unsupported-features`](https://www.npmjs.com/package/eslint-plugin-node#no-unsupported-features) | error |
+| [`node/process-exit-as-throw`](https://www.npmjs.com/package/eslint-plugin-node#process-exit-as-throw) | error |
+| [`node/shebang`](https://www.npmjs.com/package/eslint-plugin-node#shebang) | error |
+
+### 2.7. `promise`
+
+| Name | Status |
+|:-----|:-------|
+| [`promise/param-names`](https://www.npmjs.com/package/eslint-plugin-promise#param-names) | error |
+| [`promise/always-return`](https://www.npmjs.com/package/eslint-plugin-promise#always-return) | omitted |
+| [`promise/avoid-new`](https://www.npmjs.com/package/eslint-plugin-promise#avoid-new) | omitted |
+| [`promise/catch-or-return`](https://www.npmjs.com/package/eslint-plugin-promise#catch-or-return) | omitted |
+| [`promise/no-callback-in-promise`](https://www.npmjs.com/package/eslint-plugin-promise#no-callback-in-promise) | omitted |
+| [`promise/no-native`](https://www.npmjs.com/package/eslint-plugin-promise#no-native) | omitted |
+| [`promise/no-nesting`](https://www.npmjs.com/package/eslint-plugin-promise#no-nesting) | omitted |
+| [`promise/no-promise-in-callback`](https://www.npmjs.com/package/eslint-plugin-promise#no-promise-in-callback) | omitted |
+| [`promise/no-return-wrap`](https://www.npmjs.com/package/eslint-plugin-promise#no-return-wrap) | omitted |
+| [`promise/prefer-await-to-callbacks`](https://www.npmjs.com/package/eslint-plugin-promise#prefer-await-to-callbacks) | omitted |
+| [`promise/prefer-await-to-then`](https://www.npmjs.com/package/eslint-plugin-promise#prefer-await-to-then) | omitted |
+
+### 2.8. `standard`
+
+| Name | Status |
+|:-----|:-------|
+| [`standard/array-bracket-even-spacing`](https://www.npmjs.com/package/eslint-plugin-standard#array-bracket-even-spacing) | error |
+| [`standard/computed-property-even-spacing`](https://www.npmjs.com/package/eslint-plugin-standard#computed-property-even-spacing) | error |
+| [`standard/no-callback-literal`](https://www.npmjs.com/package/eslint-plugin-standard#no-callback-literal) | error |
+| [`standard/object-curly-even-spacing`](https://www.npmjs.com/package/eslint-plugin-standard#object-curly-even-spacing) | error |
+
+### 2.9. `xss`
+
+| Name | Status |
+|:-----|:-------|
+| [`xss/no-location-href-assign`](https://www.npmjs.com/package/eslint-plugin-xss#no-location-href-assign) | error |
+| [`xss/no-mixed-html`](https://www.npmjs.com/package/eslint-plugin-xss#no-mixed-html) | error |
+
+### 2.10. `no-unsafe-innerhtml`
+
+| Name | Status |
+|:-----|:-------|
+| [`no-unsafe-innerhtml/no-unsafe-innerhtml`](https://www.npmjs.com/package/eslint-plugin-no-unsafe-innerhtml#no-unsafe-innerhtml) | omitted |
+
+### 2.11. `scanjs-rules`
+
+| Name | Status |
+|:-----|:-------|
+| [`scanjs-rules/accidental_assignment`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#accidental_assignment) | warn |
+| [`scanjs-rules/assign_to_hostname`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_hostname) | warn |
+| [`scanjs-rules/assign_to_href`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_href) | warn |
+| [`scanjs-rules/assign_to_location`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_location) | warn |
+| [`scanjs-rules/assign_to_mozAudioChannel`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_mozAudioChannel) | warn |
+| [`scanjs-rules/assign_to_mozAudioChannelType`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_mozAudioChannelType) | warn |
+| [`scanjs-rules/assign_to_onmessage`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_onmessage) | warn |
+| [`scanjs-rules/assign_to_pathname`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_pathname) | warn |
+| [`scanjs-rules/assign_to_protocol`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_protocol) | warn |
+| [`scanjs-rules/assign_to_search`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_search) | warn |
+| [`scanjs-rules/assign_to_src`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#assign_to_src) | warn |
+| [`scanjs-rules/call_Function`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_Function) | warn |
+| [`scanjs-rules/call_addEventListener`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_addEventListener) | warn |
+| [`scanjs-rules/call_addEventListener_cellbroadcastmsgchanged`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_addEventListener_cellbroadcastmsgchanged) | warn |
+| [`scanjs-rules/call_addEventListener_deviceproximity`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_addEventListener_deviceproximity) | warn |
+| [`scanjs-rules/call_addEventListener_message`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_addEventListener_message) | warn |
+| [`scanjs-rules/call_addEventListener_moznetworkdownload`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_addEventListener_moznetworkdownload) | warn |
+| [`scanjs-rules/call_addEventListener_moznetworkupload`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_addEventListener_moznetworkupload) | warn |
+| [`scanjs-rules/call_connect`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_connect) | warn |
+| [`scanjs-rules/call_eval`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_eval) | warn |
+| [`scanjs-rules/call_execScript`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_execScript) | warn |
+| [`scanjs-rules/call_generateCRMFRequest`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_generateCRMFRequest) | warn |
+| [`scanjs-rules/call_getDeviceStorage_apps`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_getDeviceStorage_apps) | warn |
+| [`scanjs-rules/call_getDeviceStorage_crashes`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_getDeviceStorage_crashes) | warn |
+| [`scanjs-rules/call_getDeviceStorage_music`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_getDeviceStorage_music) | warn |
+| [`scanjs-rules/call_getDeviceStorage_pictures`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_getDeviceStorage_pictures) | warn |
+| [`scanjs-rules/call_getDeviceStorage_sdcard`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_getDeviceStorage_sdcard) | warn |
+| [`scanjs-rules/call_getDeviceStorage_videos`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_getDeviceStorage_videos) | warn |
+| [`scanjs-rules/call_hide`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_hide) | warn |
+| [`scanjs-rules/call_mozSetMessageHandler`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_mozSetMessageHandler) | warn |
+| [`scanjs-rules/call_mozSetMessageHandler_activity`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_mozSetMessageHandler_activity) | warn |
+| [`scanjs-rules/call_mozSetMessageHandler_wappush_received`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_mozSetMessageHandler_wappush_received) | warn |
+| [`scanjs-rules/call_open_attention`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_open_attention) | warn |
+| [`scanjs-rules/call_open_remote=true`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_open_remote=true) | warn |
+| [`scanjs-rules/call_parseFromString`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_parseFromString) | warn |
+| [`scanjs-rules/call_setAttribute_mozapp`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_setAttribute_mozapp) | warn |
+| [`scanjs-rules/call_setAttribute_mozbrowser`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_setAttribute_mozbrowser) | warn |
+| [`scanjs-rules/call_setImmediate`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_setImmediate) | warn |
+| [`scanjs-rules/call_setInterval`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_setInterval) | warn |
+| [`scanjs-rules/call_setMessageHandler_connect`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_setMessageHandler_connect) | warn |
+| [`scanjs-rules/call_setTimeout`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_setTimeout) | warn |
+| [`scanjs-rules/call_write`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_write) | warn |
+| [`scanjs-rules/call_writeln`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#call_writeln) | warn |
+| [`scanjs-rules/identifier_indexedDB`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#identifier_indexedDB) | warn |
+| [`scanjs-rules/identifier_localStorage`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#identifier_localStorage) | warn |
+| [`scanjs-rules/identifier_sessionStorage`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#identifier_sessionStorage) | warn |
+| [`scanjs-rules/new_Function`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#new_Function) | warn |
+| [`scanjs-rules/new_MozActivity`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#new_MozActivity) | warn |
+| [`scanjs-rules/new_MozSpeakerManager`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#new_MozSpeakerManager) | warn |
+| [`scanjs-rules/new_Notification`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#new_Notification) | warn |
+| [`scanjs-rules/object_mozSystem`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#object_mozSystem) | warn |
+| [`scanjs-rules/property_addIdleObserver`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_addIdleObserver) | warn |
+| [`scanjs-rules/property_createContextualFragment`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_createContextualFragment) | warn |
+| [`scanjs-rules/property_crypto`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_crypto) | warn |
+| [`scanjs-rules/property_geolocation`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_geolocation) | warn |
+| [`scanjs-rules/property_getDataStores`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_getDataStores) | warn |
+| [`scanjs-rules/property_getDeviceStorage`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_getDeviceStorage) | warn |
+| [`scanjs-rules/property_getUserMedia`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_getUserMedia) | warn |
+| [`scanjs-rules/property_indexedDB`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_indexedDB) | warn |
+| [`scanjs-rules/property_lastKnownHomeNetwork`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_lastKnownHomeNetwork) | warn |
+| [`scanjs-rules/property_lastKnownNetwork`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_lastKnownNetwork) | warn |
+| [`scanjs-rules/property_localStorage`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_localStorage) | warn |
+| [`scanjs-rules/property_mgmt`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mgmt) | warn |
+| [`scanjs-rules/property_mozAlarms`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozAlarms) | warn |
+| [`scanjs-rules/property_mozBluetooth`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozBluetooth) | warn |
+| [`scanjs-rules/property_mozCameras`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozCameras) | warn |
+| [`scanjs-rules/property_mozCellBroadcast`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozCellBroadcast) | warn |
+| [`scanjs-rules/property_mozContacts`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozContacts) | warn |
+| [`scanjs-rules/property_mozDownloadManager`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozDownloadManager) | warn |
+| [`scanjs-rules/property_mozFMRadio`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozFMRadio) | warn |
+| [`scanjs-rules/property_mozInputMethod`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozInputMethod) | warn |
+| [`scanjs-rules/property_mozKeyboard`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozKeyboard) | warn |
+| [`scanjs-rules/property_mozMobileConnection`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozMobileConnection) | warn |
+| [`scanjs-rules/property_mozMobileConnections`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozMobileConnections) | warn |
+| [`scanjs-rules/property_mozMobileMessage`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozMobileMessage) | warn |
+| [`scanjs-rules/property_mozNetworkStats`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozNetworkStats) | warn |
+| [`scanjs-rules/property_mozNfc`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozNfc) | warn |
+| [`scanjs-rules/property_mozNotification`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozNotification) | warn |
+| [`scanjs-rules/property_mozPermissionSettings`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozPermissionSettings) | warn |
+| [`scanjs-rules/property_mozPhoneNumberService`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozPhoneNumberService) | warn |
+| [`scanjs-rules/property_mozPower`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozPower) | warn |
+| [`scanjs-rules/property_mozSettings`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozSettings) | warn |
+| [`scanjs-rules/property_mozTCPSocket`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozTCPSocket) | warn |
+| [`scanjs-rules/property_mozTelephony`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozTelephony) | warn |
+| [`scanjs-rules/property_mozTime`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozTime) | warn |
+| [`scanjs-rules/property_mozVoicemail`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozVoicemail) | warn |
+| [`scanjs-rules/property_mozWifiManager`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_mozWifiManager) | warn |
+| [`scanjs-rules/property_sessionStorage`](https://www.npmjs.com/package/eslint-plugin-scanjs-rules#property_sessionStorage) | warn |
 
 
+---
 
-[no-await-in-loop-url]: http://eslint.org/docs/rules/no-await-in-loop
-[no-cond-assign-url]: http://eslint.org/docs/rules/no-cond-assign
-[no-console-url]: http://eslint.org/docs/rules/no-console
-[no-constant-condition-url]: http://eslint.org/docs/rules/no-constant-condition
-[no-control-regex-url]: http://eslint.org/docs/rules/no-control-regex
-[no-debugger-url]: http://eslint.org/docs/rules/no-debugger
-[no-dupe-args-url]: http://eslint.org/docs/rules/no-dupe-args
-[no-dupe-keys-url]: http://eslint.org/docs/rules/no-dupe-keys
-[no-duplicate-case-url]: http://eslint.org/docs/rules/no-duplicate-case
-[no-empty-character-class-url]: http://eslint.org/docs/rules/no-empty-character-class
-[no-empty-url]: http://eslint.org/docs/rules/no-empty
-[no-ex-assign-url]: http://eslint.org/docs/rules/no-ex-assign
-[no-extra-boolean-cast-url]: http://eslint.org/docs/rules/no-extra-boolean-cast
-[no-extra-parens-url]: http://eslint.org/docs/rules/no-extra-parens
-[no-extra-semi-url]: http://eslint.org/docs/rules/no-extra-semi
-[no-func-assign-url]: http://eslint.org/docs/rules/no-func-assign
-[no-inner-declarations-url]: http://eslint.org/docs/rules/no-inner-declarations
-[no-invalid-regexp-url]: http://eslint.org/docs/rules/no-invalid-regexp
-[no-irregular-whitespace-url]: http://eslint.org/docs/rules/no-irregular-whitespace
-[no-negated-in-lhs-url]: http://eslint.org/docs/rules/no-negated-in-lhs
-[no-obj-calls-url]: http://eslint.org/docs/rules/no-obj-calls
-[no-prototype-builtins-url]: http://eslint.org/docs/rules/no-prototype-builtins
-[no-regex-spaces-url]: http://eslint.org/docs/rules/no-regex-spaces
-[no-sparse-arrays-url]: http://eslint.org/docs/rules/no-sparse-arrays
-[no-template-curly-in-string-url]: http://eslint.org/docs/rules/no-template-curly-in-string
-[no-unexpected-multiline-url]: http://eslint.org/docs/rules/no-unexpected-multiline
-[no-unreachable-url]: http://eslint.org/docs/rules/no-unreachable
-[no-unsafe-finally-url]: http://eslint.org/docs/rules/no-unsafe-finally
-[no-unsafe-negation-url]: http://eslint.org/docs/rules/no-unsafe-negation
-[use-isnan-url]: http://eslint.org/docs/rules/use-isnan
-[valid-jsdoc-url]: http://eslint.org/docs/rules/valid-jsdoc
-[valid-typeof-url]: http://eslint.org/docs/rules/valid-typeof
-[accessor-pairs-url]: http://eslint.org/docs/rules/accessor-pairs
-[array-callback-return-url]: http://eslint.org/docs/rules/array-callback-return
-[block-scoped-var-url]: http://eslint.org/docs/rules/block-scoped-var
-[class-methods-use-this-url]: http://eslint.org/docs/rules/class-methods-use-this
-[complexity-url]: http://eslint.org/docs/rules/complexity
-[consistent-return-url]: http://eslint.org/docs/rules/consistent-return
-[curly-url]: http://eslint.org/docs/rules/curly
-[default-case-url]: http://eslint.org/docs/rules/default-case
-[dot-location-url]: http://eslint.org/docs/rules/dot-location
-[dot-notation-url]: http://eslint.org/docs/rules/dot-notation
-[eqeqeq-url]: http://eslint.org/docs/rules/eqeqeq
-[guard-for-in-url]: http://eslint.org/docs/rules/guard-for-in
-[no-alert-url]: http://eslint.org/docs/rules/no-alert
-[no-caller-url]: http://eslint.org/docs/rules/no-caller
-[no-case-declarations-url]: http://eslint.org/docs/rules/no-case-declarations
-[no-div-regex-url]: http://eslint.org/docs/rules/no-div-regex
-[no-else-return-url]: http://eslint.org/docs/rules/no-else-return
-[no-empty-function-url]: http://eslint.org/docs/rules/no-empty-function
-[no-empty-pattern-url]: http://eslint.org/docs/rules/no-empty-pattern
-[no-eq-null-url]: http://eslint.org/docs/rules/no-eq-null
-[no-eval-url]: http://eslint.org/docs/rules/no-eval
-[no-extend-native-url]: http://eslint.org/docs/rules/no-extend-native
-[no-extra-bind-url]: http://eslint.org/docs/rules/no-extra-bind
-[no-extra-label-url]: http://eslint.org/docs/rules/no-extra-label
-[no-fallthrough-url]: http://eslint.org/docs/rules/no-fallthrough
-[no-floating-decimal-url]: http://eslint.org/docs/rules/no-floating-decimal
-[no-global-assign-url]: http://eslint.org/docs/rules/no-global-assign
-[no-implicit-coercion-url]: http://eslint.org/docs/rules/no-implicit-coercion
-[no-implied-eval-url]: http://eslint.org/docs/rules/no-implied-eval
-[no-invalid-this-url]: http://eslint.org/docs/rules/no-invalid-this
-[no-iterator-url]: http://eslint.org/docs/rules/no-iterator
-[no-labels-url]: http://eslint.org/docs/rules/no-labels
-[no-lone-blocks-url]: http://eslint.org/docs/rules/no-lone-blocks
-[no-loop-func-url]: http://eslint.org/docs/rules/no-loop-func
-[no-magic-number-url]: http://eslint.org/docs/rules/no-magic-number
-[no-multi-spaces-url]: http://eslint.org/docs/rules/no-multi-spaces
-[no-multi-str-url]: http://eslint.org/docs/rules/no-multi-str
-[no-native-reassign-url]: http://eslint.org/docs/rules/no-native-reassign
-[no-new-func-url]: http://eslint.org/docs/rules/no-new-func
-[no-new-wrappers-url]: http://eslint.org/docs/rules/no-new-wrappers
-[no-new-url]: http://eslint.org/docs/rules/no-new
-[no-octal-escape-url]: http://eslint.org/docs/rules/no-octal-escape
-[no-octal-url]: http://eslint.org/docs/rules/no-octal
-[no-param-reassign-url]: http://eslint.org/docs/rules/no-param-reassign
-[no-proto-url]: http://eslint.org/docs/rules/no-proto
-[no-redeclare-url]: http://eslint.org/docs/rules/no-redeclare
-[no-restricted-properties-url]: http://eslint.org/docs/rules/no-restricted-properties
-[no-return-assign-url]: http://eslint.org/docs/rules/no-return-assign
-[no-return-await-url]: http://eslint.org/docs/rules/no-return-await
-[no-script-url-url]: http://eslint.org/docs/rules/no-script-url
-[no-self-assign-url]: http://eslint.org/docs/rules/no-self-assign
-[no-self-compare-url]: http://eslint.org/docs/rules/no-self-compare
-[no-sequences-url]: http://eslint.org/docs/rules/no-sequences
-[no-throw-literal-url]: http://eslint.org/docs/rules/no-throw-literal
-[no-unmodified-loop-condition-url]: http://eslint.org/docs/rules/no-unmodified-loop-condition
-[no-unused-expressions-url]: http://eslint.org/docs/rules/no-unused-expressions
-[no-unused-labels-url]: http://eslint.org/docs/rules/no-unused-labels
-[no-useless-call-url]: http://eslint.org/docs/rules/no-useless-call
-[no-useless-concat-url]: http://eslint.org/docs/rules/no-useless-concat
-[no-useless-escape-url]: http://eslint.org/docs/rules/no-useless-escape
-[no-useless-return-url]: http://eslint.org/docs/rules/no-useless-return
-[no-void-url]: http://eslint.org/docs/rules/no-void
-[no-warning-comments-url]: http://eslint.org/docs/rules/no-warning-comments
-[no-with-url]: http://eslint.org/docs/rules/no-with
-[prefer-promise-reject-errors-url]: http://eslint.org/docs/rules/prefer-promise-reject-errors
-[radix-url]: http://eslint.org/docs/rules/radix
-[require-await-url]: http://eslint.org/docs/rules/require-await
-[vars-on-top-url]: http://eslint.org/docs/rules/vars-on-top
-[wrap-iife-url]: http://eslint.org/docs/rules/wrap-iife
-[yoda-url]: http://eslint.org/docs/rules/yoda
-[strict-url]: http://eslint.org/docs/rules/strict
-[init-declarations-url]: http://eslint.org/docs/rules/init-declarations
-[no-catch-shadow-url]: http://eslint.org/docs/rules/no-catch-shadow
-[no-delete-var-url]: http://eslint.org/docs/rules/no-delete-var
-[no-label-var-url]: http://eslint.org/docs/rules/no-label-var
-[no-restricted-globals-url]: http://eslint.org/docs/rules/no-restricted-globals
-[no-shadow-restricted-names-url]: http://eslint.org/docs/rules/no-shadow-restricted-names
-[no-shadow-url]: http://eslint.org/docs/rules/no-shadow
-[no-undef-init-url]: http://eslint.org/docs/rules/no-undef-init
-[no-undef-url]: http://eslint.org/docs/rules/no-undef
-[no-undefined-url]: http://eslint.org/docs/rules/no-undefined
-[no-unused-vars-url]: http://eslint.org/docs/rules/no-unused-vars
-[no-use-before-define-url]: http://eslint.org/docs/rules/no-use-before-define
-[callback-return-url]: http://eslint.org/docs/rules/callback-return
-[global-require-url]: http://eslint.org/docs/rules/global-require
-[handle-callback-err-url]: http://eslint.org/docs/rules/handle-callback-err
-[no-mixed-requires-url]: http://eslint.org/docs/rules/no-mixed-requires
-[no-new-require-url]: http://eslint.org/docs/rules/no-new-require
-[no-path-concat-url]: http://eslint.org/docs/rules/no-path-concat
-[no-process-env-url]: http://eslint.org/docs/rules/no-process-env
-[no-process-exit-url]: http://eslint.org/docs/rules/no-process-exit
-[no-restricted-modules-url]: http://eslint.org/docs/rules/no-restricted-modules
-[no-sync-url]: http://eslint.org/docs/rules/no-sync
-[array-bracket-spacing-url]: http://eslint.org/docs/rules/array-bracket-spacing
-[block-spacing-url]: http://eslint.org/docs/rules/block-spacing
-[brace-style-url]: http://eslint.org/docs/rules/brace-style
-[camelcase-url]: http://eslint.org/docs/rules/camelcase
-[capitalized-comments-url]: http://eslint.org/docs/rules/capitalized-comments
-[comma-dangle-url]: http://eslint.org/docs/rules/comma-dangle
-[comma-spacing-url]: http://eslint.org/docs/rules/comma-spacing
-[comma-style-url]: http://eslint.org/docs/rules/comma-style
-[computed-property-spacing-url]: http://eslint.org/docs/rules/computed-property-spacing
-[consistent-this-url]: http://eslint.org/docs/rules/consistent-this
-[eol-last-url]: http://eslint.org/docs/rules/eol-last
-[func-call-spacing-url]: http://eslint.org/docs/rules/func-call-spacing
-[func-name-matching-url]: http://eslint.org/docs/rules/func-name-matching
-[func-names-url]: http://eslint.org/docs/rules/func-names
-[func-style-url]: http://eslint.org/docs/rules/func-style
-[id-length-url]: http://eslint.org/docs/rules/id-length
-[id-match-url]: http://eslint.org/docs/rules/id-match
-[indent-url]: http://eslint.org/docs/rules/indent
-[jsx-quotes-url]: http://eslint.org/docs/rules/jsx-quotes
-[key-spacing-url]: http://eslint.org/docs/rules/key-spacing
-[keyword-spacing-url]: http://eslint.org/docs/rules/keyword-spacing
-[line-comment-position-url]: http://eslint.org/docs/rules/line-comment-position
-[linebreak-style-url]: http://eslint.org/docs/rules/linebreak-style
-[lines-around-comment-url]: http://eslint.org/docs/rules/lines-around-comment
-[lines-around-directive-url]: http://eslint.org/docs/rules/lines-around-directive
-[max-depth-url]: http://eslint.org/docs/rules/max-depth
-[max-len-url]: http://eslint.org/docs/rules/max-len
-[max-nested-callbacks-url]: http://eslint.org/docs/rules/max-nested-callbacks
-[max-params-url]: http://eslint.org/docs/rules/max-params
-[max-statements-per-line-url]: http://eslint.org/docs/rules/max-statements-per-line
-[max-statements-url]: http://eslint.org/docs/rules/max-statements
-[multiline-ternary-url]: http://eslint.org/docs/rules/multiline-ternary
-[new-cap-url]: http://eslint.org/docs/rules/new-cap
-[new-parens-url]: http://eslint.org/docs/rules/new-parens
-[newline-after-var-url]: http://eslint.org/docs/rules/newline-after-var
-[newline-before-return-url]: http://eslint.org/docs/rules/newline-before-return
-[newline-per-chained-call-url]: http://eslint.org/docs/rules/newline-per-chained-call
-[no-array-constructor-url]: http://eslint.org/docs/rules/no-array-constructor
-[no-bitwise-url]: http://eslint.org/docs/rules/no-bitwise
-[no-continue-url]: http://eslint.org/docs/rules/no-continue
-[no-inline-comments-url]: http://eslint.org/docs/rules/no-inline-comments
-[no-lonely-if-url]: http://eslint.org/docs/rules/no-lonely-if
-[no-mixed-operators-url]: http://eslint.org/docs/rules/no-mixed-operators
-[no-mixed-spaces-and-tabs-url]: http://eslint.org/docs/rules/no-mixed-spaces-and-tabs
-[no-multi-assign-url]: http://eslint.org/docs/rules/no-multi-assign
-[no-multiple-empty-lines-url]: http://eslint.org/docs/rules/no-multiple-empty-lines
-[no-negated-condition-url]: http://eslint.org/docs/rules/no-negated-condition
-[no-nested-ternary-url]: http://eslint.org/docs/rules/no-nested-ternary
-[no-new-object-url]: http://eslint.org/docs/rules/no-new-object
-[no-plusplus-url]: http://eslint.org/docs/rules/no-plusplus
-[no-restricted-syntax-url]: http://eslint.org/docs/rules/no-restricted-syntax
-[no-spaced-func-url]: http://eslint.org/docs/rules/no-spaced-func
-[no-tabs-url]: http://eslint.org/docs/rules/no-tabs
-[no-ternary-url]: http://eslint.org/docs/rules/no-ternary
-[no-trailing-spaces-url]: http://eslint.org/docs/rules/no-trailing-spaces
-[no-underscore-dangle-url]: http://eslint.org/docs/rules/no-underscore-dangle
-[no-unneeded-ternary-url]: http://eslint.org/docs/rules/no-unneeded-ternary
-[object-curly-newline-url]: http://eslint.org/docs/rules/object-curly-newline
-[object-curly-spacing-url]: http://eslint.org/docs/rules/object-curly-spacing
-[object-property-newline-url]: http://eslint.org/docs/rules/object-property-newline
-[one-var-declaration-per-line-url]: http://eslint.org/docs/rules/one-var-declaration-per-line
-[one-var-url]: http://eslint.org/docs/rules/one-var
-[operator-assignment-url]: http://eslint.org/docs/rules/operator-assignment
-[operator-linebreak-url]: http://eslint.org/docs/rules/operator-linebreak
-[padded-blocks-url]: http://eslint.org/docs/rules/padded-blocks
-[quote-props-url]: http://eslint.org/docs/rules/quote-props
-[quotes-url]: http://eslint.org/docs/rules/quotes
-[require-jsdoc-url]: http://eslint.org/docs/rules/require-jsdoc
-[semi-spacing-url]: http://eslint.org/docs/rules/semi-spacing
-[semi-url]: http://eslint.org/docs/rules/semi
-[sort-keys-url]: http://eslint.org/docs/rules/sort-keys
-[sort-vars-url]: http://eslint.org/docs/rules/sort-vars
-[space-before-blocks-url]: http://eslint.org/docs/rules/space-before-blocks
-[space-before-function-paren-url]: http://eslint.org/docs/rules/space-before-function-paren
-[space-in-parens-url]: http://eslint.org/docs/rules/space-in-parens
-[space-infix-ops-url]: http://eslint.org/docs/rules/space-infix-ops
-[space-unary-ops-url]: http://eslint.org/docs/rules/space-unary-ops
-[spaced-comment-url]: http://eslint.org/docs/rules/spaced-comment
-[template-tag-spacing-url]: http://eslint.org/docs/rules/template-tag-spacing
-[unicode-bom-url]: http://eslint.org/docs/rules/unicode-bom
-[wrap-regex-url]: http://eslint.org/docs/rules/wrap-regex
-[arrow-body-style-url]: http://eslint.org/docs/rules/arrow-body-style
-[arrow-parens-url]: http://eslint.org/docs/rules/arrow-parens
-[arrow-spacing-url]: http://eslint.org/docs/rules/arrow-spacing
-[constructor-super-url]: http://eslint.org/docs/rules/constructor-super
-[generator-star-spacing-url]: http://eslint.org/docs/rules/generator-star-spacing
-[no-class-assign-url]: http://eslint.org/docs/rules/no-class-assign
-[no-confusing-arrow-url]: http://eslint.org/docs/rules/no-confusing-arrow
-[no-const-assign-url]: http://eslint.org/docs/rules/no-const-assign
-[no-dupe-class-members-url]: http://eslint.org/docs/rules/no-dupe-class-members
-[no-duplicate-imports-url]: http://eslint.org/docs/rules/no-duplicate-imports
-[no-new-symbol-url]: http://eslint.org/docs/rules/no-new-symbol
-[no-restricted-imports-url]: http://eslint.org/docs/rules/no-restricted-imports
-[no-this-before-super-url]: http://eslint.org/docs/rules/no-this-before-super
-[no-useless-computed-key-url]: http://eslint.org/docs/rules/no-useless-computed-key
-[no-useless-constructor-url]: http://eslint.org/docs/rules/no-useless-constructor
-[no-useless-rename-url]: http://eslint.org/docs/rules/no-useless-rename
-[no-var-url]: http://eslint.org/docs/rules/no-var
-[object-shorthand-url]: http://eslint.org/docs/rules/object-shorthand
-[prefer-arrow-callback-url]: http://eslint.org/docs/rules/prefer-arrow-callback
-[prefer-const-url]: http://eslint.org/docs/rules/prefer-const
-[prefer-destructuring-url]: http://eslint.org/docs/rules/prefer-destructuring
-[prefer-numeric-literals-url]: http://eslint.org/docs/rules/prefer-numeric-literals
-[prefer-rest-params-url]: http://eslint.org/docs/rules/prefer-rest-params
-[prefer-reflect-url]: http://eslint.org/docs/rules/prefer-reflect
-[prefer-spread-url]: http://eslint.org/docs/rules/prefer-spread
-[prefer-template-url]: http://eslint.org/docs/rules/prefer-template
-[require-yield-url]: http://eslint.org/docs/rules/require-yield
-[rest-spread-spacing-url]: http://eslint.org/docs/rules/rest-spread-spacing
-[sort-imports-url]: http://eslint.org/docs/rules/sort-imports
-[symbol-description-url]: http://eslint.org/docs/rules/symbol-description
-[template-curly-spacing-url]: http://eslint.org/docs/rules/template-curly-spacing
-[yield-star-spacing-url]: http://eslint.org/docs/rules/yield-star-spacing
-[security/detect-buffer-noassert-url]: http://eslint.org/docs/rules/security/detect-buffer-noassert
-[security/detect-child-process-url]: http://eslint.org/docs/rules/security/detect-child-process
-[security/detect-disable-mustache-escape-url]: http://eslint.org/docs/rules/security/detect-disable-mustache-escape
-[security/detect-eval-with-expression-url]: http://eslint.org/docs/rules/security/detect-eval-with-expression
-[security/detect-no-csrf-before-method-override-url]: http://eslint.org/docs/rules/security/detect-no-csrf-before-method-override
-[security/detect-non-literal-fs-filename-url]: http://eslint.org/docs/rules/security/detect-non-literal-fs-filename
-[security/detect-non-literal-regexp-url]: http://eslint.org/docs/rules/security/detect-non-literal-regexp
-[security/detect-non-literal-require-url]: http://eslint.org/docs/rules/security/detect-non-literal-require
-[security/detect-object-injection-url]: http://eslint.org/docs/rules/security/detect-object-injection
-[security/detect-possible-timing-attacks-url]: http://eslint.org/docs/rules/security/detect-possible-timing-attacks
-[security/detect-pseudoRandomBytes-url]: http://eslint.org/docs/rules/security/detect-pseudoRandomBytes
-[security/detect-unsafe-regex-url]: http://eslint.org/docs/rules/security/detect-unsafe-regex
+Generated on `2017-07-21T06:05:56.603Z`.

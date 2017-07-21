@@ -16,3 +16,7 @@ test_script:
   - git --version
   # Run tests sequentially to avoid io async issues
   - npm test -- --runInBand
+
+branches:
+  only:
+  - master

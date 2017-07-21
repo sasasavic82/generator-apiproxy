@@ -20,23 +20,25 @@ replace this line and the following task completion line._
 
 #### 2. **Code quality**. [![Quality Gate][sonar-gate-img]][sonar-gate-url]
 
-Do the quality gateways pass with an "A" grade?
+- [ ] The quality gateways pass with an "A" grade.
 
-- [ ] `Complexity` [![Complexity][sonar-complexity-img]][sonar-complexity-url] [![Cognitive complexity][sonar-cognitive-img]][sonar-cognitive-url]
-- [ ] `Duplications` (0.00%) [![Duplications][sonar-duplications-img]][sonar-duplications-url]
-- [ ] `Issues` (0) [![Issues][sonar-issues-img]][sonar-issues-url]
-- [ ] `Maintainability` [![Maintainability][sonar-maintainability-img]][sonar-maintainability-url]
-- [ ] `Technical Debt` [![Technical Debt][sonar-tech-debt-img]][sonar-tech-debt-url]
-- [ ] `Reliability` [![Reliability][sonar-reliability-img]][sonar-reliability-url]
-- [ ] `Security` [![Security][sonar-security-img]][sonar-security-url]
+| Measure             | Scores                                                             |
+|:--------------------|:-------------------------------------------------------------------|
+| **`Complexity`**      | [![Complexity][sonar-complexity-img]][sonar-complexity-url]<br>[![Cognitive complexity][sonar-cognitive-img]][sonar-cognitive-url] |
+| **`Duplications`**    | [![Duplications][sonar-duplications-img]][sonar-duplications-url]  |
+| **`Issues`**          | [![Issues][sonar-issues-img]][sonar-issues-url]                    |
+| **`Maintainability`** | [![Code smells][sonar-code-smells-img]][sonar-code-smells-url]<br>[![Maintainability][sonar-maintainability-img]][sonar-maintainability-url]<br>[![Technical debt][sonar-tech-debt-img]][sonar-tech-debt-url] |
+| **`Reliability`**     | [![Reliability][sonar-reliability-img]][sonar-reliability-url]     |
+| **`Security`**        | [![Security][sonar-security-img]][sonar-security-url]              |
 
-#### 3. **Test coverage** [![Coverage Status][coveralls-img]][coveralls-url]
+#### 3. **Test coverage** [![Coverage Status][codecov-image]][codecov-url]
 
 - [ ] The source code is 100% covered with passing specs.
 
 > **:information_source: These tasks are not required to open a PR, and may be addresses while the PR is open.**
 
-
+[codecov-image]: https://codecov.io/gh/gregswindle/generator-apiproxy/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/gregswindle/generator-apiproxy
 [coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apiproxy/badge.svg
 [coveralls-url]: https://coveralls.io/github/gregswindle/generator-apiproxy
 [sonar-code-smells-img]: http://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apiproxy&metric=code_smells

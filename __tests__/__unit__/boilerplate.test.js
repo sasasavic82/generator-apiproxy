@@ -28,7 +28,6 @@ describe('apiproxy:boilerplate', () => {
     assert.file('.github/CONTRIBUTING.md')
     assert.file('.github/ISSUE_TEMPLATE.md')
     assert.file('.github/PULL_REQUEST_TEMPLATE.md')
-    assert.file('.github/README.md')
   })
 
   it('creates apiproxy template boilerplate files', () => {
@@ -46,15 +45,6 @@ describe('apiproxy:boilerplate', () => {
     assert.fileContent('sonar-project.properties', 'sonar.projectVersion=0.0.0')
     assert.fileContent('sonar-project.properties', 'sonar.links.issue=https://github.com/CAOV/my-module/issues')
   })
-
-  // it('creates test boilerplate files', () => {
-  //   assert.file('lib/index.js')
-  //   assert.file('lib/__tests__/myModule.test.js')
-  //   assert.file('jest.config.json')
-  //   assert.fileContent('lib/index.js', 'module.exports = {}')
-  //   assert.fileContent('lib/__tests__/myModule.test.js', 'const myModule')
-  //   assert.fileContent('lib/__tests__/myModule.test.js', 'describe(\'myModule\'')
-  // })
 
   it('creates openapi template boilerplate files', () => {
     assert.file('openapi/README.md')
