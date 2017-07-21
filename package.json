@@ -40,6 +40,7 @@
     "bitbucketjs": "^1.0.2",
     "browserify": "^14.4.0",
     "codacy-coverage": "^2.0.2",
+    "codecov": "^2.2.0",
     "commitplease": "^2.7.10",
     "complexity-report": "^2.0.0-alpha",
     "copyfiles": "^1.2.0",

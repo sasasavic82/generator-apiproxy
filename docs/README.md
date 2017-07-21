@@ -20,7 +20,7 @@ docs/
 | Measure             | Scores                                                             |
 |:--------------------|:-------------------------------------------------------------------|
 | **Complexity**      | [![Complexity][sonar-complexity-img]][sonar-complexity-url] [![Cognitive complexity][sonar-cognitive-img]][sonar-cognitive-url] |
-| **Coverage**        | [![Sonar coverage][sonar-coverage-img]][sonar-coverage-url]        |
+| **Coverage**        | [![codecov](https://codecov.io/gh/gregswindle/generator-apiproxy/branch/master/graph/badge.svg)](https://codecov.io/gh/gregswindle/generator-apiproxy)       |
 | **Duplications**    | [![Duplications][sonar-duplications-img]][sonar-duplications-url]  |
 | **Issues**          | [![Issues][sonar-issues-img]][sonar-issues-url]                    |
 | **Maintainability** | [![Code smells][sonar-code-smells-img]][sonar-code-smells-url]  [![Maintainability][sonar-maintainability-img]][sonar-maintainability-url] [![Technical debt][sonar-tech-debt-img]][sonar-tech-debt-url] |

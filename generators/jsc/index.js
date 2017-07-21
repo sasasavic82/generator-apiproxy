@@ -56,9 +56,7 @@ module.exports = class extends YeomanGenerator {
       arguments: [destinationPath],
       componentName: _.camelCase(this.options.componentName)
     })
-  }
 
-  end () {
     this._lintJsc()
   }
 }
