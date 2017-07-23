@@ -31,13 +31,10 @@
     "generator-license": "5.1.0",
     "generator-travis": "1.5.2",
     "git-remote-origin-url": "2.0.0",
-    "hosted-git-info": "2.5.0",
-    "lash": "2.0.1",
     "lodash": "4.17.4",
     "parse-author": "2.0.0",
     "update-notifier": "2.2.0",
-    "yeoman-generator": "1.1.1",
-    "yosay": "2.0.0"
+    "yeoman-generator": "1.1.1"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
