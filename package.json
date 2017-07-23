@@ -35,6 +35,7 @@
     "lash": "^2.0.1",
     "lodash": "^4.17.4",
     "parse-author": "^2.0.0",
+    "update-notifier": "2.2.0",
     "yeoman-generator": "^1.0.0",
     "yosay": "^2.0.0"
   },

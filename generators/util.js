@@ -1,5 +1,8 @@
 const _ = require('lodash')
 const parseAuthor = require('parse-author')
+const pkg = require('../package.json')
+const updateNotifier = require('update-notifier')
+
 const util = {
 
   initializer: {
@@ -55,7 +58,17 @@ const util = {
         website: generator.props.authorUrl
       }
     }
+  },
+
+  notify: () => {
+    const daily = 1000 * 60 * 60 * 24 * 1
+    updateNotifier({
+      pkg,
+      updateCheckInterval: daily
+    }).notify()
   }
 }
+
+util.notify()
 
 module.exports = util

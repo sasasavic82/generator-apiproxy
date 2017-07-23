@@ -1,4 +1,4 @@
-# Source code quality<br><sup><small>July 23, 2017, 16:54:19 UTC</small></sup>
+# Source code quality<br><sup><small>July 23, 2017, 19:27:21 UTC</small></sup>
 
 ## Table of contents
 
@@ -22,6 +22,7 @@
   * [2.8. `generators/jsc/index.js`](#28-generatorsjscindexjs)
   * [2.9. `generators/nsp/index.js`](#29-generatorsnspindexjs)
   * [2.10. `generators/readme/index.js`](#210-generatorsreadmeindexjs)
+- [3. Package size](#3-package-size)
 
 <!-- tocstop -->
 
@@ -290,15 +291,15 @@ generators/boilerplate/templates/.assets/README.md                 1.6 kB   1%
 generators/git/index.js                                            1.74 kB  1%  
 generators/boilerplate/templates/sonar-project.properties          1.87 kB  1%  
 generators/boilerplate/templates/.github/ISSUE_TEMPLATE.md         1.89 kB  1%  
-generators/util.js                                                 1.97 kB  1%  
 generators/boilerplate/templates/npm-scripts.json                  2.01 kB  1%  
+generators/util.js                                                 2.22 kB  1%  
 generators/readme/index.js                                         2.47 kB  1%  
 generators/docs/complexity/index.js                                2.75 kB  2%  
 CHANGELOG.md                                                       3.18 kB  2%  
 generators/boilerplate/templates/.github/CODE_OF_CONDUCT.md        3.43 kB  2%  
 generators/docs/index.js                                           3.48 kB  2%  
-package.json                                                       4.18 kB  2%  
 generators/boilerplate/index.js                                    4.2 kB   2%  
+package.json                                                       4.21 kB  2%  
 generators/boilerplate/templates/.github/PULL_REQUEST_TEMPLATE.md  5.06 kB  3%  
 generators/app/index.js                                            7.54 kB  4%  
 generators/docs/templates/README.md                                8.32 kB  5%  
@@ -340,16 +341,16 @@ generators/boilerplate/templates/.github/                          22 kB    12%
 generators/boilerplate/templates/                                  30.9 kB  17%
 generators/boilerplate/                                            35.1 kB  19%
 generators/docs/templates/                                         48.2 kB  27%
-generators/docs/                                                   54.9 kB  31%
+generators/docs/                                                   54.9 kB  30%
 generators/                                                        146 kB   81%
 .                                                                  180 kB   100%
 
 PKGFILES SUMMARY
-Size on Disk with Dependencies  ~200 MB
+Size on Disk with Dependencies  ~202 MB
 Size with Dependencies          ~131 MB
 Publishable Size                ~180 kB
 Number of Directories           33     
-Number of Files                 49  
+Number of Files                 49
 ```
 ---
 
