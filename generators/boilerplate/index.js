@@ -1,25 +1,19 @@
 /* eslint security/detect-non-literal-fs-filename: "off" */
 'use strict'
-const _ = require('lodash')
-const rootPkg = require('../../package.json')
-const YeomanGenerator = require('yeoman-generator')
-const npmScriptsPkg = require('./templates/npm-scripts')
 
-module.exports = class extends YeomanGenerator {
+const ApiProxyGenerator = require('../api-proxy-generator')
+const _ = require('lodash')
+const npmScriptsPkg = require('./templates/npm-scripts')
+const rootPkg = require('../../package.json')
+
+module.exports = class extends ApiProxyGenerator {
   constructor (args, options) {
     super(args, options)
-
-    this.option('generateInto', {
-      type: String,
-      required: false,
-      default: '',
-      desc: 'Relocate the location of the generated files.'
-    })
 
     this.option('scmAccount', {
       type: String,
       required: true,
-      desc: 'GitHub username or organization'
+      desc: 'Source control username, organization, or team'
     })
 
     this.option('name', {
@@ -30,43 +24,34 @@ module.exports = class extends YeomanGenerator {
   }
 
   writing () {
-    const devDependencies = (() => {
-      const keys = [
-        'coveralls',
-        'eslint',
-        'eslint-config-xo-space',
-        'eslint-plugin-jest',
-        'eslint-plugin-jsdoc',
-        'eslint-plugin-no-unsafe-innerhtml',
-        'eslint-plugin-node',
-        'eslint-plugin-promise',
-        'eslint-plugin-scanjs-rules',
-        'eslint-plugin-security',
-        'eslint-plugin-standard',
-        'complexity-report',
-        'jsdoc-to-markdown',
-        'swagger-markdown'
-      ]
-      return _.omit(rootPkg.devDependencies, keys)
-    })()
-    // Add npm devDependencies and scripts
+    const keys = [
+      'coveralls',
+      'eslint',
+      'eslint-config-xo-space',
+      'eslint-plugin-import',
+      'eslint-plugin-jest',
+      'eslint-plugin-jsdoc',
+      'eslint-plugin-no-unsafe-innerhtml',
+      'eslint-plugin-no-unsanitized',
+      'eslint-plugin-node',
+      'eslint-plugin-promise',
+      'eslint-plugin-scanjs-rules',
+      'eslint-plugin-security',
+      'eslint-plugin-standard',
+      'eslint-plugin-xss',
+      'complexity-report',
+      'jsdoc-to-markdown',
+      'swagger-markdown'
+    ]
+    let devDependencies = _.omit(rootPkg.devDependencies, keys)
     const npmScripts = _.template(JSON.stringify(npmScriptsPkg))({
       name: this.options.name
     })
     this.fs.extendJSON(this.destinationPath('', 'package.json'), {
-      devDependencies: devDependencies,
+      devDependencies,
       scripts: JSON.parse(npmScripts)
     })
 
-    // Copy Javsacript callouts
-    // let filepath = this.destinationPath(this.options.generateInto, 'lib/index.js')
-    //
-    // this.fs.copyTpl(this.templatePath('lib/index.js'), filepath)
-    //
-    // this.composeWith(require.resolve('generator-jest/generators/test'), {
-    //   arguments: [filepath],
-    //   componentName: _.camelCase(this.options.name)
-    // })
     // Copy jest configuration file
     let filepath = this.destinationPath(this.options.generateInto, 'jest.config.json')
 
@@ -76,7 +61,7 @@ module.exports = class extends YeomanGenerator {
     filepath = this.destinationPath(this.options.generateInto, 'sonar-project.properties')
 
     this.fs.copyTpl(this.templatePath('sonar-project.properties'), filepath, {
-      scmAccount: 'CAOV',
+      scmAccount: this.options.scmAccount,
       projectName: this.options.name,
       version: rootPkg.version
     })
@@ -90,7 +75,7 @@ module.exports = class extends YeomanGenerator {
       '.assets/media/video/README.md'
     ]
 
-    assets.forEach(asset => {
+    assets.forEach((asset) => {
       filepath = this.destinationPath(this.options.generateInto, asset)
       this.fs.copyTpl(this.templatePath(asset), filepath, {
         projectName: this.options.name,
@@ -110,7 +95,7 @@ module.exports = class extends YeomanGenerator {
       '.github/PULL_REQUEST_TEMPLATE.md'
     ]
 
-    templates.forEach(template => {
+    templates.forEach((template) => {
       filepath = this.destinationPath(this.options.generateInto, template)
       this.fs.copyTpl(this.templatePath(template), filepath, {
         projectName: this.options.name,
@@ -132,7 +117,7 @@ module.exports = class extends YeomanGenerator {
       'apiproxy/targets/README.md'
     ]
 
-    apiproxyResources.forEach(resource => {
+    apiproxyResources.forEach((resource) => {
       filepath = this.destinationPath(this.options.generateInto, resource)
       this.fs.copyTpl(this.templatePath(resource), filepath, {
         projectName: this.options.name,

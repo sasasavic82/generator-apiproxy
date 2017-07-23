@@ -32,6 +32,7 @@ globals:
   window:                                                       false
 rules:
   accessor-pairs:                                               error
+  arrow-parens:                                                 warn
   arrow-spacing:
   - error
   - before:                                                     true
@@ -346,7 +347,7 @@ rules:
       - glob-promise
       - escomplex
   node/no-unsupported-features:
-  - error
+  - warn
   - version:                                                    4
     ignores:                                                    []
   node/process-exit-as-throw:                                   error

@@ -1,10 +1,10 @@
 'use strict'
+const ApiProxyGenerator = require('../api-proxy-generator')
 const _ = require('lodash')
-const YeomanGenerator = require('yeoman-generator')
 const rootPkg = require('../../package.json')
 const path = require('path')
 
-module.exports = class extends YeomanGenerator {
+module.exports = class extends ApiProxyGenerator {
   constructor (args, options) {
     super(args, options)
 
@@ -36,13 +36,6 @@ module.exports = class extends YeomanGenerator {
       type: String,
       required: true,
       desc: 'Project description'
-    })
-
-    this.option('generateInto', {
-      type: String,
-      required: false,
-      defaults: '',
-      desc: 'Relocate the location of the generated files.'
     })
 
     this.option('scmAccount', {
@@ -78,7 +71,7 @@ module.exports = class extends YeomanGenerator {
         '-i',
         'README.md'
       ])
-        .on('error', err => this.log(`Ignoring error "${err.message}"`))
+        .on('error', (err) => this.log(`Ignoring error "${err.message}"`))
     }
   }
 

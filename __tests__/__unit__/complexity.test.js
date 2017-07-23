@@ -72,7 +72,7 @@ describe('complexity module', () => {
       cyclomatic = 11
       expect(complexityLevel.simple(cyclomatic)).toBe(false)
 
-      complexityRange.simple.forEach(cyclomaticComplexity => {
+      complexityRange.simple.forEach((cyclomaticComplexity) => {
         expect(complexityLevel.simple(cyclomaticComplexity)).toBe(true)
       })
     })
@@ -93,7 +93,7 @@ describe('complexity module', () => {
       cyclomatic = 21
       expect(complexityLevel.complicated(cyclomatic)).toBe(false)
 
-      complexityRange.complicated.forEach(cyclomaticComplexity => {
+      complexityRange.complicated.forEach((cyclomaticComplexity) => {
         expect(complexityLevel.complicated(cyclomaticComplexity)).toBe(true)
       })
     })
@@ -114,7 +114,7 @@ describe('complexity module', () => {
       cyclomatic = 51
       expect(complexityLevel.convoluted(cyclomatic)).toBe(false)
 
-      complexityRange.convoluted.forEach(cyclomaticComplexity => {
+      complexityRange.convoluted.forEach((cyclomaticComplexity) => {
         expect(complexityLevel.convoluted(cyclomaticComplexity)).toBe(true)
       })
     })
@@ -139,7 +139,7 @@ describe('complexity module', () => {
       cyclomatic = Infinity
       expect(complexityLevel.incomprehensible(cyclomatic)).toBe(true)
 
-      complexityRange.incomprehensible.forEach(cyclomaticComplexity => {
+      complexityRange.incomprehensible.forEach((cyclomaticComplexity) => {
         expect(complexityLevel.incomprehensible(cyclomaticComplexity)).toBe(true)
       })
     })
@@ -179,7 +179,7 @@ describe('complexity module', () => {
       const err = new Error('glob-promise-error')
       const glob = require('glob-promise')
 
-      return glob('**/*.js', { reject: true }).catch(e =>
+      return glob('**/*.js', { reject: true }).catch((e) =>
         expect(e).toEqual(err)
 
       )

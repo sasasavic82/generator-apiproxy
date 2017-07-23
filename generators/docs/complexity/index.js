@@ -57,7 +57,7 @@ class ComplexityLevel {
     const bounds = _
       .chain(_.values(CognitiveComplexity))
       .remove(_.isArray)
-      .find(bound => isMatch(this.cyclomatic, bound))
+      .find((bound) => isMatch(this.cyclomatic, bound))
       .value()
     return CognitiveComplexity[bounds]
   }
@@ -70,9 +70,9 @@ class ComplexityLevel {
 const complexityReport = {
   factory: (generator) => {
     return glob(generator.options.files)
-      .then(matches => {
+      .then((matches) => {
         generator.log(JSON.stringify(matches, null, 2))
-        const sources = matches.map(filepath => {
+        const sources = matches.map((filepath) => {
           return {
             path: filepath,
             code: generator.fs.read(filepath)

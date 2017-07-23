@@ -75,7 +75,7 @@ describe('apiproxy:boilerplate', () => {
       'test',
       'posttest'
     ]
-    npmScriptKeys.forEach(key => assert.fileContent('package.json', key))
+    npmScriptKeys.forEach((key) => assert.fileContent('package.json', key))
   })
 })
 

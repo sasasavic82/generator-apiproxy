@@ -35,7 +35,7 @@ module.exports = class extends YeomanGenerator {
         '--rule',
         'no-unused-vars:off'
       ])
-        .on('error', err => this.log(`Ignoring error "${err.message}"`))
+        .on('error', (err) => this.log(`Ignoring error "${err.message}"`))
     }
   }
 

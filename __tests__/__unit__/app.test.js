@@ -1,4 +1,3 @@
-/* eslint scanjs-rules/call_write: "warn" */
 /* eslint node/no-unsupported-features: ["warn", {version: 4}] */
 /* eslint no-inline-comments: "off" */
 /* eslint-env es6 */
@@ -37,7 +36,7 @@ describe('apiproxy:app', () => {
   describe('when generating a new project,', () => {
     path.basename = jest.fn(() => 'generator-apiproxy')
 
-    it('scaffolds a complete directory structure', async () => {
+    it('scaffolds a complete directory structure', () => {
       const answers = {
         name: 'generator-apiproxy',
         description: 'A node generator',
@@ -109,8 +108,10 @@ describe('apiproxy:app', () => {
       }
       return helpers.run(require.resolve('../../generators/app'))
         .withPrompts({name: 'generator-node'})
-        .on('ready', gen => {
+        .on('ready', (gen) => {
+          // eslint scanjs-rules/call_write: "warn"
           gen.fs.writeJSON(gen.destinationPath('package.json'), pkg)
+          // eslint scanjs-rules/call_write: "warn"
           gen.fs.write(gen.destinationPath('README.md'), 'foo')
         })
         .then(() => {
@@ -144,8 +145,10 @@ describe('apiproxy:app', () => {
         .withOptions({
           name: 'foo-lib'
         })
-        .on('ready', gen => {
+        .on('ready', (gen) => {
+          // eslint scanjs-rules/call_write: "warn"
           gen.fs.writeJSON(gen.destinationPath('package.json'), pkg)
+          // eslint scanjs-rules/call_write: "warn"
           gen.fs.write(gen.destinationPath('README.md'), 'foo')
         })
         .then(() => {

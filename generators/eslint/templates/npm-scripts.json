@@ -1,0 +1,9 @@
+{
+  "pretest": "eslint . -c .eslintrc.yml --fix",
+  "docs:eslint-index": "npm run lint:rules --  --docs --format table > docs/ESLINT_RULES.md",
+  "lint": "eslint -c .eslintrc.yml generators/** __tests__/** -f table --fix",
+  "lint:rules": "eslint-index .eslintrc.yml",
+  "swagger:lint": "swagger validate *.swagger.yaml --debug && swagger validate *.swagger.json --debug",
+  "eslint:html": "./node_modules/.bin/eslint -c ./.eslintrc.yml -f html generators/**/*.js --fix > ./eslint-report.html",
+  "eslint": "./node_modules/.bin/eslint -c ./.eslintrc.yml -f table generators/**/*.js --fix"
+}

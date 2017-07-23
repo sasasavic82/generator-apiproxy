@@ -326,7 +326,7 @@ This will execute a:
 	3. :lock: Security (with [`nsp`][nsp-url]). If prelimary security checks pass, it'll
 3. :page_facing_up: Document your
     * Swagger spec and
-	* Javascript callout code (both of which you'll find in the [`docs`](./docs) directory). Finally, it'll
+	* Javascript callout code (both of which you'll find in the `docs` directory). Finally, it'll
 4. :arrow_up: Commit and push to Git.
 
 > **:warning: `npm run btp` generates an automated commit message**
@@ -477,7 +477,7 @@ $ npm run release
 
 [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] We welcome contributors and pull requests. Check out the guidelines for
 
-* [Contributing to `generator-apiproxy`](./.github/CONTRIBUTING.md) and our
+* [Contributing to `generator-apiproxy`](https://github.com/gregswindle/generator-apiproxy/blob/master/.github/CONTRIBUTING.md) and our
 * [Contributor Covenant Code of Conduct][code-of-conduct-url].
 
 Contributions are stories with a beginning, a middle, and an end, all told through issues, comments, commit logs, and pull requests.
@@ -515,12 +515,12 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [appveyor-img]: https://ci.appveyor.com/api/projects/status/qcsxteena4etjlfe?svg=true
 [appveyor-url]: https://ci.appveyor.com/project/gregswindle/generator-apiproxy
 [author-url]: https://github.com/gregswindle
-[changelog-url]: ./CHANGELOG.md
+[changelog-url]: https://github.com/gregswindle/generator-apiproxy/blob/master/CHANGELOG.md
 [codacy-coverage-image]: https://api.codacy.com/project/badge/Coverage/fa4ade3f68a04b9cad26165a59ceb88e
 [codacy-coverage-url]: https://www.codacy.com/app/greg_7/generator-apiproxy?utm_source=github.com&utm_medium=referral&utm_content=gregswindle/generator-apiproxy&utm_campaign=Badge_Coverage
 [codacy-img]: https://api.codacy.com/project/badge/Grade/fa4ade3f68a04b9cad26165a59ceb88e
 [codacy-url]: https://www.codacy.com/app/greg_7/generator-apiproxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gregswindle/generator-apiproxy&amp;utm_campaign=Badge_Grade
-[code-of-conduct-url]: ./.github/CODE_OF_CONDUCT.md
+[code-of-conduct-url]: https://github.com/gregswindle/generator-apiproxy/blob/master/.github/CODE_OF_CONDUCT.md
 [complexity-report-url]: https://github.com/escomplex/complexity-report
 [coveralls-img]: https://coveralls.io/repos/github/gregswindle/generator-apiproxy/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/gregswindle/generator-apiproxy?branch=master
@@ -537,7 +537,7 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [issues-url]: https://github.com/gregswindle/generator-apiproxy/issues
 [jsdoc2md-url]: https://github.com/jsdoc2md/jsdoc-to-markdown
 [license-image]: https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat
-[license-url]: ./LICENSE
+[license-url]: https://github.com/gregswindle/generator-apiproxy/blob/master/LICENSE
 [lint-def-url]: https://en.wikipedia.org/wiki/Lint_(software)
 [makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat
 [makeapullrequest-url]: http://makeapullrequest.com
@@ -560,7 +560,7 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 [sonar-tech-debt-img]:  https://sonarcloud.io/api/badges/measure?key=gregswindle-generator-apiproxy&metric=sqale_debt_ratio
 [sonar-tech-debt-url]: https://sonarcloud.io/component_measures/metric/sqale_index/list?id=gregswindle-generator-apiproxy
 [swagger-cli-url]: https://github.com/BigstickCarpet/swagger-cli
-[swagger-logo-20-img]: ./.assets/media/img/swagger-logo-20.png
+[swagger-logo-20-img]: https://github.com/gregswindle/generator-apiproxy/blob/master/.assets/media/img/swagger-logo-20.png
 [swagger-markdown-url]: https://github.com/syroegkin/swagger-markdown
 [swagger-validity-img]: https://img.shields.io/swagger/valid/2.0/http/api.swindle.net/cordova/v6/contacts/openapi.json.svg
 [swagger-validity-url]: http://online.swagger.io/validator/debug?url=http://api.swindle.net/cordova/v6/contacts/openapi.json

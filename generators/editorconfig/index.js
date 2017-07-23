@@ -1,17 +1,7 @@
-const YeomanGenerator = require('yeoman-generator')
 
-module.exports = class extends YeomanGenerator {
-  constructor (args, options) {
-    super(args, options)
+const ApiProxyGenerator = require('../api-proxy-generator')
 
-    this.option('generateInto', {
-      type: String,
-      required: false,
-      defaults: '',
-      desc: 'Relocate the location of the generated files.'
-    })
-  }
-
+module.exports = class extends ApiProxyGenerator {
   initializing () {
     this.fs.copy(
       this.templatePath('editorconfig'),

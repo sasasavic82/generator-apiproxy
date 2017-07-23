@@ -41,7 +41,7 @@ Use [save-exact][save-exact] NPM setting and [exact-semver][exact-semver] to enf
 
 - [ ] 11. Greenkeeper is set up for automatic pull requests when newer versions of dependencies appear [greenkeeper.io][greenkeeper]
 
-- [ ] 12. if writing a CLI tool, add a way to check if it is out of date and should be upgraded;
+- [ ] 12. If writing a CLI tool, add a way to check if it is out of date and should be upgraded;
 [update-notifier][update-notifier]
 
 - [ ] 13. Validate `package.json` values using [grunt-nice-package][grunt-nice-package]
@@ -52,11 +52,11 @@ or [fixpack][fixpack]
 - [ ] 15. Documentation have been updated. [xplain][xplain] is my own tool for JS to HTML/Markdown
 generation
 
-- [ ] 16. place most of the public API documentation in README file for simple retrieval.
+- [ ] 16. Place most of the public API documentation in README file for simple retrieval.
 This allows other developers to find relevant sections right from the command line [manpm][manpm]
 or by looking up `npm home package-name`
 
-- [ ] 17. use a library to output the correct plural forms of words in the user messages [pluralize][pluralize]
+- [ ] 17. Use a library to output the correct plural forms of words in the user messages [pluralize][pluralize]
 
 ## 2. Resources
 

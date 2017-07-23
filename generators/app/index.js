@@ -1,12 +1,12 @@
 /* eslint security/detect-non-literal-fs-filename: "off" */
 'use strict'
+const YeomanGenerator = require('yeoman-generator')
 const _ = require('lodash')
 const chalk = require('chalk')
 const extend = _.merge
-const parseAuthor = require('parse-author')
 const path = require('path')
 const pkgJson = require('../../package.json')
-const YeomanGenerator = require('yeoman-generator')
+const util = require('../util')
 
 module.exports = class extends YeomanGenerator {
   constructor (args, options) {
@@ -87,32 +87,8 @@ module.exports = class extends YeomanGenerator {
   }
 
   initializing () {
-    this.pkg = this.fs.readJSON(this.destinationPath('package.json'), {})
-
     // Pre set the default props from the information we have at this point
-    this.props = {
-      name: this.pkg.name,
-      description: this.pkg.description,
-      version: this.pkg.version,
-      homepage: this.pkg.homepage
-    }
-
-    if (_.isObject(this.pkg.author)) {
-      this.props.authorName = this.pkg.author.name
-      this.props.authorEmail = this.pkg.author.email
-      this.props.authorUrl = this.pkg.author.url
-    } else if (_.isString(this.pkg.author)) {
-      const info = parseAuthor(this.pkg.author)
-      this.props.authorName = info.name
-      this.props.authorEmail = info.email
-      this.props.authorUrl = info.url
-    }
-
-    if (_.isObject(this.pkg.repository)) {
-      this.props.originUrl = this.pkg.repository.url
-    } else {
-      this.props.originUrl = this.pkg.repository
-    }
+    util.initializer.init(this)
   }
 
   _askFor () {
@@ -162,7 +138,7 @@ module.exports = class extends YeomanGenerator {
       name: 'includeCoveralls',
       type: 'confirm',
       message: 'Send coverage reports to coveralls',
-      when: this.options.coveralls === undefined
+      when: _.isUndefined(this.options.coveralls)
     }, {
       name: 'originUrl',
       message: 'Git remote origin URL',
@@ -170,7 +146,7 @@ module.exports = class extends YeomanGenerator {
       when: !this.props.originUrl
     }]
 
-    return this.prompt(prompts).then(props => {
+    return this.prompt(prompts).then((props) => {
       this.props = extend(this.props, props)
     })
   }
@@ -212,22 +188,21 @@ module.exports = class extends YeomanGenerator {
     this.fs.writeJSON(this.destinationPath('package.json'), pkg)
   }
 
-  default () {
-    if (this.options.travis) {
-      let options = {config: {}}
-      if (this.props.includeCoveralls) {
-        options.config.after_script = 'cat ./coverage/lcov.info | coveralls' // eslint-disable-line camelcase
-      }
-      this.composeWith(require.resolve('generator-travis/generators/app'), options)
+  _composeWithBoilerplate (props) {
+    if (this.options.boilerplate) {
+      this.composeWith(require.resolve('../boilerplate'), props)
     }
+    return this
+  }
 
+  _composeWithEditorConfig () {
     if (this.options.editorconfig) {
       this.composeWith(require.resolve('../editorconfig'))
     }
+    return this
+  }
 
-    this.composeWith(require.resolve('../nsp'))
-    this.composeWith(require.resolve('../eslint'))
-
+  _composeWithGit () {
     if (this.options.git) {
       this.composeWith(require.resolve('../git'), {
         name: this.props.name,
@@ -235,34 +210,17 @@ module.exports = class extends YeomanGenerator {
         scmAccount: this.props.scmAccount
       })
     }
+    return this
+  }
 
-    this.composeWith(require.resolve('generator-jest/generators/app'), {
-      testEnvironment: 'node',
-      coveralls: false
-    })
-
-    if (this.options.boilerplate) {
-      this.composeWith(require.resolve('../boilerplate'), {
-        license: this.props.license,
-        name: this.props.name
-      })
-    }
-
+  _composeWithJsc (props) {
     if (this.options.jsc) {
-      this.composeWith(require.resolve('../jsc'), {
-        name: this.props.name
-      })
+      this.composeWith(require.resolve('../jsc'), props)
     }
+    return this
+  }
 
-    this.composeWith(require.resolve('../docs'), {
-      projectName: this.options.name,
-      author: {
-        name: this.options.authorName,
-        url: this.options.authorUrl
-      },
-      license: this.props.license
-    })
-
+  _composeWithLicense () {
     if (this.options.license && !this.pkg.license) {
       this.composeWith(require.resolve('generator-license/app'), {
         name: this.props.authorName,
@@ -270,19 +228,46 @@ module.exports = class extends YeomanGenerator {
         website: this.props.authorUrl
       })
     }
+    return this
+  }
 
-    if (!this.fs.exists(this.destinationPath('README.md'))) {
-      this.composeWith(require.resolve('../readme'), {
-        name: this.props.name,
-        description: this.props.description,
-        originUrl: this.props.originUrl,
-        authorName: this.props.authorName,
-        authorUrl: this.props.authorUrl,
-        coveralls: this.props.includeCoveralls,
-        content: this.options.readme,
-        scmAccount: this.props.scmAccount
-      })
+  _composeWithTravis () {
+    if (this.options.travis) {
+      let options = {config: {}}
+      if (this.props.includeCoveralls) {
+        options.config['after_script'] = 'cat ./coverage/lcov.info | coveralls'
+      }
+      this.composeWith(require.resolve('generator-travis/generators/app'), options)
     }
+    return this
+  }
+
+  _composeWithReadme (props) {
+    if (!this.fs.exists(this.destinationPath('README.md'))) {
+      this.composeWith(require.resolve('../readme'), props)
+    }
+    return this
+  }
+
+  default () {
+    const props = util.initializer.props(this)
+
+    this.composeWith(require.resolve('../docs'), props)
+    this.composeWith(require.resolve('../nsp'))
+    this.composeWith(require.resolve('../eslint'))
+
+    this.composeWith(require.resolve('generator-jest/generators/app'), {
+      testEnvironment: 'node',
+      coveralls: false
+    })
+
+    this._composeWithBoilerplate(props)
+      ._composeWithEditorConfig()
+      ._composeWithGit()
+      ._composeWithJsc(props)
+      ._composeWithLicense()
+      ._composeWithReadme(props)
+      ._composeWithTravis()
   }
 
   installing () {

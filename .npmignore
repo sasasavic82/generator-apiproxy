@@ -1,19 +1,31 @@
 # https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package
 
-#tests
-test
+# tests
+.scannerwork
+__tests__
 coverage
+jest.config.json
+sonar-project.properties
+test
 
-#build tools
-.travis.yml
-.jenkins.yml
+# build tools
 .codeclimate.yml
+.jenkins.yml
+.travis.yml
+appveyor.ymml
+codecov.yml
 
-#linters
+# linters
+.eslintrc*
 .jscsrc
 .jshintrc
-.eslintrc*
 
-#editor settings
+# editor settings
 .idea
 .editorconfig
+
+# misc. assets
+.all-contributorsrc
+.assets
+.github
+docs

@@ -1,42 +1,29 @@
+const ApiProxyGenerator = require('../api-proxy-generator')
 const _ = require('lodash')
-const YeomanGenerator = require('yeoman-generator')
+const npmScriptsPkg = require('./templates/npm-scripts')
 const rootPkg = require('../../package.json')
 
-module.exports = class extends YeomanGenerator {
-  constructor (args, options) {
-    super(args, options)
-
-    this.option('generateInto', {
-      type: String,
-      required: false,
-      default: '',
-      desc: 'Relocate the location of the generated files.'
-    })
-  }
-
+module.exports = class extends ApiProxyGenerator {
   writing () {
-    const devDependencies = (() => {
-      const eslintDependencies = [
-        'eslint',
-        'eslint-config-xo-space',
-        'eslint-index',
-        'eslint-plugin-import',
-        'eslint-plugin-jest',
-        'eslint-plugin-jsdoc',
-        'eslint-plugin-no-unsafe-innerhtml',
-        'eslint-plugin-no-unsanitized',
-        'eslint-plugin-node',
-        'eslint-plugin-promise',
-        'eslint-plugin-scanjs-rules',
-        'eslint-plugin-security',
-        'eslint-plugin-standard',
-        'eslint-plugin-xss'
-      ]
-      return _.pick(rootPkg.devDependencies, eslintDependencies)
-    })()
+    const eslintDependencies = [
+      'eslint',
+      'eslint-config-xo-space',
+      'eslint-plugin-import',
+      'eslint-plugin-jest',
+      'eslint-plugin-jsdoc',
+      'eslint-plugin-no-unsafe-innerhtml',
+      'eslint-plugin-no-unsanitized',
+      'eslint-plugin-node',
+      'eslint-plugin-promise',
+      'eslint-plugin-scanjs-rules',
+      'eslint-plugin-security',
+      'eslint-plugin-standard',
+      'eslint-plugin-xss'
+    ]
+    const devDependencies = _.pick(rootPkg.devDependencies, eslintDependencies)
 
     const pkgJson = {
-      devDependencies: devDependencies,
+      devDependencies,
       eslintConfig: {
         extends: 'xo-space',
         env: {
@@ -44,9 +31,7 @@ module.exports = class extends YeomanGenerator {
           node: true
         }
       },
-      scripts: {
-        pretest: 'eslint . -c .eslintrc.yml --fix'
-      }
+      scripts: npmScriptsPkg
     }
 
     this.fs.extendJSON(

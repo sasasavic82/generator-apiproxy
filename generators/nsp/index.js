@@ -1,19 +1,8 @@
 
-const YeomanGenerator = require('yeoman-generator')
+const ApiProxyGenerator = require('../api-proxy-generator')
 const rootPkg = require('../../package.json')
 
-module.exports = class extends YeomanGenerator {
-  constructor (args, options) {
-    super(args, options)
-
-    this.option('generateInto', {
-      type: String,
-      required: false,
-      defaults: '',
-      desc: 'Relocate the location of the generated files.'
-    })
-  }
-
+module.exports = class extends ApiProxyGenerator {
   writing () {
     this.fs.extendJSON(this.destinationPath(this.options.generateInto, 'package.json'), {
       devDependencies: {

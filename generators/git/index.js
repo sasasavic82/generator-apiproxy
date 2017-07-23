@@ -1,16 +1,10 @@
-const YeomanGenerator = require('yeoman-generator')
+
+const ApiProxyGenerator = require('../api-proxy-generator')
 const originUrl = require('git-remote-origin-url')
 
-module.exports = class extends YeomanGenerator {
+module.exports = class extends ApiProxyGenerator {
   constructor (args, options) {
     super(args, options)
-
-    this.option('generateInto', {
-      type: String,
-      required: false,
-      defaults: '',
-      desc: 'Relocate the location of the generated files.'
-    })
 
     this.option('name', {
       type: String,
@@ -43,7 +37,7 @@ module.exports = class extends YeomanGenerator {
     )
 
     return originUrl(this.destinationPath(this.options.generateInto))
-      .then(url => (this.originUrl = url))
+      .then((url) => (this.originUrl = url))
       .catch(() => {
         this.originUrl = this.options.originUrl
       })

@@ -1,8 +1,8 @@
 'use strict'
 
 const YeomanGenerator = require('yeoman-generator')
-const rootPkg = require('../../package.json')
 const complexity = require('./complexity')
+const rootPkg = require('../../package.json')
 
 module.exports = class extends YeomanGenerator {
   constructor (args, options) {
@@ -68,14 +68,14 @@ module.exports = class extends YeomanGenerator {
     })
 
     complexity.report.factory(this)
-      .then(report => {
+      .then((report) => {
         this.fs.copyTpl(
           this.templatePath('../complexity/templates/COMPLEXITY.erb.md'),
           this.destinationPath(this.options.generateInto, 'COMPLEXITY.md'),
           report
         )
       })
-      .catch(err => this.log(`Error: ${err}`))
+      .catch((err) => this.log(`Error: ${err}`))
 
     this.fs.copyTpl(
       this.templatePath('JSCS.md'),
