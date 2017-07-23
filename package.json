@@ -72,7 +72,7 @@
     "swagger-markdown": "1.1.1",
     "uglify-js": "3.0.26",
     "yeoman-assert": "3.0.0",
-    "yeoman-test": "1.6.0"
+    "yeoman-test": "1.7.0"
   },
   "engines": {
     "node": ">=4.0.0"
