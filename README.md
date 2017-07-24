@@ -496,7 +496,7 @@ Contributions are stories with a beginning, a middle, and an end, all told throu
 
 ## 7. Version and CHANGELOG
 
-`generator-apiproxy`'s latest version is <!-- semver -->[`v0.0.0`][changelog-url]<!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.
+`generator-apiproxy`'s latest version is <!-- semver -->[`v1.0.0-beta.0`][changelog-url]<!-- semverend -->. Please read the [CHANGELOG][changelog-url] for details.
 
 ## 8. License
 

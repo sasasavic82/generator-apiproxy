@@ -1,7 +1,7 @@
 {
   "name": "generator-apiproxy",
   "description": "Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.",
-  "version": "0.0.0",
+  "version": "1.0.0-beta.0",
   "author": {
     "name": "Swindle, Gregory Jay (Greg)",
     "email": "gregory.jay.swindle@verizon.com",
@@ -127,5 +127,6 @@
     "swagger:lint": "swagger validate *.swagger.yaml --debug && swagger validate *.swagger.json --debug",
     "test": "jest --config=jest.config.json",
     "toc:update": "markdown-toc"
-  }
+  },
+  "versionedSources": "README.md,sonar-project.properties"
 }

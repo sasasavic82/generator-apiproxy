@@ -42,7 +42,7 @@ describe('apiproxy:boilerplate', () => {
     assert.file('sonar-project.properties')
     assert.fileContent('sonar-project.properties', 'sonar.projectKey=CAOV-my-module')
     assert.fileContent('sonar-project.properties', 'sonar.projectName=my-module')
-    assert.fileContent('sonar-project.properties', 'sonar.projectVersion=0.0.0')
+    assert.fileContent('sonar-project.properties', 'sonar.projectVersion=')
     assert.fileContent('sonar-project.properties', 'sonar.links.issue=https://github.com/CAOV/my-module/issues')
   })
 
