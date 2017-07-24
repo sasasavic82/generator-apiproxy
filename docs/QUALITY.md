@@ -278,6 +278,7 @@ generators/boilerplate/templates/.assets/media/audio/README.md     374 B    0%
 generators/nsp/index.js                                            462 B    0%  
 generators/boilerplate/templates/.assets/media/README.md           486 B    0%  
 generators/docs/templates/SWAGGER.md                               487 B    0%  
+index.js                                                           525 B    0%  
 generators/docs/complexity/templates/COMPLEXITY.md                 533 B    0%  
 LICENSE                                                            549 B    0%  
 generators/eslint/templates/npm-scripts.json                       591 B    0%  
@@ -295,11 +296,11 @@ generators/boilerplate/templates/npm-scripts.json                  2.01 kB  1%
 generators/util.js                                                 2.22 kB  1%  
 generators/readme/index.js                                         2.47 kB  1%  
 generators/docs/complexity/index.js                                2.75 kB  2%  
-CHANGELOG.md                                                       3.18 kB  2%  
 generators/boilerplate/templates/.github/CODE_OF_CONDUCT.md        3.43 kB  2%  
 generators/docs/index.js                                           3.48 kB  2%  
+package.json                                                       3.89 kB  2%  
 generators/boilerplate/index.js                                    4.2 kB   2%  
-package.json                                                       4.21 kB  2%  
+CHANGELOG.md                                                       4.41 kB  2%  
 generators/boilerplate/templates/.github/PULL_REQUEST_TEMPLATE.md  5.06 kB  3%  
 generators/app/index.js                                            7.54 kB  4%  
 generators/docs/templates/README.md                                8.32 kB  5%  
@@ -308,7 +309,7 @@ generators/eslint/templates/eslintrc                               11.3 kB  6%
 generators/boilerplate/templates/.github/CONTRIBUTING.md           11.6 kB  6%  
 generators/git/templates/gitignore                                 16.3 kB  9%  
 README.md                                                          25.3 kB  14%
-generators/docs/templates/TERMS_OF_SERVICE.md                      38.7 kB  22%
+generators/docs/templates/TERMS_OF_SERVICE.md                      38.7 kB  21%
 
 DIR                                                                SIZE     %   
 generators/boilerplate/templates/apiproxy/targets/                 0 B      0%  
@@ -334,7 +335,7 @@ generators/app/                                                    7.54 kB  4%
 generators/readme/templates/                                       8.81 kB  5%  
 generators/readme/                                                 11.3 kB  6%  
 generators/eslint/templates/                                       12.2 kB  7%  
-generators/eslint/                                                 13.5 kB  8%  
+generators/eslint/                                                 13.5 kB  7%  
 generators/git/templates/                                          16.3 kB  9%  
 generators/git/                                                    18.1 kB  10%
 generators/boilerplate/templates/.github/                          22 kB    12%
@@ -342,15 +343,15 @@ generators/boilerplate/templates/                                  30.9 kB  17%
 generators/boilerplate/                                            35.1 kB  19%
 generators/docs/templates/                                         48.2 kB  27%
 generators/docs/                                                   54.9 kB  30%
-generators/                                                        146 kB   81%
-.                                                                  180 kB   100%
+generators/                                                        146 kB   80%
+.                                                                  182 kB   100%
 
 PKGFILES SUMMARY
-Size on Disk with Dependencies  ~202 MB
-Size with Dependencies          ~131 MB
-Publishable Size                ~180 kB
+Size on Disk with Dependencies  ~182 MB
+Size with Dependencies          ~117 MB
+Publishable Size                ~182 kB
 Number of Directories           33     
-Number of Files                 49
+Number of Files                 50
 ```
 ---
 

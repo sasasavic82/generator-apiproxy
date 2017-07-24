@@ -41,7 +41,8 @@
     "**/vendor/**",
     "**/yahoo-*.js",
     "**/yui*.js",
-    "bower_components/**"
+    "bower_components/**",
+    "__tests__/__unit__/app.test.js"
   ],
   "test": [
     "**/*.spec.js",
@@ -55,5 +56,15 @@
     "**/test/**",
     "**/tests/**",
     "__tests__/**"
-  ]
+  ],
+  "critics": {
+    "lint": {"engine": "eslint"}
+  },
+  "dependencies": {
+    "unused-ignores": [
+      "generator-travis",
+      "generator-license",
+      "generator-jest"
+    ]
+  }
 }
