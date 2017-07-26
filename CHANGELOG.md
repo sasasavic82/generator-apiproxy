@@ -1,27 +1,9 @@
-CHANGELOG
-========
+# Change Log
 
-> ## :information_source: `generator-apiproxy` has not been released, yet
->
-Therefore, its semantic version is sitting pretty at `v0.0.0`.
->
-> ### Projects and milestones
->
-> 1. **Project**: [Apigee API Proxy Yeoman generator](https://github.com/gregswindle/generator-apiproxy/projects/2) manages all User Stories pertaining to MVP features, and
-> 2. **Project**: [Product delivery and operations](https://github.com/gregswindle/generator-apiproxy/projects/1) manages issues related to product delivery improvement and dev-sec-ops, including "chores" like
-    * Dependency drift and vulnerability resolution and
-    * Release management.
->
-> ### [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] Want to help expedite the `v1.0.0` release date?
->
-> We welcome contributors and pull requests! To learn more, check out the guidelines for
->
-> * [Contributing to `generator-apiproxy`](./.github/CONTRIBUTING.md) and our
-> * [Contributor Covenant Code of Conduct][code-of-conduct-url].
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-
-<a name="0.0.0"></a>
-# 0.0.0 (2017-07-23)
+<a name="1.0.0-beta.0"></a>
+# 1.0.0-beta.0 (2017-07-24)
 
 
 ### Bug Fixes
@@ -46,28 +28,18 @@ Therefore, its semantic version is sitting pretty at `v0.0.0`.
 * **readme:** generate a Git repository readme file (#3,#26) ([af1daad](https://github.com/gregswindle/generator-apiproxy/commit/af1daad)), closes [#3](https://github.com/gregswindle/generator-apiproxy/issues/3)
 * **subgenerator:nsp:** add node security program for vulnerability analysis (#13) ([0fea7b7](https://github.com/gregswindle/generator-apiproxy/commit/0fea7b7))
 * **tables-of-content:** auto-generate root readme tocs with custom npm-script (#3,#29,#38) ([0745396](https://github.com/gregswindle/generator-apiproxy/commit/0745396)), closes [#29](https://github.com/gregswindle/generator-apiproxy/issues/29)
+* **update-notifier:** notify users about available updates (#54) ([2cd70ab](https://github.com/gregswindle/generator-apiproxy/commit/2cd70ab)), closes [#49](https://github.com/gregswindle/generator-apiproxy/issues/49)
 
 
 ### BREAKING CHANGES
 
-* **product-name:** renamed this product "generator-apiproxy" [(#37)](https://github.com/gregswindle/generator-apiproxy/issues/37)
+* **product-name:** renamed this product "generator-apiproxy"
 
-Migration: it might be best to either
+  Migration: it might be best to either
 1. Clone the repo into a new directory, or
 2. Re-fork.
 
 If you run into problems, please submit an issue with the labels "Type: Defect", "Type: Question"
 or "Type: Feedback".
 
----
-
-
-[Apache-2.0][license-url] © [Greg Swindle][author-url]
-
-
-[author-url]: https://github.com/gregswindle
-[code-of-conduct-url]: .github/CODE_OF_CONDUCT.md
-[license-image]: https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat
-[license-url]: ./LICENSE
-[makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat
-[makeapullrequest-url]: http://makeapullrequest.com
+gregswindle/generator-apigee-apiproxy#37
