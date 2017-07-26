@@ -14,6 +14,11 @@ describe('apiproxy:boilerplate', () => {
       })
   })
 
+  it('creates root-level "runcom" and configuration dependencies', () => {
+    assert.file('.babelrc')
+    assert.file('jest.config.json')
+  })
+
   it('creates .assets boilerplate files', () => {
     assert.file('.assets/README.md')
     assert.file('.assets/media/README.md')
