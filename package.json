@@ -54,7 +54,7 @@
     "eslint-plugin-no-unsanitized": "2.0.1",
     "eslint-plugin-node": "5.1.1",
     "eslint-plugin-promise": "3.5.0",
-    "eslint-plugin-scanjs-rules": "0.1.5",
+    "eslint-plugin-scanjs-rules": "0.1.6",
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-standard": "3.0.1",
     "eslint-plugin-xss": "0.1.8",
