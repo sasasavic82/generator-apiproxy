@@ -154,7 +154,7 @@ The latest version of `<%= projectName %>` is `v<%= version %>`. View the [CHANG
 
 ## Contributing to `<%= projectName %>`
 
-:family: We welcome contributors and pull requests. Check out the guidelines for [contributing to `<%= projectName %>`][contributing-url] and our [Contributor Covenant Code of Conduct][code-of-conduct-url].
+![Alt text](https://camo.githubusercontent.com/f96261621753dacf526590825b84f87ccb1db0e6/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5052732d77656c636f6d652d627269676874677265656e2e7376673f7374796c653d666c6174 "Pull Request") We welcome contributors and pull requests. Check out the guidelines for [contributing to `<%= projectName %>`][contributing-url] and our [Contributor Covenant Code of Conduct][code-of-conduct-url].
 
 Contributions are stories with a beginning, a middle, and an end, all told through issues, comments, and pull requests.
 
