@@ -1,0 +1,10 @@
+{
+  "presets": [
+    ["env", {
+      "test": {
+        "node": "current"
+      },
+      "debug": true
+    }]
+  ]
+}

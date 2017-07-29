@@ -42,4 +42,4 @@ All notable changes to this project will be documented in this file. See [standa
 If you run into problems, please submit an issue with the labels "Type: Defect", "Type: Question"
 or "Type: Feedback".
 
-gregswindle/generator-apigee-apiproxy#37
+gregswindle/generator-apiproxy#37

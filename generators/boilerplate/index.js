@@ -54,8 +54,11 @@ module.exports = class extends ApiProxyGenerator {
 
     // Copy jest configuration file
     let filepath = this.destinationPath(this.options.generateInto, 'jest.config.json')
-
     this.fs.copy(this.templatePath('jest.config.json'), filepath)
+
+    // Copy babelrc
+    filepath = this.destinationPath(this.options.generateInto, '.babelrc')
+    this.fs.copy(this.templatePath('babelrc'), filepath)
 
     // Copy sonar properties
     filepath = this.destinationPath(this.options.generateInto, 'sonar-project.properties')
