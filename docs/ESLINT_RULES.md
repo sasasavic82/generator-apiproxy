@@ -1,6 +1,8 @@
+<a href="https://eslint.org/" target="_blank"><img src="/docs/img/eslint-logo.svg" height="125" width="125" alt="ESLint logo" title="Select to learn more about ESLint."></a>
+
 # `ESLint` rules
 
-`generator-apiproxy` enforces the following code standards with `ESLint`.
+`generator-apiproxy` enforces the following code standards with [`ESLint`][eslint-url].
 
 ## Table of contents
 
@@ -522,3 +524,6 @@
 ---
 
 Generated on `2017-07-21T06:05:56.603Z`.
+
+
+[eslint-url]: https://eslint.org/
