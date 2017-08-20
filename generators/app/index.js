@@ -41,7 +41,7 @@ module.exports = class extends YeomanGenerator {
     this.option('jsc', {
       type: Boolean,
       required: false,
-      default: false,
+      default: true,
       desc: 'Add a Javascript callout'
     })
 
