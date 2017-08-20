@@ -8,26 +8,54 @@ always feel free to suggest new guidelines and to challenge existing norms with 
 
 ## Table of contents
 
-- [Git](#git)
-    - [Some Git rules](#some-git-rules)
-    - [Git workflow](#git-workflow)
-    - [Writing good commit messages](#writing-good-commit-messages)
-- [Documentation](#documentation)
-- [Environments](#environments)
-    - [Consistent dev environments](#consistent-dev-environments)
-    - [Consistent dependencies](#consistent-dependencies)
-- [Dependencies](#dependencies)
-- [Testing](#testing)
-- [Structure and Naming](#structure-and-naming)
-- [Code style](#code-style)
-    - [Some code style guidelines](#code-style-check)
-    - [Enforcing code style standards](#enforcing-code-style-standards)
-- [Logging](#logging)
-- [API](#api)
-    - [API design](#api-design)
-    - [API security](#api-security)
-    - [API documentation](#api-documentation)
-- [Licensing](#licensing)
+<!-- toc -->
+
+- [1. Git](#1-git)
+  * [1.1. Some Git rules](#11-some-git-rules)
+    + [1.1.1. Perform work in a topic branch.](#111-perform-work-in-a-topic-branch)
+    + [1.1.2. Branch out from `develop`.](#112-branch-out-from-develop)
+    + [1.1.3. Never push into `develop` or `master` branch. Make a Pull Request.](#113-never-push-into-develop-or-master-branch-make-a-pull-request)
+    + [1.1.4. Submit a Pull Request as soon as possible.](#114-submit-a-pull-request-as-soon-as-possible)
+    + [1.1.5. Update your local `develop` branch with an interactive rebase before you ask for Pull Request approvals.](#115-update-your-local-develop-branch-with-an-interactive-rebase-before-you-ask-for-pull-request-approvals)
+    + [1.1.6. Resolve rebase conflicts before Pull Request reviews.](#116-resolve-rebase-conflicts-before-pull-request-reviews)
+    + [1.1.7. Ensure your topic branch's CI-service checks pass before you ask others to review a Pull Request.](#117-ensure-your-topic-branchs-ci-service-checks-pass-before-you-ask-others-to-review-a-pull-request)
+    + [1.1.8. Add Reviewers and the Label "Status: Review Needed" when your topic branch is ready for review.](#118-add-reviewers-and-the-label-status-review-needed-when-your-topic-branch-is-ready-for-review)
+    + [1.1.9. Delete local and remote topic branches after merging.](#119-delete-local-and-remote-topic-branches-after-merging)
+    + [1.1.10. Use a `.gitignore` file.](#1110-use-a-gitignore-file)
+    + [1.1.11. Protect your `develop` and `master` branches.](#1111-protect-your-develop-and-master-branches)
+  * [1.2. Git workflow](#12-git-workflow)
+  * [1.3 Writing good commit messages](#13-writing-good-commit-messages)
+    + [1.3.1. `build` commit messages](#131-build-commit-messages)
+    + [1.3.2. `chore` commit messages](#132-chore-commit-messages)
+    + [1.3.3. `ci` commit messages](#133-ci-commit-messages)
+    + [1.3.4. `docs` commit messages](#134-docs-commit-messages)
+    + [1.3.5. `feat` (feature) commit messages](#135-feat-feature-commit-messages)
+    + [1.3.6. `fix` commit messages](#136-fix-commit-messages)
+    + [1.3.7. `perf` (performance) commit messages](#137-perf-performance-commit-messages)
+    + [1.3.8. `refactor` commit messages](#138-refactor-commit-messages)
+    + [1.3.9. `revert` commit messages](#139-revert-commit-messages)
+    + [1.3.10. `style` commit messages](#1310-style-commit-messages)
+    + [1.3.11. `test` commit messages](#1311-test-commit-messages)
+- [2. Documentation](#2-documentation)
+- [3. Environments](#3-environments)
+  * [3.1 Consistent dev environments:](#31-consistent-dev-environments)
+  * [3.2 Consistent dependencies:](#32-consistent-dependencies)
+- [4. Dependencies](#4-dependencies)
+- [5. Testing](#5-testing)
+- [6. Structure and Naming](#6-structure-and-naming)
+- [7. Code style](#7-code-style)
+  * [7.1 Some code style guidelines](#71-some-code-style-guidelines)
+  * [7.2 Enforcing code style standards](#72-enforcing-code-style-standards)
+- [8. Logging](#8-logging)
+- [9. API](#9-api)
+  * [9.1 API design](#91-api-design)
+  * [9.2 API security](#92-api-security)
+  * [9.3 API documentation](#93-api-documentation)
+- [10. Licensing](#10-licensing)
+
+<!-- tocstop -->
+
+<!-- tocend -->
 
 <a name="git"></a>
 ## 1. Git
@@ -38,61 +66,63 @@ always feel free to suggest new guidelines and to challenge existing norms with 
 
 There are a set of rules to keep in mind:
 
-#### ![Source code editor][atom-ide-image] Perform work in a topic branch.
+#### 1.1.1. Perform work in a topic branch.
 
   _Why:_
   >Use an isolated topic branch for parallel product development. Topic branches allow you to submit multiple pull requests without confusion. You can iterate without polluting the master branch with potentially unstable, unfinished code. [read more...](https://www.atlassian.com/git/tutorials/comparing-workflows#feature-branch-workflow)
 
 
-#### ![Git fork][git-fork-image] Branch out from `develop`.
+#### 1.1.2. Branch out from `develop`.
 
   _Why:_
-  >This way, you can make sure that code in master will almost always build without problems, and can be mostly used directly for releases (this might be overkill for some projects).
+  >![Git fork][git-fork-image] This way, you can make sure that code in master will almost always build without problems, and can be mostly used directly for releases (this might be overkill for some projects).
 
-#### ![Git forbidden][git-no-entry-image] Never push into `develop` or `master` branch. Make a Pull Request.
-
-  _Why:_
-  > It notifies team members that they have completed a feature. It also enables easy peer-review of the code and dedicates forum for discussing the proposed feature.
-
-#### ![Git pull request][git-pull-request-image] Submit a Pull Request as soon as possible.
+#### 1.1.3. Never push into `develop` or `master` branch. Make a Pull Request.
 
   _Why:_
-  > Pull Requests declare work in progress. Frequent pushes to a Pull Request notify your team members about change, and gives them the opportunity to provide feedback more often. Pull Request pushes also trigger automated CI-services, which help you fail fast and assess quality.
+  >![Git forbidden][git-no-entry-image]  It notifies team members that they have completed a feature. It also enables easy peer-review of the code and dedicates forum for discussing the proposed feature.
 
-#### ![Git compare][git-compare-image] Update your local `develop` branch with an interactive rebase before you ask for Pull Request approvals.
+#### 1.1.4. Submit a Pull Request as soon as possible.
 
   _Why:_
-  > Rebasing will merge in the requested branch (`master` or `develop`) and apply the commits that you have made locally to the top of the history without creating a merge commit (assuming there were no conflicts). Resulting in a nice and clean history. [read more ...](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+  >![Git pull request][git-pull-request-image] Pull Requests declare work in progress. Frequent pushes to a Pull Request notify your team members about change, and gives them the opportunity to provide feedback more often. Pull Request pushes also trigger automated CI-services, which help you fail fast and assess quality.
 
-#### ![Git compare][git-resolve-image] Resolve rebase conflicts before Pull Request reviews.
+#### 1.1.5. Update your local `develop` branch with an interactive rebase before you ask for Pull Request approvals.
+
+  _Why:_
+  >![Git compare][git-compare-image] Rebasing will merge in the requested branch (`master` or `develop`) and apply the commits that you have made locally to the top of the history without creating a merge commit (assuming there were no conflicts). Resulting in a nice and clean history. [read more ...](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+
+#### 1.1.6. Resolve rebase conflicts before Pull Request reviews.
 
 _Why:_
-> Rebasing will merge in the requested branch (`master` or `develop`) and apply the commits that you have made locally to the top of t
+>![Git compare][git-resolve-image] Rebasing will merge in the requested branch (`master` or `develop`) and apply the commits that you have made locally to the top of t
 
-#### ![CI build success][travis-ci-logo-image] Ensure your topic branch's CI-service checks pass before you ask others to review a Pull Request.
+#### 1.1.7. Ensure your topic branch's CI-service checks pass before you ask others to review a Pull Request.
 
  _Why:_
- > You are about to add your code to a stable branch. If your feature-branch tests fail, there is a high chance that your destination branch build will fail too. Additionally you need to apply code style check before making a Pull Request. It aids readability and reduces the chance of formatting fixes being mingled in with actual changes.
+ >![CI build success][travis-ci-logo-image] You are about to add your code to a stable branch. If your feature-branch tests fail, there is a high chance that your destination branch build will fail too. Additionally you need to apply code style check before making a Pull Request. It aids readability and reduces the chance of formatting fixes being mingled in with actual changes.
 
-#### ![Git pull request review][git-pr-review-image] Add Reviewers and the Label "Status: Review Needed" when your topic branch is ready for review.
-
-  _Why:_
-  > When you add a Reviewer, GitHub (or Bitbucket) notifies teammates that your topic branch meets all Acceptance Criteria and is ready to be merged into the main branch. Adding the label "Status: Review Needed" formally declares the status of your topic branch, and helps teams filter through issues.
-
-#### ![Delete branches][delete-image] Delete local and remote topic branches after merging.
+#### 1.1.8. Add Reviewers and the Label "Status: Review Needed" when your topic branch is ready for review.
 
   _Why:_
-  > It will clutter up your list of branches with dead branches.It insures you only ever merge the branch back into (`master` or `develop`) once. topic branches should only exist while the work is still in progress.
+  >![Git pull request review][git-pr-review-image] When you add a Reviewer, GitHub (or Bitbucket) notifies teammates that your topic branch meets all Acceptance Criteria and is ready to be merged into the main branch. Adding the label "Status: Review Needed" formally declares the status of your topic branch, and helps teams filter through issues.
 
-#### ![Ignore extraneous files][git-ignore-image] Use [this](./.gitignore) `.gitignore` file.
-
-  _Why:_
-  > It already has a list of system files that should not be sent with your code into a remote repository. In addition, it excludes setting folders and files for most used editors, as well as most common dependency folders.
-
-#### ![Git repo defense][git-repo-protection-image] Protect your `develop` and `master` branches.
+#### 1.1.9. Delete local and remote topic branches after merging.
 
   _Why:_
-  > It protects your production-ready branches from receiving unexpected and irreversible changes. read more... [Github](https://help.github.com/articles/about-protected-branches/) and [Bitbucket](https://confluence.atlassian.com/bitbucketserver/using-branch-permissions-776639807.html)
+  >![Delete branches][delete-image] It will clutter up your list of branches with dead branches.It insures you only ever merge the branch back into (`master` or `develop`) once. topic branches should only exist while the work is still in progress.
+
+#### 1.1.10. Use a `.gitignore` file.
+
+[This `.gitignore` file](./.gitignore) is our standard.
+
+  _Why:_
+  >![Ignore extraneous files][git-ignore-image] It already has a list of system files that should not be sent with your code into a remote repository. In addition, it excludes setting folders and files for most used editors, as well as most common dependency folders.
+
+#### 1.1.11. Protect your `develop` and `master` branches.
+
+  _Why:_
+  >![Git repo defense][git-repo-protection-image] It protects your production-ready branches from receiving unexpected and irreversible changes. read more... [Github](https://help.github.com/articles/about-protected-branches/) and [Bitbucket](https://confluence.atlassian.com/bitbucketserver/using-branch-permissions-776639807.html)
 
 <a name="git-workflow"></a>
 
@@ -935,7 +965,7 @@ For each endpoint explain:
 
 <a name="licensing"></a>
 ## 10. Licensing
-![Licensing](/images/licensing.png)
+![Licensing](/docs/img/icons8/osi-logo.png)
 
 Make sure you use resources that you have the rights to use. If you use libraries, remember to look for MIT, Apache or BSD but if you modify them, then take a look into license details. Copyrighted images and videos may cause legal problems.
 

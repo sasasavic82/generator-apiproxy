@@ -80,7 +80,7 @@ available at [http://contributor-covenant.org/version/1/4][version].
 [pledge-image]: /docs/img/icons8/pledge-scout-sign.png
 [scope-image]: /docs/img/icons8/map-marker.png
 
-[team-email-mailto]: mailto:gregory.jay.swindle@verizon.com?Subject=%5Bgenerator-apiproxy%5D%20Code%20of%20conduct%20concern
+[team-email-mailto]: mailto:greg@swindle.net?Subject=%5Bgenerator-apiproxy%5D%20Code%20of%20conduct%20concern
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/
 [team-issues-url]: https://github.com/gregswindle/generator-apiproxy/issues/new
