@@ -75,7 +75,7 @@ Run the `app` generator:
 
 ```bash
 # Scaffold a new API Proxy project
-$ yo apigee-apiproxy
+$ yo apiproxy
 # Answer the prompts till done
 ```
 
