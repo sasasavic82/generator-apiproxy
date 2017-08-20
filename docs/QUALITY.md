@@ -4,35 +4,54 @@
 
 <!-- toc -->
 
-- [1. Quality gate and measures](#1-quality-gate-and-measures)
-  * [1.1. Complexity](#11-complexity)
-  * [1.2. Duplications](#12-duplications)
-  * [1.3. Issues](#13-issues)
-  * [1.4. Maintainability and reliability](#14-maintainability-and-reliability)
-  * [1.5. Security](#15-security)
-  * [1.6. Tests](#16-tests)
-- [2. Complexity details](#2-complexity-details)
-  * [2.1. Overall complexity summary](#21-overall-complexity-summary)
-  * [2.2. `generators/app/index.js`](#22-generatorsappindexjs)
-  * [2.3. `generators/boilerplate/index.js`](#23-generatorsboilerplateindexjs)
-  * [2.4. `generators/docs/index.js`](#24-generatorsdocsindexjs)
-  * [2.5. `generators/editorconfig/index.js`](#25-generatorseditorconfigindexjs)
-  * [2.6. `generators/eslint/index.js`](#26-generatorseslintindexjs)
-  * [2.7. `generators/git/index.js`](#27-generatorsgitindexjs)
-  * [2.8. `generators/jsc/index.js`](#28-generatorsjscindexjs)
-  * [2.9. `generators/nsp/index.js`](#29-generatorsnspindexjs)
-  * [2.10. `generators/readme/index.js`](#210-generatorsreadmeindexjs)
+- [1. Quality assurance summary](#1-quality-assurance-summary)
+- [2. Quality gate details](#2-quality-gate-details)
+  * [2.1. Complexity](#21-complexity)
+  * [2.2. Duplications](#22-duplications)
+  * [2.3. Issues](#23-issues)
+  * [2.4. Maintainability and reliability](#24-maintainability-and-reliability)
+  * [2.5. Security](#25-security)
+  * [2.6. Tests](#26-tests)
+- [3. Complexity details](#3-complexity-details)
+  * [3.1. Overall complexity summary](#31-overall-complexity-summary)
+  * [3.2. `generators/app/index.js`](#32-generatorsappindexjs)
+  * [3.3. `generators/boilerplate/index.js`](#33-generatorsboilerplateindexjs)
+  * [3.4. `generators/docs/index.js`](#34-generatorsdocsindexjs)
+  * [3.5. `generators/editorconfig/index.js`](#35-generatorseditorconfigindexjs)
+  * [3.6. `generators/eslint/index.js`](#36-generatorseslintindexjs)
+  * [3.7. `generators/git/index.js`](#37-generatorsgitindexjs)
+  * [3.8. `generators/jsc/index.js`](#38-generatorsjscindexjs)
+  * [3.9. `generators/nsp/index.js`](#39-generatorsnspindexjs)
+  * [3.10. `generators/readme/index.js`](#310-generatorsreadmeindexjs)
 - [3. Package size](#3-package-size)
 
 <!-- tocstop -->
 
 <!-- tocend -->
 
-## 1. Quality gate and measures
+## 1. Quality assurance summary
+[![Quality Gate][sonar-gate-img]][sonar-gate-url]
+
+> 🔬  Assess code quality, security vulnerabilities, code smells, test coverage, duplications, technical debt, reliability, maintainability, complexity, and blocking issues.
+>
+> 📊 Select the badges below for detailed SonarQube reports.
+
+| Measure             | Scores                                                             |
+|:--------------------|:-------------------------------------------------------------------|
+| **Complexity**      | [![Complexity][sonar-complexity-img]][sonar-complexity-url] [![Cognitive complexity][sonar-cognitive-img]][sonar-cognitive-url] |
+| **Coverage**        | [![codecov](https://codecov.io/gh/gregswindle/generator-apiproxy/branch/master/graph/badge.svg)](https://codecov.io/gh/gregswindle/generator-apiproxy)       |
+| **Duplications**    | [![Duplications][sonar-duplications-img]][sonar-duplications-url]  |
+| **Issues**          | [![Issues][sonar-issues-img]][sonar-issues-url]                    |
+| **Maintainability** | [![Code smells][sonar-code-smells-img]][sonar-code-smells-url]  [![Maintainability][sonar-maintainability-img]][sonar-maintainability-url] [![Technical debt][sonar-tech-debt-img]][sonar-tech-debt-url] |
+| **Reliability**     | [![Reliability][sonar-reliability-img]][sonar-reliability-url]     |
+| **Security**        | [![Security][sonar-security-img]][sonar-security-url]              |
+
+
+## 2. Quality gate details
 [![Quality Gate][sonar-gate-img]][sonar-gate-url] `generator-apiproxy` passes SonarCloud's quality gate.
 > 📊 Select the badges below for detailed SonarQube reports. For more details, see the [SonarQube Metric Definitions](http://docs.sonarqube.org/display/SONAR/Metric+Definitions).
 
-### 1.1. Complexity
+### 2.1. Complexity
 
 Complexity measures attempt to calculate how testable and maintainable source code is.
 
@@ -41,7 +60,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | **Complexity**      | [![Cognitive complexity][sonar-cognitive-img]][sonar-cognitive-url]<br>How difficult the control flow of a method is to understand, and therefore to maintain. |
 | **Complexity**      | [![function_complexity][function_complexity-image]][function_complexity-url]<br>Complexity by function |
 
-### 1.2. Duplications
+### 2.2. Duplications
 
 > When code with a software vulnerability is copied, the vulnerability may
 > continue to exist in the copied code if the developer is not aware of such
@@ -55,7 +74,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | **Duplications**    | [![duplicated_lines_density][duplicated_lines_density-image]][duplicated_lines_density-url]<br>Lines duplication percentage |
 | **Duplications**    | [![new_duplicated_lines_density][new_duplicated_lines_density-image]][new_duplicated_lines_density-url]<br>New lines duplication percentage |
 
-### 1.3. Issues
+### 2.3. Issues
 
 > Code smell, also known as bad smell, in computer programming code, refers to
 > any symptom in the source code of a program that possibly indicates a deeper
@@ -72,7 +91,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | **Issues**          | [![new_blocker_violations][new_blocker_violations-image]][new_blocker_violations-url]<br>No. of blocker issues |
 | **Issues**          | [![new_critical_violations][new_critical_violations-image]][new_critical_violations-url]<br>No. of new critical issues |
 
-### 1.4. Maintainability and reliability
+### 2.4. Maintainability and reliability
 
 > Software is very expensive to maintain.  If you don’t continue to update and
 > modify an existing software system or component, it’ll eventually stop working.
@@ -89,7 +108,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | **Size**            | [![lines][lines-image]][lines-url]<br>No. of lines (including comments and empty lines) |
 | **Size**            | [![ncloc][ncloc-image]][ncloc-url]<br>No. of lines of code (excluding comments and empty lines) |
 
-### 1.5. Security
+### 2.5. Security
 
 > Security measures check for vulnerabilities, i.e., threats, attacks, and
 > countermeasures in source code that allow an attacker to
@@ -103,7 +122,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | **Security**        | [![new_vulnerabilities][new_vulnerabilities-image]][new_vulnerabilities-url]<br>No. of new vulnerabilities |
 | **Security**        | [![vulnerabilities][vulnerabilities-image]][vulnerabilities-url]<br>No. of vulnerabilities |
 
-### 1.6. Tests
+### 2.6. Tests
 
 > Verification of individual units of source code, sets of one or more computer
 > program modules together with associated control data, usage procedures, and
@@ -122,9 +141,9 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | **Tests**           | [![test_failures][test_failures-image]][test_failures-url]<br>No. of tests whose assertions have failed |
 | **Tests**           | [![test_success_density][test_success_density-image]][test_success_density-url]<br>Percentage of tests that have succeeded |
 
-## 2. Complexity details
+## 3. Complexity details
 
-### 2.1. Overall complexity summary
+### 3.1. Overall complexity summary
 > **:white_check_mark: Mean per-function cyclomatic complexity: 1**
 
 > * **Change cost: 11%**
@@ -135,7 +154,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 > * **Mean per-function parameter count: 0**
 > * **Mean per-module maintainability index: 129**
 
-### 2.2. `generators/app/index.js`
+### 3.2. `generators/app/index.js`
 
 > **:white_check_mark: Cyclomatic complexity: 1**
 
@@ -148,7 +167,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | Mean parameter count           |  0         |
 | Physical LOC                   |  290       |
 
-### 2.3. `generators/boilerplate/index.js`
+### 3.3. `generators/boilerplate/index.js`
 
 > **:white_check_mark: Cyclomatic complexity: 1**
 
@@ -161,7 +180,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | Mean parameter count          |  0   |
 | Physical LOC                  |  143 |
 
-### 2.4. `generators/docs/index.js`
+### 3.4. `generators/docs/index.js`
 
 > **:white_check_mark: Cyclomatic complexity: 1**
 
@@ -174,7 +193,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | Mean parameter count           |  0 |
 | Physical LOC                   |  126 |
 
-### 2.5. `generators/editorconfig/index.js`
+### 3.5. `generators/editorconfig/index.js`
 
 > **:white_check_mark: Cyclomatic complexity: 1**
 
@@ -187,7 +206,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | Mean parameter count           |  0 |
 | Physical LOC                   |  10 |
 
-### 2.6. `generators/eslint/index.js`
+### 3.6. `generators/eslint/index.js`
 
 > **:white_check_mark: Cyclomatic complexity: 1**
 
@@ -200,7 +219,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | Mean parameter count           |  0 |
 | Physical LOC                   |  52 |
 
-### 2.7. `generators/git/index.js`
+### 3.7. `generators/git/index.js`
 
 > **:white_check_mark: Cyclomatic complexity: 1**
 
@@ -213,7 +232,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | Mean parameter count           |  0 |
 | Physical LOC                   |  67 |
 
-### 2.8. `generators/jsc/index.js`
+### 3.8. `generators/jsc/index.js`
 
 > **:white_check_mark: Cyclomatic complexity: 1**
 
@@ -226,7 +245,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | Mean parameter count           |  0 |
 | Physical LOC                   |  61 |
 
-### 2.9. `generators/nsp/index.js`
+### 3.9. `generators/nsp/index.js`
 
 > **:white_check_mark: Cyclomatic complexity: 1**
 
@@ -239,7 +258,7 @@ Complexity measures attempt to calculate how testable and maintainable source co
 | Mean parameter count           |  0 |
 | Physical LOC                   |  16 |
 
-### 2.10. `generators/readme/index.js`
+### 3.10. `generators/readme/index.js`
 
 > **:white_check_mark: Cyclomatic complexity: 1**
 
