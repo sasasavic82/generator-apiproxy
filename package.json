@@ -63,7 +63,7 @@
     "jest-cli": "20.0.4",
     "jsdoc-to-markdown": "3.0.0",
     "markdown-decorator": "1.0.0",
-    "markdown-toc": "1.1.0",
+    "markdown-toc": "1.2.0",
     "nsp": "2.8.0",
     "openapi2apigee": "0.6.0",
     "regenerator-runtime": "0.11.0",
