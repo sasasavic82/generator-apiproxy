@@ -26,7 +26,7 @@
     "scope": "\\S+.*"
   },
   "dependencies": {
-    "chalk": "2.1.0",
+    "chalk": "2.3.0",
     "escomplex": "2.0.0-alpha",
     "generator-jest": "1.4.0",
     "generator-license": "5.1.0",
