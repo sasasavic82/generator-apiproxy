@@ -64,7 +64,7 @@
     "jsdoc-to-markdown": "3.0.0",
     "markdown-decorator": "1.0.0",
     "markdown-toc": "1.1.0",
-    "nsp": "2.8.0",
+    "nsp": "3.0.0",
     "openapi2apigee": "0.6.0",
     "regenerator-runtime": "0.11.0",
     "standard-version": "4.2.0",
