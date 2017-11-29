@@ -30,7 +30,7 @@
     "escomplex": "2.0.0-alpha",
     "generator-jest": "1.4.0",
     "generator-license": "5.1.0",
-    "generator-travis": "1.5.2",
+    "generator-travis": "1.5.4",
     "git-remote-origin-url": "2.0.0",
     "lodash": "4.17.4",
     "parse-author": "2.0.0",
