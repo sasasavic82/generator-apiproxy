@@ -66,7 +66,7 @@
     "markdown-toc": "1.1.0",
     "nsp": "2.8.0",
     "openapi2apigee": "0.6.0",
-    "regenerator-runtime": "0.11.0",
+    "regenerator-runtime": "0.11.1",
     "standard-version": "4.2.0",
     "swagger-cli": "^1.0.0-beta.2",
     "swagger-markdown": "1.1.1",
