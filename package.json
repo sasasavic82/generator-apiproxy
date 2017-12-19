@@ -60,7 +60,7 @@
     "eslint-plugin-xss": "0.1.8",
     "glob-promise": "3.1.0",
     "jest": "20.0.4",
-    "jest-cli": "20.0.4",
+    "jest-cli": "22.0.2",
     "jsdoc-to-markdown": "3.0.0",
     "markdown-decorator": "1.0.0",
     "markdown-toc": "1.1.0",
