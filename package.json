@@ -35,7 +35,7 @@
     "lodash": "4.17.4",
     "parse-author": "2.0.0",
     "update-notifier": "2.2.0",
-    "yeoman-generator": "1.1.1"
+    "yeoman-generator": "2.0.2"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
