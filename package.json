@@ -70,7 +70,7 @@
     "standard-version": "4.2.0",
     "swagger-cli": "^1.0.0-beta.2",
     "swagger-markdown": "1.1.1",
-    "uglify-js": "3.1.1",
+    "uglify-js": "3.3.6",
     "yeoman-assert": "3.0.0",
     "yeoman-test": "1.7.0"
   },
