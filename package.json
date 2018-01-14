@@ -28,7 +28,7 @@
   "dependencies": {
     "chalk": "2.1.0",
     "escomplex": "2.0.0-alpha",
-    "generator-jest": "1.4.0",
+    "generator-jest": "1.5.0",
     "generator-license": "5.1.0",
     "generator-travis": "1.5.2",
     "git-remote-origin-url": "2.0.0",
