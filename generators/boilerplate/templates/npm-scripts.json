@@ -14,7 +14,7 @@
   "build-test-push": "npm run build && npm test && npm run docs && .github/assets/prepend-header.sh --push github",
   "minify": "uglifyjs apiproxy/resources/jsc/bundle.js  --compress -o apiproxy/resources/jsc/bundle.min.js",
   "readme:toc": "markdown-toc -i README.md",
-  "security": "nsp check --output summary",
+  "security": "npm audit --parseable",
   "swagger:lint": "swagger validate openapi/*.yml --debug && swagger validate openapi/*.json --debug",
   "pretest": "npm run lint",
   "test": "jest --config=jest.config.json",

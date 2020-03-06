@@ -28,11 +28,11 @@
   "dependencies": {
     "chalk": "2.1.0",
     "escomplex": "2.0.0-alpha",
-    "generator-jest": "1.4.0",
-    "generator-license": "5.1.0",
-    "generator-travis": "1.5.2",
+    "generator-jest": "^1.7.0",
+    "generator-license": "^5.4.0",
+    "generator-travis": "^1.9.0",
     "git-remote-origin-url": "2.0.0",
-    "lodash": "4.17.4",
+    "lodash": "^4.17.15",
     "parse-author": "2.0.0",
     "update-notifier": "2.2.0",
     "yeoman-generator": "1.1.1"
@@ -64,7 +64,6 @@
     "jsdoc-to-markdown": "3.0.0",
     "markdown-decorator": "1.0.0",
     "markdown-toc": "1.1.0",
-    "nsp": "2.8.0",
     "openapi2apigee": "0.6.0",
     "regenerator-runtime": "0.11.0",
     "standard-version": "4.2.0",
@@ -123,7 +122,7 @@
     "pretest": "npm run lint",
     "readme:toc": "markdown-toc -i README.md",
     "release": "standard-version",
-    "security": "nsp check --output summary",
+    "security": "npm audit --parseable",
     "swagger:lint": "swagger validate *.swagger.yaml --debug && swagger validate *.swagger.json --debug",
     "test": "jest --config=jest.config.json",
     "toc:update": "markdown-toc"
