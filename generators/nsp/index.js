@@ -9,8 +9,8 @@ module.exports = class extends ApiProxyGenerator {
         nsp: rootPkg.devDependencies.nsp
       },
       scripts: {
-        prepublish: 'nsp check -o summary',
-        posttest: 'nsp check -o summary'
+        prepublish: 'npm audit --parseable',
+        posttest: 'npm audit --parseable'
       }
     })
   }

@@ -1,7 +1,7 @@
 {
-  "name": "generator-apiproxy",
+  "name": "@imbueapp/generator-apiproxy",
   "description": "Scaffold an API proxy with quality gates for Swagger, (optional) Javascript callouts, and automated build, lint, test, API documentation, packaging, and deployment to your Apigee EDGE domain of choice.",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "author": {
     "name": "Swindle, Gregory Jay (Greg)",
     "email": "gregory.jay.swindle@verizon.com",
